@@ -17,3 +17,35 @@ config/icon="res://icon.svg"
 [dotnet]
 
 project/assembly_name="Midot"
+
+[input]
+
+move_up={
+"deadzone": 0.5,
+"events": []
+}
+move_down={
+"deadzone": 0.5,
+"events": []
+}
+move_left={
+"deadzone": 0.5,
+"events": []
+}
+move_right={
+"deadzone": 0.5,
+"events": []
+}
+shoot={
+"deadzone": 0.5,
+"events": []
+}
+exit={
+"deadzone": 0.5,
+"events": []
+}
+
+[layer_names]
+
+2d_physics/layer_1="environment"
+2d_physics/layer_2="characters"
