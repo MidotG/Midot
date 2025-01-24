@@ -1,5 +1,16 @@
-[gd_scene format=3 uid="uid://conuevhuodj1i"]
+[gd_scene load_steps=3 format=3 uid="uid://conuevhuodj1i"]
+
+[ext_resource type="Texture2D" uid="uid://cvq1mxfnlykr5" path="res://assets/ground3.jpg" id="1_wt6ws"]
+[ext_resource type="PackedScene" uid="uid://cw1hvpgewhgqr" path="res://player.tscn" id="2_3pev5"]
 
 [node name="World" type="Node2D"]
 
 [node name="Environment" type="Node2D" parent="."]
+
+[node name="Floor_image" type="Sprite2D" parent="Environment"]
+position = Vector2(594, 254)
+scale = Vector2(0.583008, 0.583008)
+texture = ExtResource("1_wt6ws")
+
+[node name="Player" parent="." instance=ExtResource("2_3pev5")]
+position = Vector2(575, 321)
