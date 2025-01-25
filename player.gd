@@ -13,7 +13,8 @@ func _process(delta):
 	if dead:
 		return;
 	
-	global_rotation = global_position.direction_to(get_global_mouse_position()).angle() + PI/2.0;
+	#global_rotation = global_position.direction_to(get_global_mouse_position()).angle() + PI/2.0;
+	look_at(get_global_mouse_position());
 	if Input.is_action_just_pressed("shoot"):
 		shoot();
 		
