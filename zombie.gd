@@ -23,6 +23,6 @@ func kill():
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
 	$CollisionShape2D.disabled = true;
-	z_index = -1;
+	z_index = 1;
 	
 	
