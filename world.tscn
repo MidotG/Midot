@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://conuevhuodj1i"]
+[gd_scene load_steps=4 format=3 uid="uid://conuevhuodj1i"]
 
 [ext_resource type="Texture2D" uid="uid://cvq1mxfnlykr5" path="res://assets/ground3.jpg" id="1_wt6ws"]
 [ext_resource type="PackedScene" uid="uid://cw1hvpgewhgqr" path="res://player.tscn" id="2_3pev5"]
+[ext_resource type="PackedScene" uid="uid://ba4x13miijrqd" path="res://zombie.tscn" id="3_8kwyn"]
 
 [node name="World" type="Node2D"]
 
@@ -14,3 +15,6 @@ texture = ExtResource("1_wt6ws")
 
 [node name="Player" parent="." instance=ExtResource("2_3pev5")]
 position = Vector2(575, 321)
+
+[node name="Zombie" parent="." instance=ExtResource("3_8kwyn")]
+position = Vector2(164, 23)
