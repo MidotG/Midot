@@ -21,6 +21,7 @@ shape = SubResource("CircleShape2D_b8nwd")
 [node name="Graphics" type="Node2D" parent="."]
 
 [node name="Alive" type="Sprite2D" parent="Graphics"]
+z_index = 1
 position = Vector2(1.59622, -1)
 scale = Vector2(0.987764, 1)
 texture = ExtResource("1_mjgwp")

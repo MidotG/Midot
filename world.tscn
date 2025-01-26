@@ -17,4 +17,19 @@ texture = ExtResource("1_wt6ws")
 position = Vector2(575, 321)
 
 [node name="Zombie" parent="." instance=ExtResource("3_8kwyn")]
-position = Vector2(164, 23)
+position = Vector2(183, 35)
+
+[node name="Zombie2" parent="." instance=ExtResource("3_8kwyn")]
+position = Vector2(260, 447)
+
+[node name="Zombie3" parent="." instance=ExtResource("3_8kwyn")]
+position = Vector2(622, 56)
+
+[node name="Zombie4" parent="." instance=ExtResource("3_8kwyn")]
+position = Vector2(742, 538)
+
+[node name="Zombie5" parent="." instance=ExtResource("3_8kwyn")]
+position = Vector2(107, 285)
+
+[node name="Zombie6" parent="." instance=ExtResource("3_8kwyn")]
+position = Vector2(1006, 139)
