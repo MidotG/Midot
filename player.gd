@@ -7,7 +7,8 @@ var dead = false;
 
 func _process(delta):
 	if Input.is_action_just_pressed("exit"):
-		get_tree().quit();
+		#get_tree().quit();
+		get_tree().change_scene_to_file("res://menu.tscn");
 	if Input.is_action_just_pressed("restart"):
 		restart();
 	if dead:
@@ -41,3 +42,7 @@ func shoot():
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider().has_method("kill"):
 		ray_cast_2d.get_collider().kill();
 	
+
+
+func _on_button_pressed():
+	restart();
