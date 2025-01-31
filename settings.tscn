@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://btjdko6pjjig1"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -126.0
+offset_right = 60.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.42798, 1.28879)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="fullscreenLbl" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Полноэкранный режим"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="soundsLbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Громкость
+"
+horizontal_alignment = 1
+
+[node name="masterLbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Общая
+"
+
+[node name="masterSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="musicLbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Музыка"
+
+[node name="musicSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="sfxLbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Спецэффекты"
+
+[node name="sfxSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="quitSettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Выход
+"
