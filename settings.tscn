@@ -83,4 +83,5 @@ layout_mode = 2
 text = "Выход
 "
 
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="VBoxContainer/quitSettingsButton" to="." method="_on_quit_settings_button_pressed"]

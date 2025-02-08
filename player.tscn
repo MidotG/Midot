@@ -117,7 +117,7 @@ offset_right = 68.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Restart"
+text = "Рестарт"
 
 [node name="Button2" type="Button" parent="CanvasLayer/DeathScreen/Panel"]
 layout_mode = 1
@@ -132,7 +132,7 @@ offset_right = 66.0
 offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Quit"
+text = "Меню"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

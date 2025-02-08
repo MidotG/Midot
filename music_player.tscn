@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8d3c5juege43"]
+
+[ext_resource type="AudioStream" uid="uid://rgbudfw33m2p" path="res://tracks/escape-from-hell-dark-heavy-metal-solo-guitar-261215.mp3" id="1_myrvs"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_myrvs")
+autoplay = true
