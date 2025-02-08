@@ -1,16 +1,17 @@
 extends CharacterBody2D;
 
+
 @onready var ray_cast_2d= $RayCast2D;
 @export var move_speed = 200;
 
 var dead = false;
 
 func _process(delta):
-	if Input.is_action_just_pressed("exit"):
-		#get_tree().quit();
-		get_tree().change_scene_to_file("res://menu.tscn");
-	if Input.is_action_just_pressed("restart"):
-		restart();
+	if Input.is_action_just_pressed("pause"):  #///TODO: активация сцены меню паузы.
+		#get_tree().change_scene_to_file("res://pause_menu.tscn");
+		pass;
+	if Input.is_action_just_pressed("reload"):
+		reload();
 	if dead:
 		return;
 	look_at(get_global_mouse_position());
@@ -35,6 +36,9 @@ func kill():
 	
 func restart():
 	get_tree().reload_current_scene();
+	
+func reload():   #///TODO: перезарядку оружия.
+	pass;
 	
 func shoot():
 	$MuzzleFlash.show();
