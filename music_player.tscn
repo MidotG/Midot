@@ -9,5 +9,6 @@
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
 autoplay = true
+bus = &"music"
 script = ExtResource("2_awand")
 music_tracks = Array[AudioStream]([ExtResource("3_icu0t"), ExtResource("1_myrvs"), ExtResource("4_fvggt"), ExtResource("5_r5sba"), ExtResource("6_pcjp8")])

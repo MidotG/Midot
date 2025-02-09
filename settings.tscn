@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://btjdko6pjjig1"]
+[gd_scene load_steps=5 format=3 uid="uid://btjdko6pjjig1"]
 
 [ext_resource type="Texture2D" uid="uid://2vm5fxpts1qy" path="res://assets/WCP_Example.png" id="1_ffgx6"]
 [ext_resource type="Script" path="res://settings.gd" id="1_odfbw"]
+[ext_resource type="Script" path="res://masterSlider.gd" id="3_fv6ho"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wjxnh"]
 texture = ExtResource("1_ffgx6")
@@ -63,6 +64,10 @@ text = "Общая
 
 [node name="masterSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_fv6ho")
+bus_name = "Master"
 
 [node name="musicLbl" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -70,6 +75,10 @@ text = "Музыка"
 
 [node name="musicSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_fv6ho")
+bus_name = "music"
 
 [node name="sfxLbl" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -77,6 +86,10 @@ text = "Спецэффекты"
 
 [node name="sfxSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_fv6ho")
+bus_name = "sfx"
 
 [node name="quitSettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
