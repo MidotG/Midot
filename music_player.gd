@@ -12,7 +12,7 @@ func _ready():
 		play_track(0) # Начнем играть первый трек при запуске (опционально)
 
 func play_track(track_index : int):
-	if current_track_index == track_index:
+	if current_track_index == track_index:  #///TODO: проверить потом музыку когда настройки и стоп меню будут во время лвла.
 		return;
 	if track_index >= 0 and track_index < music_tracks.size():
 		current_track_index = track_index

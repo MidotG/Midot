@@ -3,6 +3,7 @@ extends Control
 
 func _ready():
 	MusicPlayer.play_track(0);
+	#MusicPlayer.play_track(4);
 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://world.tscn");

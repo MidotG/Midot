@@ -101,8 +101,7 @@ offset_right = 37.0
 offset_bottom = 55.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
-text = "LOSS
-"
+text = "ПОРАЖЕНИЕ"
 
 [node name="Button" type="Button" parent="CanvasLayer/DeathScreen/Panel"]
 layout_mode = 1
