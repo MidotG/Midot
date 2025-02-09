@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8d3c5juege43"]
+[gd_scene load_steps=6 format=3 uid="uid://c8d3c5juege43"]
 
 [ext_resource type="AudioStream" uid="uid://rgbudfw33m2p" path="res://tracks/escape-from-hell-dark-heavy-metal-solo-guitar-261215.mp3" id="1_myrvs"]
+[ext_resource type="Script" path="res://music_player.gd" id="2_awand"]
+[ext_resource type="AudioStream" uid="uid://j7kp2qsjidmg" path="res://tracks/metal-dark-matter-111451.mp3" id="3_icu0t"]
+[ext_resource type="AudioStream" uid="uid://6mcfylh5kung" path="res://tracks/pursuit-furious-powerful-extreme-rock-metal-202506 (2).mp3" id="4_fvggt"]
+[ext_resource type="AudioStream" uid="uid://6joqmq504hp3" path="res://tracks/survival-metal-with-solo-109315.mp3" id="5_r5sba"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_myrvs")
 autoplay = true
+script = ExtResource("2_awand")
+music_tracks = Array[AudioStream]([ExtResource("3_icu0t"), ExtResource("1_myrvs"), ExtResource("4_fvggt"), ExtResource("5_r5sba")])
