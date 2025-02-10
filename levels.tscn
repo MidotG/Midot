@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://c31k6gb4bgxcm"]
+
+[ext_resource type="Script" path="res://levels.gd" id="1_1tksg"]
+[ext_resource type="Texture2D" uid="uid://2vm5fxpts1qy" path="res://assets/WCP_Example.png" id="1_tmk7a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6i56i"]
+texture = ExtResource("1_tmk7a")
+modulate_color = Color(0.779291, 0.779291, 0.779291, 1)
+
+[node name="Levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1tksg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6i56i")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 166.0
+offset_right = 48.0
+offset_bottom = 189.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "УРОВНИ"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -89.0
+offset_right = -4.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.2, 2.2)
+
+[node name="level1Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Первый
+"
+
+[node name="level2Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Второй"
+
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Выход"
+
+[connection signal="pressed" from="Panel/VBoxContainer/level1Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/level2Button" to="." method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

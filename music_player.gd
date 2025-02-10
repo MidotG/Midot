@@ -26,15 +26,6 @@ func stop_music():
 	music_player.stop()
 	print("Музыка: Остановлено воспроизведение")
 
-#func set_volume(volume : float):
-	## volume - значение от 0.0 (полностью тихо) до 1.0 (максимальная громкость)
-	## Конвертируем линейную громкость в децибелы (dB) для AudioStreamPlayer
-	## dB = 20 * log10(volume)  (при volume = 0, dB будет -infinity, поэтому нужно обрабатывать 0)
-	#if volume <= 0:
-		#music_player.volume_db = -80 # Минимальное значение, чтобы звук был практически неслышен
-	#else:
-		#music_player.volume_db = 20.0 * log(volume) / log(10.0)
-	#print("Музыка: Установлена громкость ", volume)
 
 func get_current_track_index():
 	return current_track_index
