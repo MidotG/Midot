@@ -48,23 +48,28 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
 offset_top = -89.0
-offset_right = -4.0
-offset_bottom = 12.0
+offset_right = 100.0
+offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.2, 2.2)
 
 [node name="level1Button" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 35
 text = "Первый
 "
 
 [node name="level2Button" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 35
 text = "Второй"
 
 [node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 35
 text = "Выход"
 
 [connection signal="pressed" from="Panel/VBoxContainer/level1Button" to="." method="_on_level_1_button_pressed"]

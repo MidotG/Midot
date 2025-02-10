@@ -15,11 +15,14 @@ position = Vector2(594, 254)
 scale = Vector2(0.583008, 0.583008)
 texture = ExtResource("2_lr8fh")
 
+[node name="Zombie" parent="Environment" instance=ExtResource("4_4mp0h")]
+position = Vector2(183, 35)
+
 [node name="Player" parent="." instance=ExtResource("3_i3h6x")]
 position = Vector2(575, 321)
 
 [node name="Zombie" parent="." instance=ExtResource("4_4mp0h")]
-position = Vector2(183, 35)
+position = Vector2(78, 457)
 
 [node name="Zombie2" parent="." instance=ExtResource("4_4mp0h")]
 position = Vector2(260, 447)
@@ -35,3 +38,15 @@ position = Vector2(107, 285)
 
 [node name="Zombie6" parent="." instance=ExtResource("4_4mp0h")]
 position = Vector2(1006, 139)
+
+[node name="Zombie7" parent="." instance=ExtResource("4_4mp0h")]
+position = Vector2(356, 36)
+
+[node name="Zombie8" parent="." instance=ExtResource("4_4mp0h")]
+position = Vector2(60, 122)
+
+[node name="Zombie9" parent="." instance=ExtResource("4_4mp0h")]
+position = Vector2(228, 262)
+
+[node name="Zombie10" parent="." instance=ExtResource("4_4mp0h")]
+position = Vector2(185, 449)

@@ -33,37 +33,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -181.0
-offset_top = -126.0
-offset_right = 60.0
-offset_bottom = 66.0
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.42798, 1.28879)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="fullscreenLbl" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 35
 text = "Полноэкранный режим"
 
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="soundsLbl" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 35
 text = "Громкость
 "
 horizontal_alignment = 1
 
 [node name="masterLbl" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 35
 text = "Общая
 "
 
 [node name="masterSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
 max_value = 1.0
 step = 0.001
 script = ExtResource("3_fv6ho")
@@ -71,10 +79,13 @@ bus_name = "Master"
 
 [node name="musicLbl" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 35
 text = "Музыка"
 
 [node name="musicSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
 max_value = 1.0
 step = 0.001
 script = ExtResource("3_fv6ho")
@@ -82,10 +93,13 @@ bus_name = "music"
 
 [node name="sfxLbl" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 35
 text = "Спецэффекты"
 
 [node name="sfxSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
 max_value = 1.0
 step = 0.001
 script = ExtResource("3_fv6ho")
@@ -93,6 +107,7 @@ bus_name = "sfx"
 
 [node name="quitSettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 35
 text = "Выход
 "
 
