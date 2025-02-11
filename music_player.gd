@@ -1,15 +1,15 @@
 extends AudioStreamPlayer
 
-@onready var music_player = MusicPlayer # Получаем ссылку на AudioStreamPlayer
+@onready var music_player = MusicPlayer; # Получаем ссылку на AudioStreamPlayer
 
 # Массив для хранения музыкальных треков (AudioStream ресурсов)
-@export var music_tracks : Array[AudioStream] = [] # Используем @export для удобства заполнения в редакторе, тип Array[AudioStream]
+@export var music_tracks : Array[AudioStream] = []; # Используем @export для удобства заполнения в редакторе, тип Array[AudioStream]
 
 var current_track_index = -1 # Индекс текущего играющего трека
 
-func _ready():
-	if music_tracks.size() > 0:
-		play_track(0) # Начнем играть первый трек при запуске (опционально)
+#func _ready():
+	#if music_tracks.size() > 0:
+		#play_track(0) # Начнем играть первый трек при запуске (опционально)
 
 func play_track(track_index : int):
 	if current_track_index == track_index:  #///TODO: проверить потом музыку когда настройки и стоп меню будут во время лвла.
