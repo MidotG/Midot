@@ -124,6 +124,11 @@ theme_override_font_sizes/font_size = 30
 text = "Меню"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1145
+limit_bottom = 645
+editor_draw_limits = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
