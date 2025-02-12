@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c31k6gb4bgxcm"]
+[gd_scene load_steps=5 format=3 uid="uid://c31k6gb4bgxcm"]
 
 [ext_resource type="Script" path="res://levels.gd" id="1_1tksg"]
 [ext_resource type="Texture2D" uid="uid://2vm5fxpts1qy" path="res://assets/WCP_Example.png" id="1_tmk7a"]
+[ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="3_ehwlq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6i56i"]
 texture = ExtResource("1_tmk7a")
@@ -35,6 +36,7 @@ offset_top = 166.0
 offset_right = 48.0
 offset_bottom = 189.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_ehwlq")
 theme_override_font_sizes/font_size = 40
 text = "УРОВНИ"
 horizontal_alignment = 1
@@ -56,6 +58,7 @@ grow_vertical = 2
 [node name="level1Button" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_ehwlq")
 theme_override_font_sizes/font_size = 35
 text = "Первый
 "
@@ -63,12 +66,14 @@ text = "Первый
 [node name="level2Button" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_ehwlq")
 theme_override_font_sizes/font_size = 35
 text = "Второй"
 
 [node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_ehwlq")
 theme_override_font_sizes/font_size = 35
 text = "Выход"
 

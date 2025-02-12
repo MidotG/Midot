@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2ac5tnoa2hrq"]
+[gd_scene load_steps=5 format=3 uid="uid://d2ac5tnoa2hrq"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_hq74p"]
 [ext_resource type="Texture2D" uid="uid://2vm5fxpts1qy" path="res://assets/WCP_Example.png" id="2_giq87"]
+[ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="3_24edu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_peuj5"]
 texture = ExtResource("2_giq87")
@@ -35,6 +36,7 @@ offset_top = 115.0
 offset_right = 99.0
 offset_bottom = 198.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_24edu")
 theme_override_font_sizes/font_size = 60
 text = "MIDOT"
 
@@ -55,18 +57,21 @@ grow_vertical = 2
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_24edu")
 theme_override_font_sizes/font_size = 35
 text = "Начать"
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_24edu")
 theme_override_font_sizes/font_size = 35
 text = "Настройки"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_24edu")
 theme_override_font_sizes/font_size = 35
 text = "Выход"
 

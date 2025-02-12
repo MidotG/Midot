@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://btjdko6pjjig1"]
+[gd_scene load_steps=8 format=3 uid="uid://btjdko6pjjig1"]
 
 [ext_resource type="Texture2D" uid="uid://2vm5fxpts1qy" path="res://assets/WCP_Example.png" id="1_ffgx6"]
 [ext_resource type="Script" path="res://settings.gd" id="1_odfbw"]
 [ext_resource type="Texture2D" uid="uid://dnmmwudtprqps" path="res://assets/icons8-checkbox-50.png" id="3_71o7y"]
 [ext_resource type="Script" path="res://masterSlider.gd" id="3_fv6ho"]
+[ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="3_kn8a8"]
 [ext_resource type="Texture2D" uid="uid://dq30ccqik8xkt" path="res://assets/icons8-unchecked-checkbox-50.png" id="4_p1lng"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wjxnh"]
@@ -48,6 +49,7 @@ layout_mode = 2
 [node name="fullscreenLbl" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_kn8a8")
 theme_override_font_sizes/font_size = 35
 text = "Полноэкранный режим"
 
@@ -61,6 +63,7 @@ alignment = 1
 [node name="soundsLbl" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_kn8a8")
 theme_override_font_sizes/font_size = 35
 text = "Громкость
 "
@@ -69,6 +72,7 @@ horizontal_alignment = 1
 [node name="masterLbl" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_kn8a8")
 theme_override_font_sizes/font_size = 35
 text = "Общая
 "
@@ -84,6 +88,7 @@ bus_name = "Master"
 [node name="musicLbl" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_kn8a8")
 theme_override_font_sizes/font_size = 35
 text = "Музыка"
 
@@ -98,6 +103,7 @@ bus_name = "music"
 [node name="sfxLbl" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_kn8a8")
 theme_override_font_sizes/font_size = 35
 text = "Спецэффекты"
 
@@ -111,6 +117,7 @@ bus_name = "sfx"
 
 [node name="quitSettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_kn8a8")
 theme_override_font_sizes/font_size = 35
 text = "Выход
 "
