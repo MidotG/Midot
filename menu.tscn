@@ -39,6 +39,7 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_24edu")
 theme_override_font_sizes/font_size = 60
 text = "MIDOT"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -47,10 +48,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -88.0
-offset_right = 100.0
-offset_bottom = 112.0
+offset_left = -250.0
+offset_top = -103.0
+offset_right = 250.0
+offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
 
