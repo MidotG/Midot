@@ -75,7 +75,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_ehwlq")
 theme_override_font_sizes/font_size = 35
-text = "Выход"
+text = "Меню"
 
 [connection signal="pressed" from="Panel/VBoxContainer/level1Button" to="." method="_on_level_1_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/level2Button" to="." method="_on_level_2_button_pressed"]

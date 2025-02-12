@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb6lckxbntk7"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_spbg5"]
+[ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="1_xnktl"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_spbg5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.993797, 1)
+color = Color(0, 0, 0, 0.392157)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -170.0
+offset_right = 155.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_xnktl")
+theme_override_font_sizes/font_size = 40
+text = "Пауза"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="resumeBtn" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_xnktl")
+theme_override_font_sizes/font_size = 30
+text = "Продолжить"
+
+[node name="restartBtn" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_xnktl")
+theme_override_font_sizes/font_size = 30
+text = "Рестарт"
+
+[node name="quitLvlBtn" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_xnktl")
+theme_override_font_sizes/font_size = 30
+text = "Выйти"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/resumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/restartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/quitLvlBtn" to="." method="_on_quit_lvl_btn_pressed"]
