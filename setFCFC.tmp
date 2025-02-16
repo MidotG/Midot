@@ -1,0 +1,126 @@
+[gd_scene load_steps=8 format=3 uid="uid://btjdko6pjjig1"]
+
+[ext_resource type="Texture2D" uid="uid://2vm5fxpts1qy" path="res://assets/WCP_Example.png" id="1_ffgx6"]
+[ext_resource type="Script" path="res://settings.gd" id="1_odfbw"]
+[ext_resource type="Texture2D" uid="uid://dnmmwudtprqps" path="res://assets/icons8-checkbox-50.png" id="3_71o7y"]
+[ext_resource type="Script" path="res://masterSlider.gd" id="3_fv6ho"]
+[ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="3_kn8a8"]
+[ext_resource type="Texture2D" uid="uid://dq30ccqik8xkt" path="res://assets/icons8-unchecked-checkbox-50.png" id="4_p1lng"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wjxnh"]
+texture = ExtResource("1_ffgx6")
+modulate_color = Color(0.779291, 0.779291, 0.779291, 1)
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_odfbw")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wjxnh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="fullscreenLbl" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_kn8a8")
+theme_override_font_sizes/font_size = 35
+text = "Оконный режим"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_icons/checked = ExtResource("3_71o7y")
+theme_override_icons/unchecked = ExtResource("4_p1lng")
+alignment = 1
+
+[node name="soundsLbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_kn8a8")
+theme_override_font_sizes/font_size = 35
+text = "Громкость
+"
+horizontal_alignment = 1
+
+[node name="masterLbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_kn8a8")
+theme_override_font_sizes/font_size = 35
+text = "Общая
+"
+
+[node name="masterSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_fv6ho")
+bus_name = "Master"
+
+[node name="musicLbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_kn8a8")
+theme_override_font_sizes/font_size = 35
+text = "Музыка"
+
+[node name="musicSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_fv6ho")
+bus_name = "music"
+
+[node name="sfxLbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_kn8a8")
+theme_override_font_sizes/font_size = 35
+text = "Спецэффекты"
+
+[node name="sfxSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_fv6ho")
+bus_name = "sfx"
+
+[node name="quitSettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_kn8a8")
+theme_override_font_sizes/font_size = 35
+text = "Выход
+"
+
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="VBoxContainer/quitSettingsButton" to="." method="_on_quit_settings_button_pressed"]
