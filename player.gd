@@ -2,14 +2,11 @@ extends CharacterBody2D;
 
 
 @onready var ray_cast_2d= $RayCast2D;
-@export var move_speed = 250;
+@export var move_speed = 350;
 
 var dead = false;
 
 func _process(delta):
-	if Input.is_action_just_pressed("pause"):  #///TODO: активация сцены меню паузы.
-		#get_tree().change_scene_to_file("res://pause_menu.tscn");
-		pass;
 	if Input.is_action_just_pressed("reload"):
 		reload();
 	if dead:
