@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://f2xvw0d83lq8"]
+[gd_scene load_steps=6 format=3 uid="uid://f2xvw0d83lq8"]
 
 [ext_resource type="Script" path="res://shop.gd" id="1_1kmc7"]
 [ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="2_h4uqy"]
+[ext_resource type="Texture2D" uid="uid://qfkoytritvbb" path="res://assets/characters_avatar/kartinka-dlya-avatarki-siluety-muzhchin-risunok-odnogo-muzhskogo-silueta.jpg" id="3_p8ife"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngclu"]
+bg_color = Color(0.408329, 0.408329, 0.408329, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52ttq"]
+bg_color = Color(0.259294, 0.259294, 0.259293, 1)
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -12,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1kmc7")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="shopPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="title" type="Label" parent="shopPanel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -32,10 +39,10 @@ offset_bottom = 115.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 45
-text = "Магазин"
+text = "Персонажи"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Panel"]
+[node name="balanceLabel" type="Label" parent="shopPanel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -49,9 +56,7 @@ theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
 text = "Баланс: ...$"
 
-[node name="Panel" type="Panel" parent="Panel"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
+[node name="choicePanel" type="Panel" parent="shopPanel"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -60,8 +65,109 @@ anchor_bottom = 1.0
 offset_top = -937.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ngclu")
 
-[node name="MenuButton" type="Button" parent="Panel"]
+[node name="characterInfo" type="Panel" parent="shopPanel/choicePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -717.0
+offset_top = -441.5
+offset_right = 937.0
+offset_bottom = 446.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_52ttq")
+
+[node name="Sprite2D" type="Sprite2D" parent="shopPanel/choicePanel/characterInfo"]
+position = Vector2(1200, 450)
+texture = ExtResource("3_p8ife")
+
+[node name="Label" type="Label" parent="shopPanel/choicePanel/characterInfo"]
+layout_mode = 1
+offset_left = 53.0
+offset_top = 38.0
+offset_right = 256.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 30
+text = "Имя: ... ."
+
+[node name="Label2" type="Label" parent="shopPanel/choicePanel/characterInfo"]
+offset_left = 53.0
+offset_top = 115.0
+offset_right = 256.0
+offset_bottom = 157.0
+theme_override_font_sizes/font_size = 30
+text = "Оружие: ... (колво патрон)."
+
+[node name="Label3" type="Label" parent="shopPanel/choicePanel/characterInfo"]
+offset_left = 53.0
+offset_top = 196.0
+offset_right = 301.0
+offset_bottom = 238.0
+theme_override_font_sizes/font_size = 30
+text = "Способность: ... ."
+
+[node name="Label4" type="Label" parent="shopPanel/choicePanel/characterInfo"]
+offset_left = 53.0
+offset_top = 682.0
+offset_right = 301.0
+offset_bottom = 724.0
+theme_override_font_sizes/font_size = 30
+text = "Здоровье: ... ."
+
+[node name="Label5" type="Label" parent="shopPanel/choicePanel/characterInfo"]
+offset_left = 53.0
+offset_top = 757.0
+offset_right = 301.0
+offset_bottom = 799.0
+theme_override_font_sizes/font_size = 30
+text = "Урон: ... ."
+
+[node name="commonBtn" type="Button" parent="shopPanel/choicePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1897.0
+offset_top = 28.0
+offset_right = -1697.0
+offset_bottom = 128.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "обычный"
+
+[node name="firemanBtn" type="Button" parent="shopPanel/choicePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1897.0
+offset_top = 162.0
+offset_right = -1697.0
+offset_bottom = 262.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "крутой"
+
+[node name="noRightsBtn" type="Button" parent="shopPanel/choicePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1909.0
+offset_top = 312.0
+offset_right = -1695.0
+offset_bottom = 412.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "недоступный
+(надо купить)"
+
+[node name="MenuButton" type="Button" parent="shopPanel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -74,4 +180,4 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 30
 text = "Меню"
 
-[connection signal="pressed" from="Panel/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="shopPanel/MenuButton" to="." method="_on_menu_button_pressed"]
