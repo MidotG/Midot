@@ -125,10 +125,10 @@ text = "Меню"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
-limit_left = -2048
-limit_top = -2048
-limit_right = 2048
-limit_bottom = 2048
+limit_left = -1024
+limit_top = -1024
+limit_right = 1024
+limit_bottom = 1024
 editor_draw_limits = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]

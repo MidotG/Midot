@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ksq0yrapfy1j"]
 
 [ext_resource type="Script" path="res://world_2.gd" id="1_vudga"]
-[ext_resource type="Texture2D" uid="uid://cvq1mxfnlykr5" path="res://assets/ground3.jpg" id="2_lr8fh"]
+[ext_resource type="Texture2D" uid="uid://c3kc75jdqks3g" path="res://assets/ground1.jpg" id="2_mnfub"]
 [ext_resource type="PackedScene" uid="uid://cw1hvpgewhgqr" path="res://player.tscn" id="3_i3h6x"]
 [ext_resource type="PackedScene" uid="uid://ba4x13miijrqd" path="res://zombie.tscn" id="4_4mp0h"]
 
@@ -11,15 +11,13 @@ script = ExtResource("1_vudga")
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Floor_image" type="Sprite2D" parent="Environment"]
-position = Vector2(594, 254)
-scale = Vector2(0.583008, 0.583008)
-texture = ExtResource("2_lr8fh")
+scale = Vector2(0.935, 0.935)
+texture = ExtResource("2_mnfub")
 
 [node name="Zombie" parent="Environment" instance=ExtResource("4_4mp0h")]
 position = Vector2(183, 35)
 
 [node name="Player" parent="." instance=ExtResource("3_i3h6x")]
-position = Vector2(575, 321)
 
 [node name="Zombie" parent="." instance=ExtResource("4_4mp0h")]
 position = Vector2(78, 457)
