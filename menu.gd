@@ -2,6 +2,7 @@ extends Control
 
 
 func _ready():
+	Saves.load_game();
 	MusicPlayer.play_track(0);
 	#MusicPlayer.play_track(4);
 

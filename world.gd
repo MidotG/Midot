@@ -1,5 +1,5 @@
 extends Node2D
 
 func _ready():
-	MusicPlayer.play_track(1);
+	MusicPlayer.play_track(2);
 
