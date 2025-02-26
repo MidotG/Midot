@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://shop.gd" id="1_1kmc7"]
 [ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="2_h4uqy"]
-[ext_resource type="Texture2D" uid="uid://qfkoytritvbb" path="res://assets/characters_avatar/kartinka-dlya-avatarki-siluety-muzhchin-risunok-odnogo-muzhskogo-silueta.jpg" id="3_p8ife"]
+[ext_resource type="Texture2D" uid="uid://bksotby7lvjji" path="res://assets/characters_avatar/M-Raga5QwLs.jpg" id="3_7uoxq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngclu"]
 bg_color = Color(0.408329, 0.408329, 0.408329, 1)
@@ -56,23 +56,6 @@ theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
 text = "Баланс:"
 
-[node name="Button" type="Button" parent="shopPanel/balanceLabel"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -25.0
-offset_right = 155.0
-offset_bottom = 25.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "дай деняг
-"
-
 [node name="choicePanel" type="Panel" parent="shopPanel"]
 layout_mode = 1
 anchors_preset = 12
@@ -100,8 +83,9 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_52ttq")
 
 [node name="Sprite2D" type="Sprite2D" parent="shopPanel/choicePanel/characterInfo"]
-position = Vector2(1200, 450)
-texture = ExtResource("3_p8ife")
+position = Vector2(1266.5, 442)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_7uoxq")
 
 [node name="Label" type="Label" parent="shopPanel/choicePanel/characterInfo"]
 layout_mode = 1
@@ -153,10 +137,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1897.0
-offset_top = 28.0
-offset_right = -1697.0
-offset_bottom = 128.0
+offset_left = -1901.0
+offset_top = 27.0
+offset_right = -1701.0
+offset_bottom = 177.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 30
 text = "обычный"
@@ -166,10 +150,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1897.0
-offset_top = 162.0
-offset_right = -1697.0
-offset_bottom = 262.0
+offset_left = -1901.0
+offset_top = 209.0
+offset_right = -1701.0
+offset_bottom = 359.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 30
 text = "крутой"
@@ -179,14 +163,14 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1909.0
-offset_top = 312.0
-offset_right = -1695.0
-offset_bottom = 412.0
+offset_left = -1901.0
+offset_top = 389.0
+offset_right = -1701.0
+offset_bottom = 539.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 30
-text = "недоступный
-(надо купить)"
+text = "...
+"
 
 [node name="MenuButton" type="Button" parent="shopPanel"]
 layout_mode = 1
@@ -201,5 +185,4 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 30
 text = "Меню"
 
-[connection signal="pressed" from="shopPanel/balanceLabel/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="shopPanel/MenuButton" to="." method="_on_menu_button_pressed"]

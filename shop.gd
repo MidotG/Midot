@@ -1,5 +1,6 @@
 extends Control
 
+#///TODO: щас сделать 2 персов и по 2 оружия(1 пестик, 2 спец. оружие), и потом добавить в магаз, и сохранять выбор, и в уровни заходить с ним.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,8 +17,3 @@ func _process(delta):
 func _on_menu_button_pressed():
 	get_tree().change_scene_to_file("res://menu.tscn");
 
-
-func _on_button_pressed():
-	Saves.currency += 10;
-	Saves.save_game();
-	pass;
