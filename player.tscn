@@ -1,14 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw1hvpgewhgqr"]
+[gd_scene load_steps=9 format=3 uid="uid://cw1hvpgewhgqr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bw486"]
 [ext_resource type="Texture2D" uid="uid://y44ig46cs84m" path="res://assets/player/player_9mmhandgun.png" id="1_mjgwp"]
 [ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="2_p7jvg"]
-[ext_resource type="Texture2D" uid="uid://dc60lp46p7cwl" path="res://assets/muzzle.png" id="3_ic5ej"]
+[ext_resource type="Texture2D" uid="uid://bjbcnhv8n5qgj" path="res://assets/bullets/Bullet 24x24 Free Part 3A.png" id="4_rfaxr"]
 [ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="5_he7jx"]
 [ext_resource type="PackedScene" uid="uid://cb6lckxbntk7" path="res://pause_menu.tscn" id="6_53bqc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b8nwd"]
 radius = 13.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8xs8"]
+atlas = ExtResource("4_rfaxr")
+region = Rect2(386, 7, 19, 10)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(3, 3)
@@ -41,21 +45,24 @@ scale = Vector2(1.86, 1.86)
 texture = ExtResource("2_p7jvg")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(1.59622, 3)
-scale = Vector2(1.0221, 1.58802)
 target_position = Vector2(1000, 0)
 collision_mask = 3
 
 [node name="MuzzleFlash" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.751964, 0.642191, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-position = Vector2(35, 5)
-scale = Vector2(1.83, 0.5)
-texture = ExtResource("3_ic5ej")
+position = Vector2(23.3333, 2.33333)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_q8xs8")
 
 [node name="Timer" type="Timer" parent="MuzzleFlash"]
 wait_time = 0.05
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+limit_left = -1024
+limit_top = -1024
+limit_right = 1024
+limit_bottom = 1024
+editor_draw_limits = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -122,14 +129,6 @@ size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("5_he7jx")
 theme_override_font_sizes/font_size = 30
 text = "Меню"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-process_callback = 0
-limit_left = -1024
-limit_top = -1024
-limit_right = 1024
-limit_bottom = 1024
-editor_draw_limits = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 

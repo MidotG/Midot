@@ -1,10 +1,10 @@
 extends CharacterBody2D;
 
-
 @onready var ray_cast_2d= $RayCast2D;
 @export var move_speed = 350;
 
 var dead = false;
+const bullet = preload("res://pistol_bullet.tscn");
 
 func _process(delta):
 	if Input.is_action_just_pressed("reload"):
@@ -40,9 +40,13 @@ func reload():   #///TODO: перезарядку оружия.
 func shoot():
 	$MuzzleFlash.show();
 	$MuzzleFlash/Timer.start();
-	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider().has_method("kill"):
-		ray_cast_2d.get_collider().kill();
-	
+	#if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider().has_method("kill"):
+		#ray_cast_2d.get_collider().kill();
+	var bul = bullet.instantiate();
+	bul.set_direction();
+	bul.look_at(get_global_mouse_position());
+	get_tree().root.add_child(bul);
+	bul.global_position = get_global_mouse_position();
 
 
 func _on_button_pressed():
