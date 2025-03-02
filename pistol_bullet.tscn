@@ -20,3 +20,5 @@ texture = SubResource("AtlasTexture_lq74q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -3)
 shape = SubResource("RectangleShape2D_ekkkt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

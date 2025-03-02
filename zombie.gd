@@ -25,4 +25,7 @@ func kill():
 	$CollisionShape2D.disabled = true;
 	z_index = 1;
 	
+func get_damage(damage):
+	print('damage taken');
+	
 	
