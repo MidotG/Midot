@@ -1,7 +1,8 @@
 extends CharacterBody2D;
 
 @export var move_speed = 350;
-var pistol = preload("res://pistol.tscn").instantiate();
+#var pistol = preload("res://pistol.tscn").instantiate();
+@onready var pistol = $Pistol;
 
 var dead = false;
 
@@ -38,17 +39,6 @@ func restart():
 	
 func reload():   #///TODO: перезарядку оружия.
 	pass;
-	
-#func shoot():
-	#$MuzzleFlash.show();
-	#$MuzzleFlash/Timer.start();
-	#if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider().has_method("kill"):
-		#ray_cast_2d.get_collider().kill();
-		##///TODO: сделать оружия как отдельные сцены(сразу вместе с пулями в них), и сделать группу противников.
-	##var bul = bullet.instantiate();
-	##bul.set_direction(Vector2(1,0));
-	##get_tree().root.add_child(bul);
-	##bul.global_position = get_global_mouse_position();
 
 
 func _on_button_pressed():
