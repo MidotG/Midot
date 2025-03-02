@@ -1,19 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cw1hvpgewhgqr"]
+[gd_scene load_steps=8 format=3 uid="uid://cw1hvpgewhgqr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bw486"]
 [ext_resource type="Texture2D" uid="uid://y44ig46cs84m" path="res://assets/player/player_9mmhandgun.png" id="1_mjgwp"]
 [ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="2_fsbpj"]
 [ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="2_p7jvg"]
-[ext_resource type="Texture2D" uid="uid://bjbcnhv8n5qgj" path="res://assets/bullets/Bullet 24x24 Free Part 3A.png" id="4_rfaxr"]
 [ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="5_he7jx"]
 [ext_resource type="PackedScene" uid="uid://cb6lckxbntk7" path="res://pause_menu.tscn" id="6_53bqc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b8nwd"]
 radius = 16.3333
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q8xs8"]
-atlas = ExtResource("4_rfaxr")
-region = Rect2(386, 7, 19, 10)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(3, 3)
@@ -43,18 +38,6 @@ show_behind_parent = true
 position = Vector2(0, 1)
 scale = Vector2(1.86, 1.86)
 texture = ExtResource("2_p7jvg")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(1000, 0)
-collision_mask = 3
-
-[node name="MuzzleFlash" type="Sprite2D" parent="."]
-position = Vector2(23.3333, 2.33333)
-scale = Vector2(0.5, 0.5)
-texture = SubResource("AtlasTexture_q8xs8")
-
-[node name="Timer" type="Timer" parent="MuzzleFlash"]
-wait_time = 0.05
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
@@ -135,6 +118,5 @@ text = "Меню"
 [node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("6_53bqc")]
 visible = false
 
-[connection signal="timeout" from="MuzzleFlash/Timer" to="MuzzleFlash" method="hide"]
 [connection signal="pressed" from="CanvasLayer/DeathScreen/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/DeathScreen/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

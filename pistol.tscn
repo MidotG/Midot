@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://byt1d0fvuxhgi"]
+
+[ext_resource type="Script" path="res://pistol.gd" id="1_enxk3"]
+[ext_resource type="Texture2D" uid="uid://bjbcnhv8n5qgj" path="res://assets/bullets/Bullet 24x24 Free Part 3A.png" id="1_q665l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsk50"]
+atlas = ExtResource("1_q665l")
+region = Rect2(386, 7, 19, 10)
+
+[node name="Pistol" type="Node2D"]
+script = ExtResource("1_enxk3")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(1000, 0)
+collision_mask = 3
+
+[node name="MuzzleFlash" type="Sprite2D" parent="."]
+position = Vector2(23.3333, 2.33333)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_bsk50")
+
+[node name="Timer" type="Timer" parent="MuzzleFlash"]
+wait_time = 0.05
+
+[connection signal="timeout" from="MuzzleFlash/Timer" to="MuzzleFlash" method="hide"]
