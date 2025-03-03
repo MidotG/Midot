@@ -16,7 +16,7 @@ func _process(delta):
 		return;
 	look_at(get_global_mouse_position());
 	if Input.is_action_just_pressed("shoot"):
-		pistol.shoot();
+		pistol.shoot(position);
 		
 func _physics_process(delta):
 	if dead:

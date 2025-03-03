@@ -120,7 +120,7 @@ text = "Меню"
 visible = false
 
 [node name="Pistol" parent="." instance=ExtResource("7_4kg5e")]
-position = Vector2(19, -0.333333)
+position = Vector2(20, 0)
 
 [connection signal="pressed" from="CanvasLayer/DeathScreen/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/DeathScreen/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

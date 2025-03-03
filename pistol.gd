@@ -1,8 +1,11 @@
 extends Node2D
 
+@export var shoot_speed = 1.0;
 @onready var ray_cast_2d = $RayCast2D;
-const bullet = preload("res://pistol_bullet.tscn");
+@onready var shootSpeedTimer = $shootSpeedTimer;
 
+const bullet = preload("res://pistol_bullet.tscn");
+var canShoot = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,14 +15,14 @@ func _ready():
 func _process(delta):
 	pass
 	
-func shoot():
+func shoot(position):
+	#///TODO: сделать оружия как отдельные сцены(сразу вместе с пулями в них), и сделать группу противников.
 	$MuzzleFlash.show();
 	$MuzzleFlash/Timer.start();
-	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider().has_method("kill"):
-		ray_cast_2d.get_collider().kill();
-		
-		#///TODO: сделать оружия как отдельные сцены(сразу вместе с пулями в них), и сделать группу противников.
-	#var bul = bullet.instantiate();
-	#bul.set_direction(Vector2(1,0));
-	#get_tree().root.add_child(bul);
-	#bul.global_position = get_global_mouse_position();
+	#if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider().has_method("kill"):
+		#ray_cast_2d.get_collider().kill();
+	var bul = bullet.instantiate();
+	bul.dir = (position - get_global_mouse_position()).normalized();
+	get_tree().root.add_child(bul);
+	bul.rotation_degrees = rad_to_deg(global_position.angle_to_point(global_position + bul.dir));
+	bul.position = position;

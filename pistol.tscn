@@ -13,6 +13,7 @@ script = ExtResource("1_enxk3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
+position = Vector2(0, 4)
 scale = Vector2(2, 2)
 texture = ExtResource("2_q7884")
 flip_h = true
@@ -24,12 +25,14 @@ target_position = Vector2(1000, 0)
 collision_mask = 3
 
 [node name="MuzzleFlash" type="Sprite2D" parent="." groups=["weapon"]]
-visible = false
-position = Vector2(23.3333, 2.33333)
+position = Vector2(16, 0)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_bsk50")
 
 [node name="Timer" type="Timer" parent="MuzzleFlash" groups=["weapon"]]
 wait_time = 0.05
+
+[node name="shootSpeedTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="timeout" from="MuzzleFlash/Timer" to="MuzzleFlash" method="hide"]
