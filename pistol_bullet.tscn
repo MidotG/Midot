@@ -11,7 +11,7 @@ region = Rect2(75, 59, 19, 3)
 size = Vector2(178, 26)
 
 [node name="pistol_bullet" type="Area2D"]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.2)
 script = ExtResource("1_1bjvg")
 speed = 1200
 

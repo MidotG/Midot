@@ -17,12 +17,18 @@ func _process(delta):
 	
 func shoot(position):
 	#///TODO: сделать оружия как отдельные сцены(сразу вместе с пулями в них), и сделать группу противников.
-	$MuzzleFlash.show();
-	$MuzzleFlash/Timer.start();
 	#if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider().has_method("kill"):
 		#ray_cast_2d.get_collider().kill();
-	var bul = bullet.instantiate();
-	bul.dir = (position - get_global_mouse_position()).normalized();
-	get_tree().root.add_child(bul);
-	bul.rotation_degrees = rad_to_deg(global_position.angle_to_point(global_position + bul.dir));
-	bul.position = position;
+	if canShoot == true:
+		canShoot = false;
+		shootSpeedTimer.start();
+		$MuzzleFlash.show();
+		$MuzzleFlash/Timer.start();
+		var bul = bullet.instantiate();
+		bul.dir = (position - get_global_mouse_position()).normalized();
+		get_tree().root.add_child(bul);
+		bul.rotation_degrees = rad_to_deg(global_position.angle_to_point(global_position + bul.dir));
+		bul.position = position;
+
+func _on_shoot_speed_timer_timeout():
+	canShoot = true;
