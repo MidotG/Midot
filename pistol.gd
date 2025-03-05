@@ -16,8 +16,6 @@ func _process(delta):
 	pass
 	
 func shoot(position):
-	#if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider().has_method("kill"):
-		#ray_cast_2d.get_collider().kill();
 	if canShoot == true:
 		canShoot = false;
 		shootSpeedTimer.start();

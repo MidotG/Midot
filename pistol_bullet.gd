@@ -14,11 +14,12 @@ func _process(delta):
 	position -= dir * speed * delta;
 	
 
+#///TODO: разобраться с группами.
 #///TODO: сделать взаимодействие пули с группой протинвников. И исчезновение после урона противнику.
 func _on_body_entered(body):
 	print("killed");
-	#///TODO: разобраться с группами.
 	if body.is_in_group("enemy"):
+		print("killed");
 		body.get_damage(damage);
-		body.get_damage(damage);
+		body.kill();
 		queue_free();

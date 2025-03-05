@@ -9,7 +9,6 @@ var weapon_instance: Node2D = null;
 var dead = false;
 
 func _ready():
-	print(weapon_scene);
 	if weapon_scene:
 		weapon_instance = weapon_scene.instantiate();
 		$WeaponAttachment.add_child(weapon_instance);
