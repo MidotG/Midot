@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed = 700;
+@export var speed = 1700;
 @export var damage = 10;
 
 var dir;
@@ -12,11 +12,9 @@ func _ready():
 	
 func _process(delta):
 	position -= dir * speed * delta;
-	#print(position);
 	
 
-#///TODO: изменить точку спавна пули, и сделать взаимодействие с группой протинвников пули.
-
+#///TODO: сделать взаимодействие пули с группой протинвников. И исчезновение после урона противнику.
 func _on_body_entered(body):
 	print("killed");
 	#///TODO: разобраться с группами.

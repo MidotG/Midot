@@ -16,7 +16,6 @@ func _process(delta):
 	pass
 	
 func shoot(position):
-	#///TODO: сделать оружия как отдельные сцены(сразу вместе с пулями в них), и сделать группу противников.
 	#if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider().has_method("kill"):
 		#ray_cast_2d.get_collider().kill();
 	if canShoot == true:

@@ -16,6 +16,7 @@ scale = Vector2(3, 3)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_bw486")
+weapon_scene = ExtResource("7_4kg5e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.333333, 0.333333)
@@ -119,8 +120,8 @@ text = "Меню"
 [node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("6_53bqc")]
 visible = false
 
-[node name="Pistol" parent="." instance=ExtResource("7_4kg5e")]
-position = Vector2(20, 0)
+[node name="WeaponAttachment" type="Marker2D" parent="."]
+position = Vector2(22.3333, 0)
 
 [connection signal="pressed" from="CanvasLayer/DeathScreen/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/DeathScreen/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

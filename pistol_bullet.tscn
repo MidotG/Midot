@@ -21,7 +21,6 @@ texture = SubResource("AtlasTexture_lq74q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4.76837e-06, -5.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ekkkt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,12 +1,18 @@
 extends CharacterBody2D;
 
 @export var move_speed = 350;
-#var pistol = preload("res://pistol.tscn").instantiate();
-@onready var pistol = $Pistol;
+
+#//оружие
+@export var weapon_scene : PackedScene;
+var weapon_instance: Node2D = null;
 
 var dead = false;
 
 func _ready():
+	print(weapon_scene);
+	if weapon_scene:
+		weapon_instance = weapon_scene.instantiate();
+		$WeaponAttachment.add_child(weapon_instance);
 	pass;
 
 func _process(delta):
@@ -16,7 +22,7 @@ func _process(delta):
 		return;
 	look_at(get_global_mouse_position());
 	if Input.is_action_just_pressed("shoot"):
-		pistol.shoot(position);
+		weapon_instance.shoot($WeaponAttachment.global_position);
 		
 func _physics_process(delta):
 	if dead:
