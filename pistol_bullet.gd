@@ -18,7 +18,9 @@ func _process(delta):
 #///TODO: изменить точку спавна пули, и сделать взаимодействие с группой протинвников пули.
 
 func _on_body_entered(body):
+	print("killed");
+	#///TODO: разобраться с группами.
 	if body.is_in_group("enemy"):
 		body.get_damage(damage);
-		print("killed");
+		body.get_damage(damage);
 		queue_free();
