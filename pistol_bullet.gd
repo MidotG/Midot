@@ -17,8 +17,8 @@ func _process(delta):
 #///TODO: разобраться с группами.
 #///TODO: сделать взаимодействие пули с группой протинвников. И исчезновение после урона противнику.
 func _on_body_entered(body):
-	print("killed");
-	if body.is_in_group("enemy"):
+	#print("killed");
+	if body.is_in_group("Enemy"):
 		print("killed");
 		body.get_damage(damage);
 		body.kill();
