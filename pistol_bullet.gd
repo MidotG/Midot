@@ -15,12 +15,7 @@ func _process(delta):
 	
 
 func _on_body_entered(body):
-	#print("killed");
-	print("Пуля столкнулась с:", body.name)
 	if body.is_in_group("Enemy"):
-		print("killed");
 		body.get_damage(damage);
 		body.kill();
 		queue_free();
-	else:
-		print("Обьект не в группе enemy");

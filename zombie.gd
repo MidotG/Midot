@@ -30,7 +30,7 @@ func kill():
 	dead = true;
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
-	$CollisionShape2D.disabled = true;
+	$CollisionShape2D.queue_free();
 	z_index = 1;
 	dead_left.start();
 	
