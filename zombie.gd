@@ -5,8 +5,6 @@ extends CharacterBody2D;
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player");
 @onready var dead_left = $deadLeft;
 
-#///TODO: убрать проблему с колизей и столкновения с телам игрока после смерти.
-
 
 var dead = false;
 
