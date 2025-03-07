@@ -5,8 +5,13 @@ extends CharacterBody2D;
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player");
 @onready var dead_left = $deadLeft;
 
+#///TODO: убрать проблему с колизей и столкновения с телам игрока после смерти.
+
 
 var dead = false;
+
+func _ready():
+	pass;
 
 func _physics_process(delta):
 	if dead:
@@ -17,6 +22,7 @@ func _physics_process(delta):
 	global_rotation = dir_to_player.angle() + PI/2.0;
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
 		player.kill();
+	
 	
 func kill():
 	if dead:

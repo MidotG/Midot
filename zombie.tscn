@@ -9,37 +9,35 @@ radius = 32.8571
 
 [node name="Zombie" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(1.5, 1.5)
-collision_layer = 2
-collision_mask = 3
 script = ExtResource("1_w4utm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CircleShape2D_gtawq")
 
-[node name="Graphics" type="Node2D" parent="."]
+[node name="Graphics" type="Node2D" parent="." groups=["Enemy"]]
 position = Vector2(5, -17)
 
-[node name="Alive" type="Sprite2D" parent="Graphics"]
+[node name="Alive" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
 position = Vector2(1.59622, -1)
 scale = Vector2(0.987764, 1)
 texture = ExtResource("1_n8a7n")
 
-[node name="Dead" type="Sprite2D" parent="Graphics"]
+[node name="Dead" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
 z_index = -1
 position = Vector2(0, -1)
 texture = ExtResource("1_n8a7n")
 
-[node name="114" type="Sprite2D" parent="Graphics/Dead"]
+[node name="114" type="Sprite2D" parent="Graphics/Dead" groups=["Enemy"]]
 show_behind_parent = true
 position = Vector2(1.90735e-06, 11)
 scale = Vector2(3.265, 3.265)
 texture = ExtResource("2_n2r5l")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." groups=["Enemy"]]
 target_position = Vector2(0, -70)
 collision_mask = 3
 
-[node name="deadLeft" type="Timer" parent="."]
+[node name="deadLeft" type="Timer" parent="." groups=["Enemy"]]
 wait_time = 10.0
 
 [connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
