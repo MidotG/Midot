@@ -2,7 +2,9 @@ extends CharacterBody2D;
 
 @export var move_speed = 350;
 
-#//оружие
+#//оружие 
+#///TODO: сделать список хранящий экземпляры оружия.
+#///TODO: скорее всего еще сделать сцену - класс, который как раз будет давать внешку, способности и второе оружие, а также статы.
 @export var weapon_scene : PackedScene;
 var weapon_instance: Node2D = null;
 
