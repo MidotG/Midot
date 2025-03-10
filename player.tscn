@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw1hvpgewhgqr"]
+[gd_scene load_steps=10 format=3 uid="uid://cw1hvpgewhgqr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bw486"]
 [ext_resource type="Texture2D" uid="uid://y44ig46cs84m" path="res://assets/player/player_9mmhandgun.png" id="1_mjgwp"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="5_he7jx"]
 [ext_resource type="PackedScene" uid="uid://cb6lckxbntk7" path="res://pause_menu.tscn" id="6_53bqc"]
 [ext_resource type="PackedScene" uid="uid://byt1d0fvuxhgi" path="res://pistol.tscn" id="7_4kg5e"]
+[ext_resource type="PackedScene" uid="uid://bho1v10vj4v3y" path="res://player_ui.tscn" id="8_wfwef"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b8nwd"]
 radius = 16.3333
@@ -47,9 +48,9 @@ limit_right = 1024
 limit_bottom = 1024
 editor_draw_limits = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="deathCanvas" type="CanvasLayer" parent="."]
 
-[node name="DeathScreen" type="Control" parent="CanvasLayer"]
+[node name="DeathScreen" type="Control" parent="deathCanvas"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -59,7 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DeathScreen"]
+[node name="ColorRect" type="ColorRect" parent="deathCanvas/DeathScreen"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,7 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.392157)
 
-[node name="Panel" type="Panel" parent="CanvasLayer/DeathScreen"]
+[node name="Panel" type="Panel" parent="deathCanvas/DeathScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -82,7 +83,7 @@ offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DeathScreen/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="deathCanvas/DeathScreen/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,7 +91,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/DeathScreen/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="deathCanvas/DeathScreen/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("5_he7jx")
@@ -99,27 +100,32 @@ text = "ПОРАЖЕНИЕ"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/DeathScreen/Panel/VBoxContainer"]
+[node name="Button" type="Button" parent="deathCanvas/DeathScreen/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("5_he7jx")
 theme_override_font_sizes/font_size = 30
 text = "Рестарт"
 
-[node name="Button2" type="Button" parent="CanvasLayer/DeathScreen/Panel/VBoxContainer"]
+[node name="Button2" type="Button" parent="deathCanvas/DeathScreen/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("5_he7jx")
 theme_override_font_sizes/font_size = 30
 text = "Меню"
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="pauseCanvas" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("6_53bqc")]
+[node name="PauseMenu" parent="pauseCanvas" instance=ExtResource("6_53bqc")]
 visible = false
+
+[node name="uiCanvas" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="PlayerUI" parent="uiCanvas" instance=ExtResource("8_wfwef")]
 
 [node name="WeaponAttachment" type="Marker2D" parent="."]
 position = Vector2(22.3333, 0)
 
-[connection signal="pressed" from="CanvasLayer/DeathScreen/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DeathScreen/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="deathCanvas/DeathScreen/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="deathCanvas/DeathScreen/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

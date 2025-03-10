@@ -35,5 +35,8 @@ wait_time = 0.05
 [node name="shootSpeedTimer" type="Timer" parent="."]
 wait_time = 0.3
 
+[node name="reloadTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="MuzzleFlash/Timer" to="MuzzleFlash" method="hide"]
 [connection signal="timeout" from="shootSpeedTimer" to="." method="_on_shoot_speed_timer_timeout"]
+[connection signal="timeout" from="reloadTimer" to="." method="_on_reload_timer_timeout"]

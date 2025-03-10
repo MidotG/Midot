@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bho1v10vj4v3y"]
+
+[ext_resource type="Script" path="res://player_ui.gd" id="1_m76cl"]
+[ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="2_gasbu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gb8v0"]
+bg_color = Color(0.677819, 0, 0.0572753, 1)
+
+[node name="PlayerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m76cl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -68.0
+offset_right = 190.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="timerLbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_gasbu")
+theme_override_font_sizes/font_size = 20
+text = "\"Ост. время\""
+horizontal_alignment = 1
+
+[node name="hpLabel" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_gasbu")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/fill = SubResource("StyleBoxFlat_gb8v0")

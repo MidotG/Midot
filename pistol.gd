@@ -4,6 +4,9 @@ extends Node2D
 @onready var ray_cast_2d = $RayCast2D;
 @onready var shootSpeedTimer = $shootSpeedTimer;
 
+const max_magazine = 12;
+var cur_magazine = max_magazine;
+
 const bullet = preload("res://pistol_bullet.tscn");
 var canShoot = true;
 
@@ -14,7 +17,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
+
 func shoot(position):
 	if canShoot == true:
 		canShoot = false;

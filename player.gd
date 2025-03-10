@@ -9,14 +9,13 @@ var weapon_instance: Node2D = null;
 var dead = false;
 
 func _ready():
+	$uiCanvas/PlayerUI.show();
 	if weapon_scene:
 		weapon_instance = weapon_scene.instantiate();
 		$WeaponAttachment.add_child(weapon_instance);
 	pass;
 
 func _process(delta):
-	if Input.is_action_just_pressed("reload"):
-		reload();
 	if dead:
 		return;
 	look_at(get_global_mouse_position());
@@ -36,14 +35,11 @@ func kill():
 	dead = true;
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
-	$CanvasLayer/DeathScreen.show();
+	$deathCanvas/DeathScreen.show();
 	z_index = -1;
 	
 func restart():
 	get_tree().reload_current_scene();
-	
-func reload():   #///TODO: перезарядку оружия.
-	pass;
 
 
 func _on_button_pressed():
