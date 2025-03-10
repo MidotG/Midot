@@ -42,3 +42,5 @@ size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_gasbu")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/fill = SubResource("StyleBoxFlat_gb8v0")
+value = 50.0
+show_percentage = false
