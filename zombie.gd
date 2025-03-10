@@ -5,7 +5,7 @@ extends CharacterBody2D;
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player");
 @onready var dead_left = $deadLeft;
 
-
+var canAttack = true;
 var dead = false;
 
 func _ready():
@@ -18,8 +18,11 @@ func _physics_process(delta):
 	velocity = dir_to_player * move_speed;
 	move_and_slide();
 	global_rotation = dir_to_player.angle() + PI/2.0;
-	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
-		player.kill();
+	#if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
+		#player.kill();
+		#///TODO: аттаку игрока.
+		#player.damage(20);
+		
 	
 	
 func kill():
@@ -40,3 +43,7 @@ func get_damage(damage):
 
 func _on_dead_left_timeout():
 	queue_free();
+
+
+func _on_attack_int_timeout():
+	canAttack = true;
