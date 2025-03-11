@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="4_hjxy1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gtawq"]
-radius = 32.8571
+radius = 29.3333
 
 [node name="Zombie" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_w4utm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
