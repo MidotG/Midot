@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="9_anxk5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b8nwd"]
-radius = 16.3333
+radius = 17.0294
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_bw486")
 weapon_scene = ExtResource("7_4kg5e")

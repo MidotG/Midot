@@ -2,7 +2,7 @@ extends CharacterBody2D;
 
 @onready var ray_cast_2d = $RayCast2D;
 @export var move_speed = 250;
-@onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player");
+@onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player");
 @onready var dead_left = $deadLeft;
 
 var canAttack = true;
@@ -18,10 +18,14 @@ func _physics_process(delta):
 	velocity = dir_to_player * move_speed;
 	move_and_slide();
 	global_rotation = dir_to_player.angle() + PI/2.0;
-	#if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
-		#player.kill();
-		#///TODO: аттаку игрока.
-		#player.damage(20);
+	
+	#///TODO: щас убрать баг с положением зомби и игрока, зомби меняет положение от игрока зависит.
+	#///TODO: щас хп противнику сделать.
+	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
+		if canAttack == true:
+			canAttack = false;
+			$attackInt.start();
+			player.damage(20);
 		
 	
 	

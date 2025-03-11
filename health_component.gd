@@ -1,9 +1,9 @@
 extends Node2D
 
-@export var max_health : int = 100;
-var health : int;
-var dead = false;
+@export var max_health : float = 100;
+var health : float;
 
+signal killSignal;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,8 +11,9 @@ func _ready():
 
 func damage(attack):
 	health -= attack;
+	print(health);
 	if health <= 0:
-		dead = true;
+		emit_signal("killSignal");
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
