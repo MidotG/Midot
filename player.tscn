@@ -18,30 +18,30 @@ scale = Vector2(3, 3)
 script = ExtResource("1_bw486")
 weapon_scene = ExtResource("7_4kg5e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0.333333, 0.333333)
 shape = SubResource("CircleShape2D_b8nwd")
 
-[node name="Graphics" type="Node2D" parent="."]
+[node name="Graphics" type="Node2D" parent="." groups=["Player"]]
 
-[node name="Alive" type="Sprite2D" parent="Graphics"]
+[node name="Alive" type="Sprite2D" parent="Graphics" groups=["Player"]]
 visibility_layer = 3
 z_index = 1
 texture = ExtResource("2_fsbpj")
 
-[node name="Dead" type="Sprite2D" parent="Graphics"]
+[node name="Dead" type="Sprite2D" parent="Graphics" groups=["Player"]]
 visible = false
 z_index = -1
 position = Vector2(0, -1)
 texture = ExtResource("1_mjgwp")
 
-[node name="114" type="Sprite2D" parent="Graphics/Dead"]
+[node name="114" type="Sprite2D" parent="Graphics/Dead" groups=["Player"]]
 show_behind_parent = true
 position = Vector2(0, 1)
 scale = Vector2(1.86, 1.86)
 texture = ExtResource("2_p7jvg")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]
 process_callback = 0
 limit_left = -1024
 limit_top = -1024
@@ -49,9 +49,9 @@ limit_right = 1024
 limit_bottom = 1024
 editor_draw_limits = true
 
-[node name="deathCanvas" type="CanvasLayer" parent="."]
+[node name="deathCanvas" type="CanvasLayer" parent="." groups=["Player"]]
 
-[node name="DeathScreen" type="Control" parent="deathCanvas"]
+[node name="DeathScreen" type="Control" parent="deathCanvas" groups=["Player"]]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -61,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="ColorRect" type="ColorRect" parent="deathCanvas/DeathScreen"]
+[node name="ColorRect" type="ColorRect" parent="deathCanvas/DeathScreen" groups=["Player"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,7 +70,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.392157)
 
-[node name="Panel" type="Panel" parent="deathCanvas/DeathScreen"]
+[node name="Panel" type="Panel" parent="deathCanvas/DeathScreen" groups=["Player"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -84,7 +84,7 @@ offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="deathCanvas/DeathScreen/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="deathCanvas/DeathScreen/Panel" groups=["Player"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +92,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="deathCanvas/DeathScreen/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="deathCanvas/DeathScreen/Panel/VBoxContainer" groups=["Player"]]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("5_he7jx")
@@ -101,34 +101,34 @@ text = "ПОРАЖЕНИЕ"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="deathCanvas/DeathScreen/Panel/VBoxContainer"]
+[node name="Button" type="Button" parent="deathCanvas/DeathScreen/Panel/VBoxContainer" groups=["Player"]]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("5_he7jx")
 theme_override_font_sizes/font_size = 30
 text = "Рестарт"
 
-[node name="Button2" type="Button" parent="deathCanvas/DeathScreen/Panel/VBoxContainer"]
+[node name="Button2" type="Button" parent="deathCanvas/DeathScreen/Panel/VBoxContainer" groups=["Player"]]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("5_he7jx")
 theme_override_font_sizes/font_size = 30
 text = "Меню"
 
-[node name="pauseCanvas" type="CanvasLayer" parent="."]
+[node name="pauseCanvas" type="CanvasLayer" parent="." groups=["Player"]]
 
-[node name="PauseMenu" parent="pauseCanvas" instance=ExtResource("6_53bqc")]
+[node name="PauseMenu" parent="pauseCanvas" groups=["Player"] instance=ExtResource("6_53bqc")]
 visible = false
 
-[node name="uiCanvas" type="CanvasLayer" parent="."]
+[node name="uiCanvas" type="CanvasLayer" parent="." groups=["Player"]]
 layer = 0
 
-[node name="PlayerUI" parent="uiCanvas" instance=ExtResource("8_wfwef")]
+[node name="PlayerUI" parent="uiCanvas" groups=["Player"] instance=ExtResource("8_wfwef")]
 
-[node name="WeaponAttachment" type="Marker2D" parent="."]
+[node name="WeaponAttachment" type="Marker2D" parent="." groups=["Player"]]
 position = Vector2(22.3333, 0)
 
-[node name="healthComponent" parent="." instance=ExtResource("9_anxk5")]
+[node name="healthComponent" parent="." groups=["Player"] instance=ExtResource("9_anxk5")]
 
 [connection signal="pressed" from="deathCanvas/DeathScreen/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="deathCanvas/DeathScreen/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

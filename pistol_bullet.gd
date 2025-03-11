@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed = 1700;
-@export var damage = 10;
+@export var damage = 20;
 
 var dir;
 
@@ -14,6 +14,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("Enemy"):
-		body.get_damage(damage);
-		body.kill();
+		body.damage(damage);
 		queue_free();

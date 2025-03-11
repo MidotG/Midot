@@ -4,15 +4,17 @@ extends CharacterBody2D;
 @export var move_speed = 250;
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player");
 @onready var dead_left = $deadLeft;
+@onready var hp = $healthComponent;
+
 
 var canAttack = true;
-var dead = false;
 
 func _ready():
+	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	pass;
 
 func _physics_process(delta):
-	if dead:
+	if hp.dead:
 		return;
 	var dir_to_player = global_position.direction_to(player.global_position);
 	velocity = dir_to_player * move_speed;
@@ -20,7 +22,6 @@ func _physics_process(delta):
 	global_rotation = dir_to_player.angle() + PI/2.0;
 	
 	#///TODO: щас убрать баг с положением зомби и игрока, зомби меняет положение от игрока зависит.
-	#///TODO: щас хп противнику сделать.
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
 		if canAttack == true:
 			canAttack = false;
@@ -30,17 +31,14 @@ func _physics_process(delta):
 	
 	
 func kill():
-	if dead:
-		return;
-	dead = true;
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
 	$CollisionShape2D.queue_free();
 	z_index = 1;
 	dead_left.start();
 	
-func get_damage(damage):
-	print('damage taken');
+func damage(damage):
+	hp.damage(damage);
 	
 	
 

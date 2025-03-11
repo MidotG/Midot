@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba4x13miijrqd"]
+[gd_scene load_steps=6 format=3 uid="uid://ba4x13miijrqd"]
 
 [ext_resource type="Texture2D" uid="uid://bxgpccagjr38f" path="res://assets/zombie.png" id="1_n8a7n"]
 [ext_resource type="Script" path="res://zombie.gd" id="1_w4utm"]
 [ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="2_n2r5l"]
+[ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="4_hjxy1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gtawq"]
 radius = 32.8571
@@ -41,6 +42,9 @@ collision_mask = 3
 wait_time = 10.0
 
 [node name="attackInt" type="Timer" parent="." groups=["Enemy"]]
+
+[node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("4_hjxy1")]
+max_health = 40.0
 
 [connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
 [connection signal="timeout" from="attackInt" to="." method="_on_attack_int_timeout"]

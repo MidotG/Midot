@@ -7,7 +7,8 @@ extends CharacterBody2D;
 #///TODO: скорее всего еще сделать сцену - класс, который как раз будет давать внешку, способности и второе оружие, а также статы.
 @export var weapon_scene : PackedScene;
 var weapon_instance: Node2D = null;
-var dead = false;
+@onready var hp = $healthComponent;
+
 
 func _ready():
 	$uiCanvas/PlayerUI.show();
@@ -18,24 +19,23 @@ func _ready():
 	pass;
 
 func _process(delta):
-	if dead:
+	if hp.dead:
 		return;
 	look_at(get_global_mouse_position());
 	if Input.is_action_just_pressed("shoot"):
 		weapon_instance.shoot($WeaponAttachment.global_position);
 		
 func _physics_process(delta):
-	if dead:
+	if hp.dead:
 		return;
 	var move_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down");
 	velocity = move_dir * move_speed;
 	move_and_slide();
 	
 func damage(damage):
-	$healthComponent.damage(damage);
+	hp.damage(damage);
 	
 func kill():
-	dead = true;
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
 	$deathCanvas/DeathScreen.show();

@@ -2,6 +2,7 @@ extends Node2D
 
 @export var max_health : float = 100;
 var health : float;
+var dead = false;
 
 signal killSignal;
 
@@ -11,8 +12,8 @@ func _ready():
 
 func damage(attack):
 	health -= attack;
-	print(health);
 	if health <= 0:
+		dead = true;
 		emit_signal("killSignal");
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
