@@ -20,14 +20,14 @@ func _physics_process(delta):
 	velocity = dir_to_player * move_speed;
 	move_and_slide();
 	global_rotation = dir_to_player.angle() + PI/2.0;
-	
-	#///TODO: щас убрать баг с положением зомби и игрока, зомби меняет положение от игрока зависит.dw
-	#///TODO: добавить rotation-speed зомбарям. Разобраться с collision персов.
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
+		move_speed = 0;
 		if canAttack == true:
 			canAttack = false;
 			$attackInt.start();
 			player.damage(20);
+	else:
+		move_speed = 250;
 		
 	
 	
