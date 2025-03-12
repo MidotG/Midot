@@ -6,8 +6,8 @@ var location = Vector2();
 var packed_scene =[
 	preload("res://zombie.tscn")
 ]
-var canSpawn = true;
 
+var canSpawn = true;
 
 func _ready():
 	MusicPlayer.play_track(2);
@@ -21,8 +21,9 @@ func _process(delta):
 func _on_zombie_spawn_timer_timeout():
 	canSpawn = true;
 	randomize();
-	location.x = randi_range(-1024, map_size.x);
-	location.y = randi_range(-1024, map_size.y);
+	var rnd_index = randi() % $Collisions/CollisionPolygon2D.polygon.size();
+	location.x = $Collisions/CollisionPolygon2D.polygon[rnd_index].x;
+	location.y = $Collisions/CollisionPolygon2D.polygon[rnd_index].y;
 	var scene = packed_scene[0].instantiate();
 	scene.position = location;
 	add_child(scene);

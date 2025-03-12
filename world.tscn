@@ -24,7 +24,7 @@ texture = ExtResource("3_xa52y")
 
 [sub_resource type="TileSet" id="TileSet_tqf3b"]
 physics_layer_0/collision_layer = 4
-physics_layer_0/collision_mask = 5
+physics_layer_0/collision_mask = 11
 sources/0 = SubResource("TileSetAtlasSource_6os0h")
 
 [node name="World" type="Node2D"]
@@ -46,6 +46,7 @@ layer_0/tile_data = PackedInt32Array(917458, 131072, 2, 982994, 131072, 2, 10485
 position = Vector2(6, -535)
 
 [node name="Collisions" type="StaticBody2D" parent="."]
+collision_layer = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PackedVector2Array(-1021, -1014, 1020, -1024, 1027, 1019, -1029, 1024, -1024, -989, -1074, -966, -1072, 1050, 1075, 1055, 1058, -1072, -1034, -1072)
