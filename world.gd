@@ -9,7 +9,9 @@ var packed_scene =[
 var canSpawn = true;
 
 func _ready():
-	MusicPlayer.play_track(2);
+	#///TODO: сделать проигрышь всех треков, кроме нулевого по очереди и в рандомном порядке.
+	#///TODO: настроить уровень звука и пр.
+	MusicPlayer.play_track(6);
 	$lvlTimer.start();
 	
 func _process(delta):
