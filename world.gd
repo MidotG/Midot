@@ -11,6 +11,7 @@ var canSpawn = true;
 
 func _ready():
 	MusicPlayer.play_track(2);
+	$lvlTimer.start();
 	
 func _process(delta):
 	if canSpawn:
@@ -27,3 +28,6 @@ func _on_zombie_spawn_timer_timeout():
 	var scene = packed_scene[0].instantiate();
 	scene.position = location;
 	add_child(scene);
+	
+func _on_lvl_timer_timeout():
+	$lvlPassCanvas/lvl_passed.lvlPass();

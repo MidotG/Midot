@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://conuevhuodj1i"]
+[gd_scene load_steps=9 format=3 uid="uid://conuevhuodj1i"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_o6ec0"]
 [ext_resource type="Texture2D" uid="uid://bln4jafahgiti" path="res://assets/ground3.jpg" id="1_wt6ws"]
 [ext_resource type="PackedScene" uid="uid://cw1hvpgewhgqr" path="res://player.tscn" id="2_3pev5"]
 [ext_resource type="PackedScene" uid="uid://ba4x13miijrqd" path="res://zombie.tscn" id="3_8kwyn"]
 [ext_resource type="Texture2D" uid="uid://b0b35goo3q6qd" path="res://assets/jawbreaker_tiles.png" id="3_xa52y"]
+[ext_resource type="PackedScene" uid="uid://c3q74aq55byq8" path="res://lvl_passed.tscn" id="6_qjahd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6os0h"]
 texture = ExtResource("3_xa52y")
@@ -54,4 +55,13 @@ polygon = PackedVector2Array(-1021, -1014, 1020, -1024, 1027, 1019, -1029, 1024,
 [node name="zombieSpawnTimer" type="Timer" parent="."]
 wait_time = 0.8
 
+[node name="lvlTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="lvlPassCanvas" type="CanvasLayer" parent="."]
+
+[node name="lvl_passed" parent="lvlPassCanvas" instance=ExtResource("6_qjahd")]
+visible = false
+
 [connection signal="timeout" from="zombieSpawnTimer" to="." method="_on_zombie_spawn_timer_timeout"]
+[connection signal="timeout" from="lvlTimer" to="." method="_on_lvl_timer_timeout"]

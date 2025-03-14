@@ -8,7 +8,7 @@ atlas = ExtResource("1_sef6d")
 region = Rect2(75, 59, 19, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekkkt"]
-size = Vector2(200, 21)
+size = Vector2(180, 19)
 
 [node name="pistol_bullet" type="Area2D"]
 scale = Vector2(0.1, 0.2)
@@ -21,7 +21,8 @@ scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_lq74q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4.76837e-06, -5.5)
+position = Vector2(-4.54747e-13, -5)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ekkkt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
