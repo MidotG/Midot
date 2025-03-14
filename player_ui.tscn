@@ -33,7 +33,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_gasbu")
 theme_override_font_sizes/font_size = 20
-text = "\"Ост. время\""
+text = "\"Скок прошло времени\""
 horizontal_alignment = 1
 
 [node name="hpLabel" type="ProgressBar" parent="VBoxContainer"]
