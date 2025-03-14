@@ -1,6 +1,5 @@
 extends Node2D
 
-#///TODO: рандомный спавн зомби сделать.
 var map_size = Vector2(1024, 1024);
 var location = Vector2();
 var packed_scene =[
@@ -29,5 +28,6 @@ func _on_zombie_spawn_timer_timeout():
 	scene.position = location;
 	add_child(scene);
 	
+#///TODO: разобраться сделать композицию или наследование для уровней.
 func _on_lvl_timer_timeout():
 	$lvlPassCanvas/lvl_passed.lvlPass();
