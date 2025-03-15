@@ -4,7 +4,7 @@ extends Control
 #///TODO: пока - колво патронов не делать, сделать все - пушки, персонажей и способности, потом решать с патронами.
 #///TODO: также во время проходения уровня добавить очки за убийство мобов, потом делать на какое колво и деньги давать от колва очков зависит, и бонус очков за прохождение или если не прошел, то просто текузие очки.
 
-#///TODO: сделать счетчик времени в сцене уровня, и связать его здесь.
+#///TODO: сделать еще показ очков заработанных.
 
 @onready var hp = $"../../healthComponent"
 @onready var hp_label = $VBoxContainer/hpLabel
@@ -20,3 +20,6 @@ func _process(delta):
 	var cur_hp = hp.health/hp.max_health*100;
 	hp_label.value = cur_hp;
 	pass
+
+func show_time(time):
+	$VBoxContainer/timerLbl.text = "Время: " + time;
