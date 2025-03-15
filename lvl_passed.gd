@@ -1,5 +1,6 @@
 extends Control
 
+signal disablePMSignal;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,12 +12,9 @@ func _process(delta):
 	pass;
 
 func lvlPass():
+	disablePMSignal.emit();
 	get_tree().paused = true;
 	show();
-	#InputMap.action_erase_events("pause");
-	#process_mode = Node.PROCESS_MODE_DISABLED;
-	#///TODO: отрубить pause - input action во время окончания уровня, чтобы нельзя было вернуть игру в актив.
-	
 
 func _on_menu_btn_pressed():
 	get_tree().paused = false;

@@ -6,7 +6,6 @@ extends CharacterBody2D;
 @onready var dead_left = $deadLeft;
 @onready var hp = $healthComponent;
 
-
 var canAttack = true;
 
 func _ready():

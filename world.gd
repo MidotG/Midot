@@ -30,6 +30,5 @@ func _on_zombie_spawn_timer_timeout():
 	scene.position = location;
 	add_child(scene);
 	
-#///TODO: разобраться сделать композицию или наследование для уровней.
 func _on_lvl_timer_timeout():
-	$lvlPassCanvas/lvl_passed.lvlPass();
+	$Player/lvlPassCanvas/lvl_passed.lvlPass();

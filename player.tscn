@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cw1hvpgewhgqr"]
+[gd_scene load_steps=12 format=3 uid="uid://cw1hvpgewhgqr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bw486"]
 [ext_resource type="Texture2D" uid="uid://y44ig46cs84m" path="res://assets/player/player_9mmhandgun.png" id="1_mjgwp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://byt1d0fvuxhgi" path="res://pistol.tscn" id="7_4kg5e"]
 [ext_resource type="PackedScene" uid="uid://bho1v10vj4v3y" path="res://player_ui.tscn" id="8_wfwef"]
 [ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="9_anxk5"]
+[ext_resource type="PackedScene" uid="uid://c3q74aq55byq8" path="res://lvl_passed.tscn" id="10_umx1e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b8nwd"]
 radius = 17.0294
@@ -125,6 +126,11 @@ visible = false
 layer = 0
 
 [node name="PlayerUI" parent="uiCanvas" groups=["Player"] instance=ExtResource("8_wfwef")]
+
+[node name="lvlPassCanvas" type="CanvasLayer" parent="."]
+
+[node name="lvl_passed" parent="lvlPassCanvas" instance=ExtResource("10_umx1e")]
+visible = false
 
 [node name="WeaponAttachment" type="Marker2D" parent="." groups=["Player"]]
 position = Vector2(22.3333, 0)

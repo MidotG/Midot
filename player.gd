@@ -13,6 +13,7 @@ var weapon_instance: Node2D = null;
 func _ready():
 	$uiCanvas/PlayerUI.show();
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
+	$lvlPassCanvas/lvl_passed.connect("disablePMSignal", Callable(self, "disablePM"));
 	if weapon_scene:
 		weapon_instance = weapon_scene.instantiate();
 		$WeaponAttachment.add_child(weapon_instance);
@@ -44,11 +45,12 @@ func kill():
 func restart():
 	get_tree().reload_current_scene();
 
-
 func _on_button_pressed():
 	restart();
 
-
 func _on_button_2_pressed():
 	get_tree().change_scene_to_file("res://menu.tscn");
+	
+func disablePM():
+	$pauseCanvas/PauseMenu.set_process(false);
 	

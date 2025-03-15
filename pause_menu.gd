@@ -26,6 +26,7 @@ func _on_resume_btn_pressed():
 	hide();
 
 func _on_restart_btn_pressed():
+	get_tree().paused = false;
 	get_tree().reload_current_scene();
 	
 func _on_quit_lvl_btn_pressed():
