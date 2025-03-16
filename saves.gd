@@ -2,7 +2,6 @@ extends Node
 
 const save_path = "user://game_saves.json";
 var currency = 0;
-var points = 0;
 
 func _ready():
 	load_game();

@@ -10,8 +10,9 @@ func _process(delta):
 
 func lvlPass():
 	disablePMSignal.emit();
-	Saves.currency += Saves.points/10;
-	Saves.points = 0;
+	$Panel/VBoxContainer/totalPoints.text = "Очков заработано: " + str(SaveLvl.points);
+	Saves.currency += SaveLvl.points/10;
+	SaveLvl.points = 0;
 	Saves.save_game();
 	get_tree().paused = true;
 	show();

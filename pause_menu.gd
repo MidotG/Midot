@@ -28,7 +28,7 @@ func _on_resume_btn_pressed():
 func _on_restart_btn_pressed():
 	get_tree().paused = false;
 	get_tree().reload_current_scene();
-	Saves.points = 0;
+	SaveLvl.points = 0;
 	
 func _on_quit_lvl_btn_pressed():
 	get_tree().paused = false;

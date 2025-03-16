@@ -6,9 +6,9 @@ var packed_scene =[
 	preload("res://zombie.tscn")
 ]
 var canSpawn = true;
-var time_in_s : int = 0;
-var total_time_in_m : int = 0;
-var total_time_in_s : int = 0;
+#var time_in_s : int = 0;
+#var total_time_in_m : int = 0;
+#var total_time_in_s : int = 0;
 
 
 func _ready():
@@ -35,11 +35,11 @@ func _on_zombie_spawn_timer_timeout():
 	add_child(scene);
 	
 func _on_lvl_timer_timeout():
-	time_in_s += 1;
-	total_time_in_s = time_in_s%60;
-	total_time_in_m = int(time_in_s/60.0);
-	$Player/uiCanvas/PlayerUI.show_time('%02d:%02d' % [total_time_in_m, total_time_in_s]);
+	SaveLvl.time_in_s += 1;
+	SaveLvl.total_time_in_s = SaveLvl.time_in_s%60;
+	SaveLvl.total_time_in_m = int(SaveLvl.time_in_s/60.0);
+	#$Player/uiCanvas/PlayerUI.show_time('%02d:%02d' % [total_time_in_m, total_time_in_s]);
 	
 func add_point(point : int):
-	Saves.points += point;
+	SaveLvl.points += point;
 	

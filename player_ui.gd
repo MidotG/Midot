@@ -19,8 +19,9 @@ func _ready():
 func _process(delta):
 	var cur_hp = hp.health/hp.max_health*100;
 	hp_label.value = cur_hp;
-	$pointsLbl.text = "Очки " + str(Saves.points);
+	$VBoxContainer/timerLbl.text = "Время: " + '%02d:%02d' % [SaveLvl.total_time_in_m, SaveLvl.total_time_in_s];
+	$pointsLbl.text = "Очки " + str(SaveLvl.points);
 	pass
 
-func show_time(time):
-	$VBoxContainer/timerLbl.text = "Время: " + time;
+#func show_time(time):
+	#$VBoxContainer/timerLbl.text = "Время: " + time;
