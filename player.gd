@@ -44,16 +44,8 @@ func damage(damage):
 func kill():
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
-	#$deathCanvas/DeathScreen.show();
 	$lvlPassCanvas/lvl_passed.lvlPass();
 	z_index = -1;
-	
-#func restart():  //deathCanvas
-	#get_tree().reload_current_scene();
-#func _on_button_pressed():
-	#restart();
-#func _on_button_2_pressed():
-	#get_tree().change_scene_to_file("res://menu.tscn");
 	
 func disablePM():
 	$pauseCanvas/PauseMenu.set_process(false);

@@ -24,6 +24,3 @@ func _process(delta):
 
 func show_time(time):
 	$VBoxContainer/timerLbl.text = "Время: " + time;
-	
-#func show_points(points):
-	#$pointsLbl.text = "Очки " + str(Saves.points);
