@@ -1,12 +1,16 @@
 extends CharacterBody2D;
 
-@onready var ray_cast_2d = $RayCast2D;
+signal pointsSignal(point : int);
+
+@export var pointsForKill : int = 10;
 @export var move_speed = 250;
+@onready var ray_cast_2d = $RayCast2D;
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player");
 @onready var dead_left = $deadLeft;
 @onready var hp = $healthComponent;
 
 var canAttack = true;
+
 
 func _ready():
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
@@ -35,17 +39,14 @@ func kill():
 	$Graphics/Alive.hide();
 	$CollisionShape2D.queue_free();
 	z_index = 1;
+	pointsSignal.emit(pointsForKill);
 	dead_left.start();
 	
 func damage(damage):
 	hp.damage(damage);
 	
-	
-
-
 func _on_dead_left_timeout():
 	queue_free();
-
 
 func _on_attack_int_timeout():
 	canAttack = true;

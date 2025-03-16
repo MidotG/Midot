@@ -1,5 +1,6 @@
 extends Control
 
+#///TODO: в конце все узлы сделать как пемеременные и по красоте, во всех сценах.
 
 func _ready():
 	Saves.load_game();

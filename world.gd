@@ -5,10 +5,12 @@ var location = Vector2();
 var packed_scene =[
 	preload("res://zombie.tscn")
 ]
+var canSpawn = true;
 var time_in_s : int = 0;
 var total_time_in_m : int = 0;
 var total_time_in_s : int = 0;
-var canSpawn = true;
+var total_points : int = 0;
+
 
 func _ready():
 	#///TODO: сделать проигрышь всех треков, кроме нулевого по очереди и в рандомном порядке.
@@ -29,6 +31,7 @@ func _on_zombie_spawn_timer_timeout():
 	location.x = $Collisions/CollisionPolygon2D.polygon[rnd_index].x;
 	location.y = $Collisions/CollisionPolygon2D.polygon[rnd_index].y;
 	var scene = packed_scene[0].instantiate();
+	scene.connect("pointsSignal", Callable(self, "add_point"));
 	scene.position = location;
 	add_child(scene);
 	
@@ -37,3 +40,8 @@ func _on_lvl_timer_timeout():
 	total_time_in_s = time_in_s%60;
 	total_time_in_m = int(time_in_s/60.0);
 	$Player/uiCanvas/PlayerUI.show_time('%02d:%02d' % [total_time_in_m, total_time_in_s]);
+	
+func add_point(point : int):
+	total_points += point;
+	$Player/uiCanvas/PlayerUI.show_points(total_points);
+	
