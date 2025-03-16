@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 MusicPlayer="*res://music_player.tscn"
 Saves="*res://saves.gd"
+SaveLvl="*res://save_lvl.gd"
 
 [display]
 

@@ -5,6 +5,11 @@ extends CharacterBody2D;
 #//оружие 
 #///TODO: сделать список хранящий экземпляры оружия.
 #///TODO: скорее всего еще сделать сцену - класс, который как раз будет давать внешку, способности и второе оружие, а также статы.
+
+#//сохранения
+#///TODO: после выхода в главное меню из меню паузы сделать сохранение уровня(игрока, противников и мира). Потом при заходе в игру, высвечиваться будет, начать новую или продолжить(удаление при новой игры).
+#///TODO: при рестарте из меню паузы стирание данных игры.
+
 @export var weapon_scene : PackedScene;
 var weapon_instance: Node2D = null;
 @onready var hp = $healthComponent;
@@ -39,17 +44,16 @@ func damage(damage):
 func kill():
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
-	$deathCanvas/DeathScreen.show();
+	#$deathCanvas/DeathScreen.show();
+	$lvlPassCanvas/lvl_passed.lvlPass();
 	z_index = -1;
 	
-func restart():
-	get_tree().reload_current_scene();
-
-func _on_button_pressed():
-	restart();
-
-func _on_button_2_pressed():
-	get_tree().change_scene_to_file("res://menu.tscn");
+#func restart():  //deathCanvas
+	#get_tree().reload_current_scene();
+#func _on_button_pressed():
+	#restart();
+#func _on_button_2_pressed():
+	#get_tree().change_scene_to_file("res://menu.tscn");
 	
 func disablePM():
 	$pauseCanvas/PauseMenu.set_process(false);

@@ -9,7 +9,6 @@ var canSpawn = true;
 var time_in_s : int = 0;
 var total_time_in_m : int = 0;
 var total_time_in_s : int = 0;
-var total_points : int = 0;
 
 
 func _ready():
@@ -42,6 +41,5 @@ func _on_lvl_timer_timeout():
 	$Player/uiCanvas/PlayerUI.show_time('%02d:%02d' % [total_time_in_m, total_time_in_s]);
 	
 func add_point(point : int):
-	total_points += point;
-	$Player/uiCanvas/PlayerUI.show_points(total_points);
+	Saves.points += point;
 	

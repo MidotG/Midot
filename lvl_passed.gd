@@ -13,6 +13,9 @@ func _process(delta):
 
 func lvlPass():
 	disablePMSignal.emit();
+	Saves.currency += Saves.points/10;
+	Saves.points = 0;
+	Saves.save_game();
 	get_tree().paused = true;
 	show();
 

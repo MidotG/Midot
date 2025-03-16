@@ -52,6 +52,7 @@ limit_bottom = 1024
 editor_draw_limits = true
 
 [node name="deathCanvas" type="CanvasLayer" parent="." groups=["Player"]]
+visible = false
 
 [node name="DeathScreen" type="Control" parent="deathCanvas" groups=["Player"]]
 visible = false
@@ -126,6 +127,7 @@ visible = false
 layer = 0
 
 [node name="PlayerUI" parent="uiCanvas" groups=["Player"] instance=ExtResource("8_wfwef")]
+visible = false
 
 [node name="lvlPassCanvas" type="CanvasLayer" parent="."]
 
