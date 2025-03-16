@@ -32,8 +32,6 @@ func _physics_process(delta):
 	else:
 		move_speed = 250;
 		
-	
-	
 func kill():
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();

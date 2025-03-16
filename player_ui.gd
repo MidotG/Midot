@@ -10,12 +10,9 @@ extends Control
 @onready var hp_label = $VBoxContainer/hpLabel
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var cur_hp = hp.health/hp.max_health*100;
 	hp_label.value = cur_hp;
@@ -23,5 +20,3 @@ func _process(delta):
 	$pointsLbl.text = "Очки " + str(SaveLvl.points);
 	pass
 
-#func show_time(time):
-	#$VBoxContainer/timerLbl.text = "Время: " + time;

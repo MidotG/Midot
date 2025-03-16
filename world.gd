@@ -38,7 +38,6 @@ func _on_lvl_timer_timeout():
 	SaveLvl.time_in_s += 1;
 	SaveLvl.total_time_in_s = SaveLvl.time_in_s%60;
 	SaveLvl.total_time_in_m = int(SaveLvl.time_in_s/60.0);
-	#$Player/uiCanvas/PlayerUI.show_time('%02d:%02d' % [total_time_in_m, total_time_in_s]);
 	
 func add_point(point : int):
 	SaveLvl.points += point;
