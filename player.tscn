@@ -44,10 +44,6 @@ texture = ExtResource("2_p7jvg")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]
 process_callback = 0
-limit_left = -1024
-limit_top = -1024
-limit_right = 1024
-limit_bottom = 1024
 editor_draw_limits = true
 
 [node name="pauseCanvas" type="CanvasLayer" parent="." groups=["Player"]]

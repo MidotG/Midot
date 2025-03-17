@@ -26,9 +26,16 @@ func _process(delta):
 func _on_zombie_spawn_timer_timeout():
 	canSpawn = true;
 	randomize();
-	var rnd_index = randi() % $Collisions/CollisionPolygon2D.polygon.size();
-	location.x = $Collisions/CollisionPolygon2D.polygon[rnd_index].x;
-	location.y = $Collisions/CollisionPolygon2D.polygon[rnd_index].y;
+	#var rnd_index = randi() % $Collisions/CollisionPolygon2D.polygon.size();
+	#location.x = $Collisions/CollisionPolygon2D.polygon[rnd_index].x;
+	#location.y = $Collisions/CollisionPolygon2D.polygon[rnd_index].y;
+	
+	#///TODO: карту щас.
+	#///TODO: потом сделать спавн рандомный за экраном игрока.
+	var x = randf_range(-1500, 1500);
+	var y = randf_range(-2000, 2000);
+	location.x = $Player.global_position.x + x;
+	location.y = $Player.global_position.y + y;
 	var scene = packed_scene[0].instantiate();
 	scene.connect("pointsSignal", Callable(self, "add_point"));
 	scene.position = location;
