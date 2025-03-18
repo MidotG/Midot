@@ -38,13 +38,12 @@ script = ExtResource("1_o6ec0")
 [node name="FloorTileMap" type="TileMap" parent="Environment"]
 tile_set = SubResource("TileSet_w66x4")
 format = 2
-layer_0/tile_data = PackedInt32Array(-1, 1, 0, -65536, 1, 0, 65535, 1, 0, 0, 1, 0)
 script = ExtResource("3_cykuw")
 
 [node name="ObstacleTileMap" type="TileMap" parent="Environment"]
 tile_set = SubResource("TileSet_uq7ud")
 format = 2
-layer_0/tile_data = PackedInt32Array(-262147, 1, 0, -262146, 1, 0, -262145, 1, 0, -327680, 1, 0, -327679, 1, 0, -327678, 1, 0, -327677, 1, 0, -196612, 1, 0, -131076, 1, 0, -65540, 1, 0, -4, 1, 0, 65532, 1, 0, 131068, 1, 0, 196604, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 131077, 1, 0, 65541, 1, 0, 5, 1, 0, -65531, 1, 0, -131067, 1, 0, -196603, 1, 0, -262139, 1, 0, -327676, 1, 0)
+layer_0/tile_data = PackedInt32Array(-196612, 1, 0, -131076, 1, 0, 196604, 1, 0, 131077, 1, 0, -196603, 1, 0, -262139, 1, 0, 131068, 1, 0, 65541, 1, 0, -262147, 1, 0, 262141, 1, 0, -262146, 1, 0, 262142, 1, 0, -262145, 1, 0, 262143, 1, 0, -327678, 1, 0, 196610, 1, 0, -327677, 1, 0, 196611, 1, 0, -327676, 1, 0, 196612, 1, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_3pev5")]
 
