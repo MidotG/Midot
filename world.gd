@@ -2,9 +2,9 @@ extends Node2D
 
 @onready var player = $Player;
 const tile_size = 2048;
-const chunk_size = 8;
+const chunk_size = 4;
 var loaded_chunks ={};
-#var map_size = Vector2(1024, 1024);
+
 var location = Vector2();
 var packed_scene =[
 	preload("res://zombie.tscn")
@@ -58,8 +58,8 @@ func add_point(point : int):
 
 
 func update_chunks():
-	var pl_chunk_x = int(player.global_position.x / (chunk_size * tile_size));
-	var pl_chunk_y = int(player.global_position.y / (chunk_size * tile_size));
+	var pl_chunk_x = floor(player.global_position.x / (chunk_size * tile_size));
+	var pl_chunk_y = floor(player.global_position.y / (chunk_size * tile_size));
 	for x in range(pl_chunk_x - 1, pl_chunk_x + 2):
 		for y in range(pl_chunk_y - 1, pl_chunk_y + 2):
 			if not is_chunk_loaded(x, y):
