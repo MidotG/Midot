@@ -26,8 +26,8 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_uq7ud"]
 tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 17
-physics_layer_0/collision_mask = 23
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 22
 sources/1 = SubResource("TileSetAtlasSource_vbvas")
 
 [node name="World" type="Node2D"]
