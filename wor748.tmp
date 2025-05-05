@@ -38,7 +38,6 @@ script = ExtResource("1_o6ec0")
 [node name="FloorTileMap" type="TileMap" parent="Environment"]
 tile_set = SubResource("TileSet_w66x4")
 format = 2
-layer_0/tile_data = PackedInt32Array(65535, 1, 0, -1, 1, 0, -65536, 1, 0, 0, 1, 0)
 script = ExtResource("3_cykuw")
 
 [node name="ObstacleTileMap" type="TileMap" parent="Environment"]
@@ -52,16 +51,10 @@ layer_0/tile_data = PackedInt32Array(-196612, 1, 0, -131076, 1, 0, 196604, 1, 0,
 position = Vector2(6, -535)
 
 [node name="zombieSpawnTimer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
+wait_time = 0.8
 
 [node name="lvlTimer" type="Timer" parent="."]
 autostart = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-1028, 1016, 1012, 1024, 1028, -1012, -1024, -1024, -1028, 956, -1120, 932, -1132, -1096, 1080, -1116, 1100, 1128, -1112, 1144, -1104, 1008)
 
 [connection signal="timeout" from="zombieSpawnTimer" to="." method="_on_zombie_spawn_timer_timeout"]
 [connection signal="timeout" from="lvlTimer" to="." method="_on_lvl_timer_timeout"]
