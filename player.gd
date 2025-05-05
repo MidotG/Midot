@@ -4,11 +4,10 @@ extends CharacterBody2D;
 
 #//оружие 
 #///TODO: сделать список хранящий экземпляры оружия.
-#///TODO: скорее всего еще сделать сцену - класс, который как раз будет давать внешку, способности и второе оружие, а также статы.
 
-#//сохранения
-#///TODO: после выхода в главное меню из меню паузы сделать сохранение уровня(игрока, противников и мира). Потом при заходе в игру, высвечиваться будет, начать новую или продолжить(удаление при новой игры).
-#///TODO: при рестарте из меню паузы стирание данных игры.
+#///TODO: исправить баг с временем.
+#///TODO: придумать время, карту, препятствия и противников для 10 уровней.
+
 
 @export var weapon_scene : PackedScene;
 var weapon_instance: Node2D = null;
@@ -44,8 +43,11 @@ func damage(damage):
 func kill():
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
-	$lvlPassCanvas/lvl_passed.lvlPass();
+	$lvlPassCanvas/lvl_lost.lvlPass();
 	z_index = -1;
+
+func lvl_pass():
+	$lvlPassCanvas/lvl_passed.lvlPass();
 	
 func disablePM():
 	$pauseCanvas/PauseMenu.set_process(false);

@@ -15,9 +15,9 @@ radius = 17.0294
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(3, 3)
-collision_mask = 7
+collision_mask = 23
 script = ExtResource("1_bw486")
-move_speed = 1350
+move_speed = 400
 weapon_scene = ExtResource("7_4kg5e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
@@ -67,7 +67,16 @@ visible = false
 [node name="lvl_passed" parent="lvlPassCanvas" instance=ExtResource("10_umx1e")]
 visible = false
 
+[node name="lvl_lost" parent="lvlPassCanvas" instance=ExtResource("10_umx1e")]
+visible = false
+
+[node name="Label" parent="lvlPassCanvas/lvl_lost/Panel" index="0"]
+text = "Поражение
+"
+
 [node name="WeaponAttachment" type="Marker2D" parent="." groups=["Player"]]
 position = Vector2(22.3333, 0)
 
 [node name="healthComponent" parent="." groups=["Player"] instance=ExtResource("9_anxk5")]
+
+[editable path="lvlPassCanvas/lvl_lost"]
