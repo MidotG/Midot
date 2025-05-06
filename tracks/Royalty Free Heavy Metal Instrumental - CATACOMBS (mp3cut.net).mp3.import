@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buklap70t20"
+path="res://.godot/imported/Royalty Free Heavy Metal Instrumental - CATACOMBS (mp3cut.net).mp3-d0ab529838f0be64e4a25def8d19e564.mp3str"
+
+[deps]
+
+source_file="res://tracks/Royalty Free Heavy Metal Instrumental - CATACOMBS (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Royalty Free Heavy Metal Instrumental - CATACOMBS (mp3cut.net).mp3-d0ab529838f0be64e4a25def8d19e564.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ca5xdadpaoaar"
+path="res://.godot/imported/Royalty Free Thrash Metal Instrumental - BACK TO LIFE (mp3cut.net).mp3-2e64024e7e04d1da6573a3167fd56b89.mp3str"
+
+[deps]
+
+source_file="res://tracks/Royalty Free Thrash Metal Instrumental - BACK TO LIFE (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Royalty Free Thrash Metal Instrumental - BACK TO LIFE (mp3cut.net).mp3-2e64024e7e04d1da6573a3167fd56b89.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

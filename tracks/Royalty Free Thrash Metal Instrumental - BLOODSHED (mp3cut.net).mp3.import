@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wm7lypdce6my"
+path="res://.godot/imported/Royalty Free Thrash Metal Instrumental - BLOODSHED (mp3cut.net).mp3-75a0e761e8df5078beb9601e75d17538.mp3str"
+
+[deps]
+
+source_file="res://tracks/Royalty Free Thrash Metal Instrumental - BLOODSHED (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Royalty Free Thrash Metal Instrumental - BLOODSHED (mp3cut.net).mp3-75a0e761e8df5078beb9601e75d17538.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

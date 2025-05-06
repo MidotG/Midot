@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8t1i8t3c665m"
+path="res://.godot/imported/Royalty Free Thrash Metal Instrumental - CONSEQUENCE (mp3cut.net).mp3-327ffe0050e900d4db1e145bcb208b2e.mp3str"
+
+[deps]
+
+source_file="res://tracks/Royalty Free Thrash Metal Instrumental - CONSEQUENCE (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Royalty Free Thrash Metal Instrumental - CONSEQUENCE (mp3cut.net).mp3-327ffe0050e900d4db1e145bcb208b2e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

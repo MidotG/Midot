@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hnboylfu1ehy"
+path="res://.godot/imported/Royalty Free Thrash Metal Instrumental - PATH OF DESTRUCTION (mp3cut.net).mp3-7f0ca76bae71bcf127676bf4639c8a37.mp3str"
+
+[deps]
+
+source_file="res://tracks/Royalty Free Thrash Metal Instrumental - PATH OF DESTRUCTION (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Royalty Free Thrash Metal Instrumental - PATH OF DESTRUCTION (mp3cut.net).mp3-7f0ca76bae71bcf127676bf4639c8a37.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
