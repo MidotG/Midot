@@ -10,7 +10,7 @@ var packed_scene =[
 var canSpawn = true;
 
 func _ready():
-	MusicPlayer.play_track(6);
+	MusicPlayer.play_track(1);
 	$lvlTimer.start()
 
 func _process(delta):

@@ -8,6 +8,7 @@ extends CharacterBody2D;
 #///TODO: исправить баг с временем.
 #///TODO: придумать время, карту, препятствия и противников для 10 уровней.
 
+#///TODO: сделать меню лвлом.
 
 @export var weapon_scene : PackedScene;
 var weapon_instance: Node2D = null;
