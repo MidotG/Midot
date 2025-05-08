@@ -1,0 +1,193 @@
+[gd_scene load_steps=5 format=3 uid="uid://c48e62xc32hcu"]
+
+[ext_resource type="Script" path="res://lvl_menu.gd" id="1_cgyw3"]
+[ext_resource type="Texture2D" uid="uid://2vm5fxpts1qy" path="res://assets/WCP_Example.png" id="1_v0jvn"]
+[ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="2_21bvd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3nelw"]
+texture = ExtResource("1_v0jvn")
+modulate_color = Color(0.779291, 0.779291, 0.779291, 1)
+
+[node name="lvl_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cgyw3")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3nelw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 115.0
+offset_right = 99.0
+offset_bottom = 198.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 60
+text = "Выбери уровень"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -561.0
+offset_top = -113.0
+offset_right = 615.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.973641, 0.973641)
+
+[node name="lvl1" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 35
+text = "1 уровень"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="lvl2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 35
+text = "2 уровень"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="lvl3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 35
+text = "3 уровень"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="lvl4" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 35
+text = "4 уровень"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="lvl5" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 35
+text = "5 уровень"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -559.0
+offset_top = 148.0
+offset_right = 624.0
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.981166, 0.981166)
+
+[node name="lvl6" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 35
+text = "6 уровень"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="lvl7" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 35
+text = "7 уровень"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="lvl8" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 35
+text = "8 уровень"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="lvl9" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 35
+text = "9 уровень"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="lvl10" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 35
+text = "10 уровень"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="menuBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -98.5
+offset_top = -146.0
+offset_right = 98.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.24, 1.24)
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 35
+text = "Назад
+"
+vertical_icon_alignment = 0
+
+[connection signal="pressed" from="HBoxContainer/lvl1" to="." method="_on_lvl_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/lvl2" to="." method="_on_lvl_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/lvl3" to="." method="_on_lvl_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/lvl4" to="." method="_on_lvl_4_pressed"]
+[connection signal="pressed" from="HBoxContainer/lvl5" to="." method="_on_lvl_5_pressed"]
+[connection signal="pressed" from="HBoxContainer2/lvl6" to="." method="_on_lvl_6_pressed"]
+[connection signal="pressed" from="HBoxContainer2/lvl7" to="." method="_on_lvl_7_pressed"]
+[connection signal="pressed" from="HBoxContainer2/lvl8" to="." method="_on_lvl_8_pressed"]
+[connection signal="pressed" from="HBoxContainer2/lvl9" to="." method="_on_lvl_9_pressed"]
+[connection signal="pressed" from="HBoxContainer2/lvl10" to="." method="_on_lvl_10_pressed"]
+[connection signal="pressed" from="menuBtn" to="." method="_on_menu_btn_pressed"]
