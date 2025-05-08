@@ -32,7 +32,7 @@ func _on_zombie_spawn_timer_timeout():
 	add_child(scene);
 	
 func _on_lvl_timer_timeout():
-	if SaveLvl.time_in_s == 10:
+	if SaveLvl.time_in_s == 90:
 		player.lvl_pass();
 	SaveLvl.time_in_s += 1;
 	SaveLvl.total_time_in_s = SaveLvl.time_in_s%60;

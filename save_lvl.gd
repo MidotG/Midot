@@ -15,6 +15,13 @@ func _ready():
 func _process(delta):
 	pass;
 	
+func reload():
+	points = 0;
+	time_in_s = 0;
+	total_time_in_m = 0;
+	total_time_in_s = 0;
+	
+	
 #var world : Resource = preload("world.tres");
 
 #func write_save_lvl():

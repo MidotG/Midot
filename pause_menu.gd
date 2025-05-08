@@ -28,10 +28,11 @@ func _on_resume_btn_pressed():
 func _on_restart_btn_pressed():
 	get_tree().paused = false;
 	get_tree().reload_current_scene();
-	SaveLvl.points = 0;
+	SaveLvl.reload();
 	
 func _on_quit_lvl_btn_pressed():
 	get_tree().paused = false;
+	SaveLvl.reload();
 	get_tree().change_scene_to_file("res://menu.tscn");
 
 
