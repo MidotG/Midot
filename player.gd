@@ -10,6 +10,7 @@ extends CharacterBody2D;
 
 @export var weapon_scene : Array[PackedScene];
 var weapon_instance: Node2D = null;
+var weapon_num:int = 0;
 @onready var hp = $healthComponent;
 
 
@@ -18,7 +19,7 @@ func _ready():
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	$lvlPassCanvas/lvl_passed.connect("disablePMSignal", Callable(self, "disablePM"));
 	if weapon_scene:
-		weapon_instance = weapon_scene[0].instantiate();
+		weapon_instance = weapon_scene[weapon_num].instantiate();
 		$WeaponAttachment.add_child(weapon_instance);
 	pass;
 
@@ -28,6 +29,27 @@ func _process(delta):
 	look_at(get_global_mouse_position());
 	if Input.is_action_pressed("shoot"):
 		weapon_instance.shoot($WeaponAttachment.global_position);
+	if Input.is_action_just_pressed("w1"):
+		weapon_num = 0;
+		weapon_instance = weapon_scene[weapon_num].instantiate();
+		for n in $WeaponAttachment.get_children():
+			$WeaponAttachment.remove_child(n);
+			n.queue_free();
+		$WeaponAttachment.add_child(weapon_instance);
+	if Input.is_action_just_pressed("w2"):
+		weapon_num = 1;
+		weapon_instance = weapon_scene[weapon_num].instantiate();
+		for n in $WeaponAttachment.get_children():
+			$WeaponAttachment.remove_child(n);
+			n.queue_free();
+		$WeaponAttachment.add_child(weapon_instance);
+	if Input.is_action_just_pressed("w3"):
+		weapon_num = 2;
+		weapon_instance = weapon_scene[weapon_num].instantiate();
+		for n in $WeaponAttachment.get_children():
+			$WeaponAttachment.remove_child(n);
+			n.queue_free();
+		$WeaponAttachment.add_child(weapon_instance);
 		
 func _physics_process(delta):
 	if hp.dead:
