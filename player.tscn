@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cw1hvpgewhgqr"]
+[gd_scene load_steps=13 format=3 uid="uid://cw1hvpgewhgqr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bw486"]
 [ext_resource type="Texture2D" uid="uid://y44ig46cs84m" path="res://assets/player/player_9mmhandgun.png" id="1_mjgwp"]
 [ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="2_fsbpj"]
 [ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="2_p7jvg"]
+[ext_resource type="PackedScene" uid="uid://dnbg586y4enim" path="res://automatic_rifle.tscn" id="3_e5nra"]
+[ext_resource type="PackedScene" uid="uid://dvuwy3cfdlgpw" path="res://minigun.tscn" id="4_4sdh5"]
 [ext_resource type="PackedScene" uid="uid://cb6lckxbntk7" path="res://pause_menu.tscn" id="6_53bqc"]
 [ext_resource type="PackedScene" uid="uid://byt1d0fvuxhgi" path="res://pistol.tscn" id="7_4kg5e"]
 [ext_resource type="PackedScene" uid="uid://bho1v10vj4v3y" path="res://player_ui.tscn" id="8_wfwef"]
@@ -18,7 +20,7 @@ scale = Vector2(3, 3)
 collision_mask = 23
 script = ExtResource("1_bw486")
 move_speed = 400
-weapon_scene = ExtResource("7_4kg5e")
+weapon_scene = Array[PackedScene]([ExtResource("7_4kg5e"), ExtResource("3_e5nra"), ExtResource("4_4sdh5")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0.333333, 0.333333)

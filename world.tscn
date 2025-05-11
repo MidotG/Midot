@@ -1,22 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://conuevhuodj1i"]
+[gd_scene load_steps=10 format=3 uid="uid://conuevhuodj1i"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_o6ec0"]
 [ext_resource type="Texture2D" uid="uid://bln4jafahgiti" path="res://assets/ground3.jpg" id="1_wt6ws"]
 [ext_resource type="PackedScene" uid="uid://cw1hvpgewhgqr" path="res://player.tscn" id="2_3pev5"]
 [ext_resource type="PackedScene" uid="uid://ba4x13miijrqd" path="res://zombie.tscn" id="3_8kwyn"]
-[ext_resource type="Script" path="res://FloorTileMap.gd" id="3_cykuw"]
 [ext_resource type="Texture2D" uid="uid://b0b35goo3q6qd" path="res://assets/jawbreaker_tiles.png" id="3_xa52y"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5rtkv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qnmn6"]
 texture = ExtResource("1_wt6ws")
 texture_region_size = Vector2i(2048, 2048)
 0:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_w66x4"]
+[sub_resource type="TileSet" id="TileSet_84ubv"]
 tile_size = Vector2i(2048, 2048)
-sources/1 = SubResource("TileSetAtlasSource_5rtkv")
+sources/0 = SubResource("TileSetAtlasSource_qnmn6")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vbvas"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_57sps"]
 texture = ExtResource("3_xa52y")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -28,7 +27,7 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 22
-sources/1 = SubResource("TileSetAtlasSource_vbvas")
+sources/1 = SubResource("TileSetAtlasSource_57sps")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_o6ec0")
@@ -36,15 +35,14 @@ script = ExtResource("1_o6ec0")
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="FloorTileMap" type="TileMap" parent="Environment"]
-tile_set = SubResource("TileSet_w66x4")
+tile_set = SubResource("TileSet_84ubv")
 format = 2
-layer_0/tile_data = PackedInt32Array(65535, 1, 0, -1, 1, 0, -65536, 1, 0, 0, 1, 0)
-script = ExtResource("3_cykuw")
+layer_0/tile_data = PackedInt32Array(-1, 0, 0, 65535, 0, 0, 0, 0, 0, -65536, 0, 0)
 
 [node name="ObstacleTileMap" type="TileMap" parent="Environment"]
 tile_set = SubResource("TileSet_uq7ud")
 format = 2
-layer_0/tile_data = PackedInt32Array(-196603, 1, 0, -262139, 1, 0, -262146, 1, 0, -327678, 1, 0, -327677, 1, 0, -327676, 1, 0, 786417, 1, 0, 851953, 1, 0, 917489, 1, 0, 983025, 1, 0, 851954, 1, 0, 786418, 1, 0, 917490, 1, 0, 983026, 1, 0, 851955, 1, 0, 917491, 1, 0, 983027, 1, 0, 524299, 1, 0, 589835, 1, 0, 655371, 1, 0, 720907, 1, 0, 720906, 1, 0, 655370, 1, 0, 589834, 1, 0, 589836, 1, 0, 524300, 1, 0, 524301, 1, 0, 458765, 1, 0, 655372, 1, 0, 786442, 1, 0, 786441, 1, 0, 720905, 1, 0, -589837, 1, 0, -655373, 1, 0, -720908, 1, 0, -786444, 1, 0, -786443, 1, 0, -720907, 1, 0, -655371, 1, 0, -589836, 1, 0, -524300, 1, 0, -655372, 1, 0, -524301, 1, 0, -458765, 1, 0, -851961, 1, 0, -851960, 1, 0, -851959, 1, 0, -851958, 1, 0, -786422, 1, 0, -720886, 1, 0, -786423, 1, 0, -917495, 1, 0, -917496, 1, 0, -786421, 1, 0, -786420, 1, 0, -720884, 1, 0, -917498, 1, 0, -917497, 1, 0, 262137, 1, 0, 262138, 1, 0, 327675, 1, 0, 327676, 1, 0, 393213, 1, 0, 262139, 1, 0, 196601, 1, 0, 196602, 1, 0, -196614, 1, 0, -131078, 1, 0, -131079, 1, 0)
+layer_0/tile_data = PackedInt32Array(-196603, 1, 0, -262139, 1, 0, -262146, 1, 0, -327678, 1, 0, -327677, 1, 0, -327676, 1, 0, 786417, 1, 0, 851953, 1, 0, 917489, 1, 0, 983025, 0, 0, 851954, 1, 0, 786418, 1, 0, 917490, 1, 0, 983026, 0, 0, 851955, 1, 0, 917491, 1, 0, 983027, 0, 0, 524299, 1, 0, 589835, 1, 0, 655371, 1, 0, 720907, 1, 0, 720906, 1, 0, 655370, 1, 0, 589834, 1, 0, 589836, 1, 0, 524300, 1, 0, 524301, 1, 0, 458765, 1, 0, 655372, 1, 0, 786442, 1, 0, 786441, 1, 0, 720905, 1, 0, -589837, 1, 0, -655373, 1, 0, -720908, 1, 0, -786444, 1, 0, -786443, 1, 0, -720907, 1, 0, -655371, 1, 0, -589836, 1, 0, -524300, 1, 0, -655372, 1, 0, -524301, 1, 0, -458765, 1, 0, -851961, 1, 0, -851960, 1, 0, -851959, 1, 0, -851958, 1, 0, -786422, 1, 0, -720886, 1, 0, -786423, 1, 0, -917495, 1, 0, -917496, 1, 0, -786421, 1, 0, -786420, 1, 0, -720884, 1, 0, -917498, 1, 0, -917497, 1, 0, 262137, 1, 0, 262138, 1, 0, 327675, 1, 0, 327676, 1, 0, 393213, 1, 0, 262139, 1, 0, 196601, 1, 0, 196602, 1, 0, -196614, 1, 0, -131078, 1, 0, -131079, 1, 0, 393212, 1, 0, 589837, 1, 0, -786424, 1, 0, -786445, 1, 0, -720909, 1, 0, -458764, 1, 0, -589835, 1, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_3pev5")]
 
@@ -52,6 +50,7 @@ layer_0/tile_data = PackedInt32Array(-196603, 1, 0, -262139, 1, 0, -262146, 1, 0
 position = Vector2(6, -535)
 
 [node name="zombieSpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
 autostart = true
 
 [node name="lvlTimer" type="Timer" parent="."]

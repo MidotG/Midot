@@ -8,7 +8,7 @@ extends CharacterBody2D;
 #///TODO: придумать время, карту, препятствия и противников для 10 уровней.
 
 
-@export var weapon_scene : PackedScene;
+@export var weapon_scene : Array[PackedScene];
 var weapon_instance: Node2D = null;
 @onready var hp = $healthComponent;
 
@@ -18,7 +18,7 @@ func _ready():
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	$lvlPassCanvas/lvl_passed.connect("disablePMSignal", Callable(self, "disablePM"));
 	if weapon_scene:
-		weapon_instance = weapon_scene.instantiate();
+		weapon_instance = weapon_scene[0].instantiate();
 		$WeaponAttachment.add_child(weapon_instance);
 	pass;
 
@@ -26,7 +26,7 @@ func _process(delta):
 	if hp.dead:
 		return;
 	look_at(get_global_mouse_position());
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot"):
 		weapon_instance.shoot($WeaponAttachment.global_position);
 		
 func _physics_process(delta):
