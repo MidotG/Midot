@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://f2xvw0d83lq8"]
+[gd_scene load_steps=5 format=3 uid="uid://f2xvw0d83lq8"]
 
 [ext_resource type="Script" path="res://shop.gd" id="1_1kmc7"]
 [ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="2_h4uqy"]
-[ext_resource type="Texture2D" uid="uid://bksotby7lvjji" path="res://assets/characters_avatar/M-Raga5QwLs.jpg" id="3_7uoxq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngclu"]
 bg_color = Color(0.408329, 0.408329, 0.408329, 1)
@@ -39,7 +38,8 @@ offset_bottom = 115.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 45
-text = "Персонажи"
+text = "Оружие
+"
 horizontal_alignment = 1
 
 [node name="balanceLabel" type="Label" parent="shopPanel"]
@@ -67,14 +67,14 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ngclu")
 
-[node name="characterInfo" type="Panel" parent="shopPanel/choicePanel"]
+[node name="weaponInfo" type="Panel" parent="shopPanel/choicePanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -717.0
+offset_left = -194.0
 offset_top = -441.5
 offset_right = 937.0
 offset_bottom = 446.5
@@ -82,103 +82,101 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_52ttq")
 
-[node name="Sprite2D" type="Sprite2D" parent="shopPanel/choicePanel/characterInfo"]
-position = Vector2(1266.5, 442)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_7uoxq")
+[node name="Label2" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 45.0
+offset_right = 539.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
+text = "Оружие: ..."
 
-[node name="Label" type="Label" parent="shopPanel/choicePanel/characterInfo"]
+[node name="Label5" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 151.0
+offset_right = 301.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
+text = "Урон: ... "
+
+[node name="Label6" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
+offset_left = 53.0
+offset_top = 666.0
+offset_right = 301.0
+offset_bottom = 708.0
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
+text = "Цена: ..."
+
+[node name="Label7" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
+visible = false
+offset_left = 53.0
+offset_top = 609.0
+offset_right = 301.0
+offset_bottom = 651.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
+text = "Недостаточно средств!"
+
+[node name="buyBtn" type="Button" parent="shopPanel/choicePanel/weaponInfo"]
 layout_mode = 1
-offset_left = 53.0
-offset_top = 38.0
-offset_right = 256.0
-offset_bottom = 80.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1088.0
+offset_top = 758.0
+offset_right = -695.0
+offset_bottom = 851.0
+grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
-text = "Имя: ... ."
+text = "Купить"
 
-[node name="Label2" type="Label" parent="shopPanel/choicePanel/characterInfo"]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 115.0
-offset_right = 256.0
-offset_bottom = 157.0
-theme_override_fonts/font = ExtResource("2_h4uqy")
-theme_override_font_sizes/font_size = 30
-text = "Оружие: ... (колво патрон)."
-
-[node name="Label3" type="Label" parent="shopPanel/choicePanel/characterInfo"]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 196.0
-offset_right = 301.0
-offset_bottom = 238.0
-theme_override_fonts/font = ExtResource("2_h4uqy")
-theme_override_font_sizes/font_size = 30
-text = "Способность: ... ."
-
-[node name="Label4" type="Label" parent="shopPanel/choicePanel/characterInfo"]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 682.0
-offset_right = 301.0
-offset_bottom = 724.0
-theme_override_fonts/font = ExtResource("2_h4uqy")
-theme_override_font_sizes/font_size = 30
-text = "Здоровье: ... ."
-
-[node name="Label5" type="Label" parent="shopPanel/choicePanel/characterInfo"]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 757.0
-offset_right = 301.0
-offset_bottom = 799.0
-theme_override_fonts/font = ExtResource("2_h4uqy")
-theme_override_font_sizes/font_size = 30
-text = "Урон: ... ."
-
-[node name="commonBtn" type="Button" parent="shopPanel/choicePanel"]
+[node name="riffleBtn" type="Button" parent="shopPanel/choicePanel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1901.0
 offset_top = 27.0
-offset_right = -1701.0
-offset_bottom = 97.0
+offset_right = -1205.0
+offset_bottom = 125.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_h4uqy")
-theme_override_font_sizes/font_size = 20
-text = "обычный"
+theme_override_font_sizes/font_size = 30
+text = "Автомат"
 
-[node name="firemanBtn" type="Button" parent="shopPanel/choicePanel"]
+[node name="minigunBtn" type="Button" parent="shopPanel/choicePanel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1901.0
-offset_top = 122.0
-offset_right = -1701.0
-offset_bottom = 192.0
+offset_top = 158.0
+offset_right = -1207.0
+offset_bottom = 251.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_h4uqy")
-theme_override_font_sizes/font_size = 20
-text = "крутой"
+theme_override_font_sizes/font_size = 30
+text = "Пулемет"
 
-[node name="noRightsBtn" type="Button" parent="shopPanel/choicePanel"]
+[node name="chooseBtn" type="Button" parent="shopPanel/choicePanel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1901.0
-offset_top = 224.0
-offset_right = -1701.0
-offset_bottom = 294.0
+offset_left = -433.0
+offset_top = 792.0
+offset_right = -57.0
+offset_bottom = 885.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_h4uqy")
-theme_override_font_sizes/font_size = 20
-text = "...
-"
+theme_override_font_sizes/font_size = 30
+text = "Взять"
 
 [node name="MenuButton" type="Button" parent="shopPanel"]
 layout_mode = 1
@@ -190,7 +188,10 @@ offset_top = 21.0
 offset_right = -20.0
 offset_bottom = 121.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 text = "Меню"
 
+[connection signal="pressed" from="shopPanel/choicePanel/riffleBtn" to="." method="_on_riffle_btn_pressed"]
+[connection signal="pressed" from="shopPanel/choicePanel/minigunBtn" to="." method="_on_minigun_btn_pressed"]
+[connection signal="pressed" from="shopPanel/choicePanel/chooseBtn" to="." method="_on_choose_btn_pressed"]
 [connection signal="pressed" from="shopPanel/MenuButton" to="." method="_on_menu_button_pressed"]

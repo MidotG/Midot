@@ -8,10 +8,12 @@ extends CharacterBody2D;
 #///TODO: придумать время, карту, препятствия и противников для 10 уровней.
 
 
+@onready var hp = $healthComponent;
 @export var weapon_scene : Array[PackedScene];
 var weapon_instance: Node2D = null;
 var weapon_num:int = 0;
-@onready var hp = $healthComponent;
+var current_weapons = []
+var current_weapon_index = 0
 
 
 func _ready():
@@ -36,14 +38,14 @@ func _process(delta):
 			$WeaponAttachment.remove_child(n);
 			n.queue_free();
 		$WeaponAttachment.add_child(weapon_instance);
-	if Input.is_action_just_pressed("w2"):
+	if Input.is_action_just_pressed("w2") && Saves.unlocked_weapons["RIFFLE"]:
 		weapon_num = 1;
 		weapon_instance = weapon_scene[weapon_num].instantiate();
 		for n in $WeaponAttachment.get_children():
 			$WeaponAttachment.remove_child(n);
 			n.queue_free();
 		$WeaponAttachment.add_child(weapon_instance);
-	if Input.is_action_just_pressed("w3"):
+	if Input.is_action_just_pressed("w3") && Saves.unlocked_weapons["MINIGUN"]:
 		weapon_num = 2;
 		weapon_instance = weapon_scene[weapon_num].instantiate();
 		for n in $WeaponAttachment.get_children():

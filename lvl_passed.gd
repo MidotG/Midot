@@ -13,6 +13,7 @@ func lvlPass():
 	$Panel/VBoxContainer/totalPoints.text = "Очков заработано: " + str(SaveLvl.points);
 	Saves.currency += SaveLvl.points/10;
 	SaveLvl.points = 0;
+	SaveLvl.reload();
 	Saves.save_game();
 	get_tree().paused = true;
 	show();
