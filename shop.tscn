@@ -103,11 +103,12 @@ theme_override_font_sizes/font_size = 30
 text = "Урон: ... "
 
 [node name="Label6" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
+visible = false
 layout_mode = 0
-offset_left = 53.0
-offset_top = 666.0
-offset_right = 301.0
-offset_bottom = 708.0
+offset_left = 45.0
+offset_top = 452.0
+offset_right = 293.0
+offset_bottom = 494.0
 theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
 text = "Цена: ..."
@@ -115,10 +116,10 @@ text = "Цена: ..."
 [node name="Label7" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
 visible = false
 layout_mode = 0
-offset_left = 53.0
-offset_top = 609.0
-offset_right = 301.0
-offset_bottom = 651.0
+offset_left = 45.0
+offset_top = 395.0
+offset_right = 423.0
+offset_bottom = 437.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
@@ -126,9 +127,9 @@ text = "Недостаточно средств!"
 
 [node name="Label8" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
 visible = false
-offset_left = 725.0
+offset_left = 47.0
 offset_top = 690.0
-offset_right = 1103.0
+offset_right = 425.0
 offset_bottom = 732.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_h4uqy")
@@ -137,9 +138,9 @@ text = "Не куплено!"
 
 [node name="Label9" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
 visible = false
-offset_left = 725.0
+offset_left = 47.0
 offset_top = 690.0
-offset_right = 1103.0
+offset_right = 425.0
 offset_bottom = 732.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_h4uqy")
@@ -151,14 +152,50 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1088.0
-offset_top = 758.0
-offset_right = -695.0
-offset_bottom = 851.0
+offset_left = -1096.0
+offset_top = 544.0
+offset_right = -703.0
+offset_bottom = 637.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
 text = "Купить"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="shopPanel/choicePanel/weaponInfo"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -372.0
+offset_top = -129.0
+offset_right = -39.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="inv1" type="Button" parent="shopPanel/choicePanel/weaponInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
+
+[node name="inv2" type="Button" parent="shopPanel/choicePanel/weaponInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
+
+[node name="Label3" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
+offset_left = 757.0
+offset_top = 690.0
+offset_right = 1086.0
+offset_bottom = 732.0
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
+text = "Инвентарь"
+horizontal_alignment = 1
 
 [node name="riffleBtn" type="Button" parent="shopPanel/choicePanel"]
 layout_mode = 1
@@ -207,9 +244,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -433.0
+offset_left = -1111.0
 offset_top = 792.0
-offset_right = -57.0
+offset_right = -735.0
 offset_bottom = 885.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_h4uqy")

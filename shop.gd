@@ -11,15 +11,14 @@ extends Control
 @onready var label_9 = $shopPanel/choicePanel/weaponInfo/Label9;
 @onready var buy_btn = $shopPanel/choicePanel/weaponInfo/buyBtn;
 @onready var choose_btn = $shopPanel/choicePanel/chooseBtn;
+@onready var inv_1 = $shopPanel/choicePanel/weaponInfo/HBoxContainer/inv1;
+@onready var inv_2 = $shopPanel/choicePanel/weaponInfo/HBoxContainer/inv2;
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	inv();
 	$shopPanel/balanceLabel.text += str(Saves.currency);
 	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$shopPanel/balanceLabel.text = "Баланс: " + str(Saves.currency);
 	if Input.is_action_just_pressed("pause"):
@@ -124,4 +123,14 @@ func _on_choose_btn_pressed(weapon_name: String):
 	label_8.visible = false;
 	label_9.visible = false;
 	Saves.save_game();
+	inv();
+
+func inv():
+	if Saves.selected_weapons.size() == 0:
+		return;
+	if Saves.selected_weapons.size() == 1:
+		inv_1.text = Saves.selected_weapons[0];
+	else:
+		inv_1.text = Saves.selected_weapons[0];
+		inv_2.text = Saves.selected_weapons[1];
 

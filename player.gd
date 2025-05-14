@@ -2,9 +2,6 @@ extends CharacterBody2D;
 
 @export var move_speed = 350;
 
-#//оружие 
-#///TODO: сделать список хранящий экземпляры оружия.
-
 #///TODO: придумать время, карту, препятствия и противников для 10 уровней.
 
 
@@ -21,7 +18,7 @@ var selected_weapons = Saves.selected_weapons;
 
 
 func _ready():
-	Saves.load_game();
+	#Saves.load_game();
 	$uiCanvas/PlayerUI.show();
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	$lvlPassCanvas/lvl_passed.connect("disablePMSignal", Callable(self, "disablePM"));
