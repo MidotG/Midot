@@ -9,61 +9,60 @@ extends CharacterBody2D;
 
 
 @onready var hp = $healthComponent;
-var weapon_scene = [
-	preload("res://pistol.tscn"),
-	preload("res://automatic_rifle.tscn"),
-	preload("res://minigun.tscn")
-];
+var weapon_scene = {
+	"PISTOL": preload("res://pistol.tscn"),
+	"RIFFLE": preload("res://automatic_rifle.tscn"),
+	"MINIGUN": preload("res://minigun.tscn"),
+	"NIGA": preload("res://niga.tscn")
+};
 var weapon_instance: Node2D = null;
 var weapon_num:int = 0;
 var selected_weapons = Saves.selected_weapons;
 
 
 func _ready():
+	Saves.load_game();
 	$uiCanvas/PlayerUI.show();
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	$lvlPassCanvas/lvl_passed.connect("disablePMSignal", Callable(self, "disablePM"));
 	if weapon_scene:
-		weapon_instance = weapon_scene[weapon_num].instantiate();
+		weapon_instance = weapon_scene["PISTOL"].instantiate();
 		$WeaponAttachment.add_child(weapon_instance);
-	
 	pass;
 
 func _process(delta):
 	if hp.dead:
 		return;
 	look_at(get_global_mouse_position());
+	print(Saves.selected_weapons.size());
 	if Input.is_action_pressed("shoot"):
 		weapon_instance.shoot($WeaponAttachment.global_position);
 	if Input.is_action_just_pressed("w1"):
-		weapon_num = 0;
-		weapon_instance = weapon_scene[weapon_num].instantiate();
+		weapon_instance = weapon_scene["PISTOL"].instantiate();
 		for n in $WeaponAttachment.get_children():
 			$WeaponAttachment.remove_child(n);
 			n.queue_free();
 		$WeaponAttachment.add_child(weapon_instance);
-	if Input.is_action_just_pressed("w2") && Saves.unlocked_weapons["RIFFLE"]:
-		weapon_num = 1;
-		weapon_instance = weapon_scene[weapon_num].instantiate();
+	if Input.is_action_just_pressed("w2"):
+		if Saves.selected_weapons.size() < 1:
+			return;
+		if Saves.selected_weapons[0] == null:
+			return;
+		weapon_instance = weapon_scene[Saves.selected_weapons[0]].instantiate();
 		for n in $WeaponAttachment.get_children():
 			$WeaponAttachment.remove_child(n);
 			n.queue_free();
 		$WeaponAttachment.add_child(weapon_instance);
-	if Input.is_action_just_pressed("w3") && Saves.unlocked_weapons["MINIGUN"]:
-		weapon_num = 2;
-		weapon_instance = weapon_scene[weapon_num].instantiate();
+	if Input.is_action_just_pressed("w3"):
+		if Saves.selected_weapons.size() < 2:
+			return;
+		if Saves.selected_weapons[1] == null:
+			return;
+		weapon_instance = weapon_scene[Saves.selected_weapons[1]].instantiate();
 		for n in $WeaponAttachment.get_children():
 			$WeaponAttachment.remove_child(n);
 			n.queue_free();
 		$WeaponAttachment.add_child(weapon_instance);
-		
-func update_weapon(weapon_name):
-	weapon_num = 2;
-	weapon_instance = weapon_scene[weapon_num].instantiate();
-	for n in $WeaponAttachment.get_children():
-		$WeaponAttachment.remove_child(n);
-		n.queue_free();
-	$WeaponAttachment.add_child(weapon_instance);
 		
 func _physics_process(delta):
 	if hp.dead:

@@ -124,6 +124,28 @@ theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
 text = "Недостаточно средств!"
 
+[node name="Label8" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
+visible = false
+offset_left = 725.0
+offset_top = 690.0
+offset_right = 1103.0
+offset_bottom = 732.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
+text = "Не куплено!"
+
+[node name="Label9" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
+visible = false
+offset_left = 725.0
+offset_top = 690.0
+offset_right = 1103.0
+offset_bottom = 732.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
+text = "Уже взято!"
+
 [node name="buyBtn" type="Button" parent="shopPanel/choicePanel/weaponInfo"]
 layout_mode = 1
 anchors_preset = 1
@@ -166,6 +188,20 @@ theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
 text = "Пулемет"
 
+[node name="nigaBtn" type="Button" parent="shopPanel/choicePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1901.0
+offset_top = 284.0
+offset_right = -1207.0
+offset_bottom = 377.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
+text = "niga"
+
 [node name="chooseBtn" type="Button" parent="shopPanel/choicePanel"]
 layout_mode = 1
 anchors_preset = 1
@@ -195,4 +231,5 @@ text = "Меню"
 
 [connection signal="pressed" from="shopPanel/choicePanel/riffleBtn" to="." method="_on_riffle_btn_pressed"]
 [connection signal="pressed" from="shopPanel/choicePanel/minigunBtn" to="." method="_on_minigun_btn_pressed"]
+[connection signal="pressed" from="shopPanel/choicePanel/nigaBtn" to="." method="_on_niga_btn_pressed"]
 [connection signal="pressed" from="shopPanel/MenuButton" to="." method="_on_menu_button_pressed"]

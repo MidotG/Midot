@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://cw1hvpgewhgqr"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_bw486"]
+[ext_resource type="Texture2D" uid="uid://y44ig46cs84m" path="res://assets/player/player_9mmhandgun.png" id="1_mjgwp"]
+[ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="2_fsbpj"]
+[ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="2_p7jvg"]
+[ext_resource type="PackedScene" uid="uid://cb6lckxbntk7" path="res://pause_menu.tscn" id="6_53bqc"]
+[ext_resource type="PackedScene" uid="uid://bho1v10vj4v3y" path="res://player_ui.tscn" id="8_wfwef"]
+[ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="9_anxk5"]
+[ext_resource type="PackedScene" uid="uid://c3q74aq55byq8" path="res://lvl_passed.tscn" id="10_umx1e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b8nwd"]
+radius = 17.0294
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+scale = Vector2(3, 3)
+collision_mask = 23
+script = ExtResource("1_bw486")
+move_speed = 400
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
+position = Vector2(0.333333, 0.333333)
+shape = SubResource("CircleShape2D_b8nwd")
+
+[node name="Graphics" type="Node2D" parent="." groups=["Player"]]
+
+[node name="Alive" type="Sprite2D" parent="Graphics" groups=["Player"]]
+visibility_layer = 3
+z_index = 1
+texture = ExtResource("2_fsbpj")
+
+[node name="Dead" type="Sprite2D" parent="Graphics" groups=["Player"]]
+visible = false
+z_index = -1
+position = Vector2(0, -1)
+texture = ExtResource("1_mjgwp")
+
+[node name="114" type="Sprite2D" parent="Graphics/Dead" groups=["Player"]]
+show_behind_parent = true
+position = Vector2(0, 1)
+scale = Vector2(1.86, 1.86)
+texture = ExtResource("2_p7jvg")
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]
+process_callback = 0
+limit_left = -1024
+limit_top = -1024
+limit_right = 1024
+limit_bottom = 1024
+editor_draw_limits = true
+
+[node name="pauseCanvas" type="CanvasLayer" parent="." groups=["Player"]]
+
+[node name="PauseMenu" parent="pauseCanvas" groups=["Player"] instance=ExtResource("6_53bqc")]
+visible = false
+
+[node name="uiCanvas" type="CanvasLayer" parent="." groups=["Player"]]
+layer = 0
+
+[node name="PlayerUI" parent="uiCanvas" groups=["Player"] instance=ExtResource("8_wfwef")]
+visible = false
+
+[node name="lvlPassCanvas" type="CanvasLayer" parent="."]
+
+[node name="lvl_passed" parent="lvlPassCanvas" instance=ExtResource("10_umx1e")]
+visible = false
+
+[node name="lvl_lost" parent="lvlPassCanvas" instance=ExtResource("10_umx1e")]
+visible = false
+
+[node name="Label" parent="lvlPassCanvas/lvl_lost/Panel" index="0"]
+text = "Поражение
+"
+
+[node name="WeaponAttachment" type="Marker2D" parent="." groups=["Player"]]
+position = Vector2(22.3333, 0)
+
+[node name="healthComponent" parent="." groups=["Player"] instance=ExtResource("9_anxk5")]
+
+[editable path="lvlPassCanvas/lvl_lost"]

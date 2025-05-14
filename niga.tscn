@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct1kvrkanbrki"]
+
+[ext_resource type="Script" path="res://niga.gd" id="1_q43gu"]
+[ext_resource type="Texture2D" uid="uid://cd3vhvdd8x6r4" path="res://assets/weapon/TheUltimateWeaponsPack_Sheet.png" id="2_mewcf"]
+[ext_resource type="Texture2D" uid="uid://bjbcnhv8n5qgj" path="res://assets/bullets/Bullet 24x24 Free Part 3A.png" id="3_ydxdj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx8fy"]
+atlas = ExtResource("3_ydxdj")
+region = Rect2(386, 7, 19, 10)
+
+[node name="niga" type="Node2D"]
+script = ExtResource("1_q43gu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1, 0)
+scale = Vector2(1.05556, 0.944444)
+texture = ExtResource("2_mewcf")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(384, 0, 36, 18)
+
+[node name="RayCast2D" type="RayCast2D" parent="." groups=["weapon"]]
+target_position = Vector2(1000, 0)
+collision_mask = 3
+
+[node name="MuzzleFlash" type="Sprite2D" parent="." groups=["weapon"]]
+position = Vector2(20, 0)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_tx8fy")
+
+[node name="Timer" type="Timer" parent="MuzzleFlash" groups=["weapon"]]
+wait_time = 0.05
+
+[node name="shootSpeedTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="MuzzleFlash/Timer" to="MuzzleFlash" method="hide"]
+[connection signal="timeout" from="shootSpeedTimer" to="." method="_on_shoot_speed_timer_timeout"]

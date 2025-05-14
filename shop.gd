@@ -7,6 +7,8 @@ extends Control
 @onready var label_5 = $shopPanel/choicePanel/weaponInfo/Label5;
 @onready var label_6 = $shopPanel/choicePanel/weaponInfo/Label6;
 @onready var label_7 = $shopPanel/choicePanel/weaponInfo/Label7;
+@onready var label_8 = $shopPanel/choicePanel/weaponInfo/Label8;
+@onready var label_9 = $shopPanel/choicePanel/weaponInfo/Label9;
 @onready var buy_btn = $shopPanel/choicePanel/weaponInfo/buyBtn;
 @onready var choose_btn = $shopPanel/choicePanel/chooseBtn;
 
@@ -31,6 +33,9 @@ func _on_riffle_btn_pressed():
 	label_2.text = "Оружие: Автомат";
 	label_5.text = "Урон: 10ур/выстр.";
 	label_6.text = "Цена: 50";
+	label_7.visible = false;
+	label_8.visible = false;
+	label_9.visible = false;
 	if Saves.unlocked_weapons["RIFFLE"]:
 		buy_btn.disabled = true;
 	else:
@@ -39,14 +44,17 @@ func _on_riffle_btn_pressed():
 		for con in buy_btn.pressed.get_connections():
 			buy_btn.pressed.disconnect(con.callable);
 		buy_btn.pressed.connect(riffle_buy_button);
-		for con in choose_btn.pressed.get_connections():
-			choose_btn.pressed.disconnect(con.callable);
-		choose_btn.pressed.connect(_on_choose_btn_pressed.bind("RIFFLE"));
+	for con in choose_btn.pressed.get_connections():
+		choose_btn.pressed.disconnect(con.callable);
+	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("RIFFLE"));
 
 func _on_minigun_btn_pressed():
 	label_2.text = "Оружие: Пулемет";
 	label_5.text = "Урон: 10ур/выстр.";
 	label_6.text = "Цена: 200";
+	label_7.visible = false;
+	label_8.visible = false;
+	label_9.visible = false;
 	if Saves.unlocked_weapons["MINIGUN"]:
 		buy_btn.disabled = true;
 	else:
@@ -55,9 +63,28 @@ func _on_minigun_btn_pressed():
 		for con in buy_btn.pressed.get_connections():
 			buy_btn.pressed.disconnect(con.callable);
 		buy_btn.pressed.connect(minigun_buy_button);
-		for con in choose_btn.pressed.get_connections():
-			choose_btn.pressed.disconnect(con.callable);
-		choose_btn.pressed.connect(_on_choose_btn_pressed.bind("MINIGUN"));
+	for con in choose_btn.pressed.get_connections():
+		choose_btn.pressed.disconnect(con.callable);
+	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("MINIGUN"));
+
+func _on_niga_btn_pressed():
+	label_2.text = "Оружие: niga";
+	label_5.text = "Урон: 10ур/выстр.";
+	label_6.text = "Цена: 1";
+	label_7.visible = false;
+	label_8.visible = false;
+	label_9.visible = false;
+	if Saves.unlocked_weapons["NIGA"]:
+		buy_btn.disabled = true;
+	else:
+		buy_btn.disabled = false;
+	if !Saves.unlocked_weapons["NIGA"]:
+		for con in buy_btn.pressed.get_connections():
+			buy_btn.pressed.disconnect(con.callable);
+		buy_btn.pressed.connect(niga_buy_button);
+	for con in choose_btn.pressed.get_connections():
+		choose_btn.pressed.disconnect(con.callable);
+	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("NIGA"));
 
 func riffle_buy_button():
 	if Saves.currency < 50:
@@ -77,8 +104,24 @@ func minigun_buy_button():
 	Saves.unlock_weapon("MINIGUN");
 	label_7.visible = false;
 
+func niga_buy_button():
+	if Saves.currency < 1:
+		label_7.visible = true;
+		return;
+	buy_btn.disabled = true;
+	Saves.currency -= 1;
+	Saves.unlock_weapon("NIGA");
+	label_7.visible = false;
+
 func _on_choose_btn_pressed(weapon_name: String):
-	if !Saves.unlocked_weapons[weapon_name]:
-		pass;
-	Saves.select_weapon(weapon_name); 
+	if Saves.unlocked_weapons[weapon_name] == null || Saves.unlocked_weapons[weapon_name] == false:
+		label_8.visible = true;
+		return;
+	if Saves.selected_weapons.size() > 0 && Saves.selected_weapons.find(weapon_name) != -1:
+		label_9.visible = true;
+		return;
+	Saves.select_weapon(weapon_name);
+	label_8.visible = false;
+	label_9.visible = false;
 	Saves.save_game();
+

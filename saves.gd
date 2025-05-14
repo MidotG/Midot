@@ -1,12 +1,13 @@
 extends Node
 
 const save_path = "user://game_saves.save";
-var currency : int = 200;
+var currency : int = 300;
 #var weapon_scene : Array[PackedScene];
 var unlocked_weapons = {
 	"PISTOL": true,    
 	"RIFFLE": false,
-	"MINIGUN": false
+	"MINIGUN": false,
+	"NIGA": false
 }
 var selected_weapons = [];
 func unlock_weapon(weapon_name: String):
@@ -15,15 +16,13 @@ func unlock_weapon(weapon_name: String):
 		save_game();
 
 func select_weapon(weapon_name: String):
-	if unlocked_weapons[weapon_name] == null || unlocked_weapons[weapon_name] == false:
-		print("cant select weapon: null or not unlocked");
-		pass;
 	if selected_weapons.size() == 2:
 		selected_weapons.remove_at(0);
 	selected_weapons.insert(selected_weapons.size(), weapon_name);
 	print(selected_weapons.size());
 	for w in selected_weapons:
 		print(w);
+		#print(selected_weapons.find(w));
 	save_game();
 
 func _ready():
