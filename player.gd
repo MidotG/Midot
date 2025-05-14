@@ -12,8 +12,7 @@ extends CharacterBody2D;
 @export var weapon_scene : Array[PackedScene];
 var weapon_instance: Node2D = null;
 var weapon_num:int = 0;
-var current_weapons = []
-var current_weapon_index = 0
+var selected_weapons = [];
 
 
 func _ready():
@@ -23,6 +22,7 @@ func _ready():
 	if weapon_scene:
 		weapon_instance = weapon_scene[weapon_num].instantiate();
 		$WeaponAttachment.add_child(weapon_instance);
+	
 	pass;
 
 func _process(delta):

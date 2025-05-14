@@ -103,6 +103,7 @@ theme_override_font_sizes/font_size = 30
 text = "Урон: ... "
 
 [node name="Label6" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
+layout_mode = 0
 offset_left = 53.0
 offset_top = 666.0
 offset_right = 301.0
@@ -113,6 +114,7 @@ text = "Цена: ..."
 
 [node name="Label7" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
 visible = false
+layout_mode = 0
 offset_left = 53.0
 offset_top = 609.0
 offset_right = 301.0
@@ -193,5 +195,4 @@ text = "Меню"
 
 [connection signal="pressed" from="shopPanel/choicePanel/riffleBtn" to="." method="_on_riffle_btn_pressed"]
 [connection signal="pressed" from="shopPanel/choicePanel/minigunBtn" to="." method="_on_minigun_btn_pressed"]
-[connection signal="pressed" from="shopPanel/choicePanel/chooseBtn" to="." method="_on_choose_btn_pressed"]
 [connection signal="pressed" from="shopPanel/MenuButton" to="." method="_on_menu_button_pressed"]

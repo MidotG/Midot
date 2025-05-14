@@ -14,6 +14,14 @@ func unlock_weapon(weapon_name: String):
 		unlocked_weapons[weapon_name] = true;
 		save_game();
 
+func select_weapon(weapon_name: String):
+	if selected_weapons.size() == 2:
+		selected_weapons.remove_at(0);
+	selected_weapons.insert(selected_weapons.size(), weapon_name);
+	print(selected_weapons.size());
+	for w in selected_weapons:
+		print(w);
+	save_game();
 
 func _ready():
 	save_game();

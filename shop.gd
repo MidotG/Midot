@@ -36,9 +36,10 @@ func _on_riffle_btn_pressed():
 	else:
 		buy_btn.disabled = false;
 	if !Saves.unlocked_weapons["RIFFLE"]:
-		buy_btn.pressed.disconnect(minigun_buy_button);
-		buy_btn.pressed.disconnect(riffle_buy_button);
+		buy_btn.pressed.disconnect_all();
 		buy_btn.pressed.connect(riffle_buy_button);
+		choose_btn.pressed.disconnect_all();
+		choose_btn.pressed.connect(_on_choose_btn_pressed("RIFFLE"));
 
 func _on_minigun_btn_pressed():
 	label_2.text = "Оружие: Пулемет";
@@ -49,8 +50,7 @@ func _on_minigun_btn_pressed():
 	else:
 		buy_btn.disabled = false;
 	if !Saves.unlocked_weapons["MINIGUN"]:
-		buy_btn.pressed.disconnect(riffle_buy_button);
-		buy_btn.pressed.disconnect(minigun_buy_button);
+		buy_btn.pressed.disconnect_all();
 		buy_btn.pressed.connect(minigun_buy_button);
 		#choose_btn.pressed.disconnect();
 
@@ -74,10 +74,10 @@ func minigun_buy_button():
 
 
 
-func _on_choose_btn_pressed():
+func _on_choose_btn_pressed(weapon_name: String):
 	var unlocked = [];
 	for weapon in Saves.unlocked_weapons:
 		if Saves.unlocked_weapons[weapon]:
 			unlocked.append(weapon);
-	Saves.selected_weapons = unlocked.slice(0, 2);
+	Saves.select_weapon(weapon_name); 
 	Saves.save_game();
