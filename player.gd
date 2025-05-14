@@ -9,10 +9,14 @@ extends CharacterBody2D;
 
 
 @onready var hp = $healthComponent;
-@export var weapon_scene : Array[PackedScene];
+var weapon_scene = [
+	preload("res://pistol.tscn"),
+	preload("res://automatic_rifle.tscn"),
+	preload("res://minigun.tscn")
+];
 var weapon_instance: Node2D = null;
 var weapon_num:int = 0;
-var selected_weapons = [];
+var selected_weapons = Saves.selected_weapons;
 
 
 func _ready():
@@ -52,6 +56,14 @@ func _process(delta):
 			$WeaponAttachment.remove_child(n);
 			n.queue_free();
 		$WeaponAttachment.add_child(weapon_instance);
+		
+func update_weapon(weapon_name):
+	weapon_num = 2;
+	weapon_instance = weapon_scene[weapon_num].instantiate();
+	for n in $WeaponAttachment.get_children():
+		$WeaponAttachment.remove_child(n);
+		n.queue_free();
+	$WeaponAttachment.add_child(weapon_instance);
 		
 func _physics_process(delta):
 	if hp.dead:
