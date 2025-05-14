@@ -103,7 +103,6 @@ theme_override_font_sizes/font_size = 30
 text = "Урон: ... "
 
 [node name="Label6" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
-visible = false
 layout_mode = 0
 offset_left = 45.0
 offset_top = 452.0

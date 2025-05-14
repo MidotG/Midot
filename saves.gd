@@ -1,7 +1,7 @@
 extends Node
 
 const save_path = "user://game_saves.save";
-var currency : int = 300;
+var currency : int = 0;
 #var weapon_scene : Array[PackedScene];
 var unlocked_weapons = {
 	"PISTOL": true,    
@@ -26,7 +26,7 @@ func select_weapon(weapon_name: String):
 	save_game();
 
 func _ready():
-	save_game();
+	#save_game();
 	load_game();
 
 
