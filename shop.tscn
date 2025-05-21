@@ -126,6 +126,7 @@ text = "Недостаточно средств!"
 
 [node name="Label8" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
 visible = false
+layout_mode = 0
 offset_left = 47.0
 offset_top = 690.0
 offset_right = 425.0
@@ -137,6 +138,7 @@ text = "Не куплено!"
 
 [node name="Label9" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
 visible = false
+layout_mode = 0
 offset_left = 47.0
 offset_top = 690.0
 offset_right = 425.0
@@ -187,6 +189,7 @@ theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
 
 [node name="Label3" type="Label" parent="shopPanel/choicePanel/weaponInfo"]
+layout_mode = 0
 offset_left = 757.0
 offset_top = 690.0
 offset_right = 1086.0
@@ -210,7 +213,7 @@ theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
 text = "Автомат"
 
-[node name="minigunBtn" type="Button" parent="shopPanel/choicePanel"]
+[node name="laserBtn" type="Button" parent="shopPanel/choicePanel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -222,6 +225,20 @@ offset_bottom = 251.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
+text = "Лазер"
+
+[node name="minigunBtn" type="Button" parent="shopPanel/choicePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1901.0
+offset_top = 285.0
+offset_right = -1207.0
+offset_bottom = 378.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
 text = "Пулемет"
 
 [node name="nigaBtn" type="Button" parent="shopPanel/choicePanel"]
@@ -230,9 +247,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1901.0
-offset_top = 284.0
+offset_top = 818.0
 offset_right = -1207.0
-offset_bottom = 377.0
+offset_bottom = 911.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
@@ -266,6 +283,7 @@ theme_override_font_sizes/font_size = 25
 text = "Меню"
 
 [connection signal="pressed" from="shopPanel/choicePanel/riffleBtn" to="." method="_on_riffle_btn_pressed"]
+[connection signal="pressed" from="shopPanel/choicePanel/laserBtn" to="." method="_on_laser_btn_pressed"]
 [connection signal="pressed" from="shopPanel/choicePanel/minigunBtn" to="." method="_on_minigun_btn_pressed"]
 [connection signal="pressed" from="shopPanel/choicePanel/nigaBtn" to="." method="_on_niga_btn_pressed"]
 [connection signal="pressed" from="shopPanel/MenuButton" to="." method="_on_menu_button_pressed"]

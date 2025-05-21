@@ -1,11 +1,7 @@
 extends Node2D
 
 @export var shoot_speed = 1.0;
-@onready var ray_cast_2d = $RayCast2D;
 @onready var shootSpeedTimer = $shootSpeedTimer;
-
-const max_magazine = 12;
-var cur_magazine = max_magazine;
 
 const bullet = preload("res://pistol_bullet.tscn");
 var canShoot = true;

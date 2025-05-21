@@ -7,6 +7,7 @@ var unlocked_weapons = {
 	"PISTOL": true,    
 	"RIFFLE": false,
 	"MINIGUN": false,
+	"LASER": false,
 	"NIGA": false
 }
 var selected_weapons = [];
@@ -26,7 +27,7 @@ func select_weapon(weapon_name: String):
 	save_game();
 
 func _ready():
-	#save_game();
+	save_game();
 	load_game();
 
 

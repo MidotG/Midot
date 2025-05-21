@@ -1,6 +1,8 @@
 extends Control
 
-#///TODO: добавить оружия, огнемет/гранатомет и др.
+#///TODO: добавить оружия:
+#///TODO: лазеромет, и мега лазер(стрельба 1ой пулей с заддержкой между выстрелами норм, но урона много).
+
 #///TODO: потом сделать противников и боссов.
 #///TODO: потом сделать уровни.
 #///TODO: потом сделать тектуры и анимации везде нормальные.
@@ -87,6 +89,25 @@ func _on_niga_btn_pressed():
 		choose_btn.pressed.disconnect(con.callable);
 	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("NIGA"));
 
+func _on_laser_btn_pressed():
+	label_2.text = "Оружие: лазер";
+	label_5.text = "Урон: 0ур/выстр.";
+	label_6.text = "Цена: 0";
+	label_7.visible = false;
+	label_8.visible = false;
+	label_9.visible = false;
+	if Saves.unlocked_weapons["LASER"]:
+		buy_btn.disabled = true;
+	else:
+		buy_btn.disabled = false;
+	if !Saves.unlocked_weapons["LASER"]:
+		for con in buy_btn.pressed.get_connections():
+			buy_btn.pressed.disconnect(con.callable);
+		buy_btn.pressed.connect(laser_buy_button);
+	for con in choose_btn.pressed.get_connections():
+		choose_btn.pressed.disconnect(con.callable);
+	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("LASER"));
+
 func riffle_buy_button():
 	if Saves.currency < 50:
 		label_7.visible = true;
@@ -113,6 +134,15 @@ func niga_buy_button():
 	Saves.currency -= 1;
 	Saves.unlock_weapon("NIGA");
 	label_7.visible = false;
+	
+func laser_buy_button():
+	if Saves.currency < 0:
+		label_7.visible = true;
+		return;
+	buy_btn.disabled = true;
+	Saves.currency -= 0;
+	Saves.unlock_weapon("LASER");
+	label_7.visible = false;
 
 func _on_choose_btn_pressed(weapon_name: String):
 	if Saves.unlocked_weapons[weapon_name] == null || Saves.unlocked_weapons[weapon_name] == false:
@@ -135,4 +165,5 @@ func inv():
 	else:
 		inv_1.text = Saves.selected_weapons[0];
 		inv_2.text = Saves.selected_weapons[1];
+
 

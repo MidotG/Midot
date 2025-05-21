@@ -10,6 +10,7 @@ var weapon_scene = {
 	"PISTOL": preload("res://pistol.tscn"),
 	"RIFFLE": preload("res://automatic_rifle.tscn"),
 	"MINIGUN": preload("res://minigun.tscn"),
+	"LASER": preload("res://laser.tscn"),
 	"NIGA": preload("res://niga.tscn")
 };
 var weapon_instance: Node2D = null;
