@@ -25,6 +25,7 @@ func shoot():
 	#///TODO: при взаимодействии со стеной дальше не продвигался.
 	
 	#///TODO: сделать слои для каждого обьекта.
+	#///TODO: raycast2d, area2d, сделать чтобы длина одинаковая везде была(похуй, у area2d ограничить просто длину дальше, если raycast2d уперся в стену).
 	if laser_beam.is_colliding():
 		var target = laser_beam.get_collider();
 		#print("detected someone");
