@@ -109,6 +109,26 @@ func _on_laser_btn_pressed():
 		choose_btn.pressed.disconnect(con.callable);
 	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("LASER"));
 
+func _on_destroyer_btn_pressed():
+	label_2.text = "Оружие: уничтожитель";
+	label_5.text = "Урон: 100ур/выстр.";
+	label_6.text = "Цена: 0";
+	label_7.visible = false;
+	label_8.visible = false;
+	label_9.visible = false;
+	if Saves.unlocked_weapons["DESTROYER"]:
+		buy_btn.disabled = true;
+	else:
+		buy_btn.disabled = false;
+	if !Saves.unlocked_weapons["DESTROYER"]:
+		for con in buy_btn.pressed.get_connections():
+			buy_btn.pressed.disconnect(con.callable);
+		buy_btn.pressed.connect(destroyer_buy_button);
+	for con in choose_btn.pressed.get_connections():
+		choose_btn.pressed.disconnect(con.callable);
+	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("DESTROYER"));
+	
+	
 func riffle_buy_button():
 	if Saves.currency < 50:
 		label_7.visible = true;
@@ -144,6 +164,15 @@ func laser_buy_button():
 	Saves.currency -= 0;
 	Saves.unlock_weapon("LASER");
 	label_7.visible = false;
+	
+func destroyer_buy_button():
+	if Saves.currency < 0:
+		label_7.visible = true;
+		return;
+	buy_btn.disabled = true;
+	Saves.currency -= 0;
+	Saves.unlock_weapon("DESTROYER");
+	label_7.visible = false;
 
 func _on_choose_btn_pressed(weapon_name: String):
 	if Saves.unlocked_weapons[weapon_name] == null || Saves.unlocked_weapons[weapon_name] == false:
@@ -166,5 +195,7 @@ func inv():
 	else:
 		inv_1.text = Saves.selected_weapons[0];
 		inv_2.text = Saves.selected_weapons[1];
+
+
 
 

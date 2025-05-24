@@ -1,24 +1,38 @@
 extends RayCast2D
 
-@export var laser_width = 10;
+@export var laser_width = 4;
 @export var damage = 10;
 @onready var laser_beam = $".";
 @onready var laser_line_lifetime = $laser_line_lifetime;
 @onready var line_2d = $Line2D;
 
-#///TODO: для каждого лазера разные параметры ширины выстрела и урона.
 #///TODO: сделать взаимодействие с противником при использовании, показ текстуры лазера во время использования, убирание текстуры его, после использования.
 #///TODO: направление лазера выбирается оружием.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	laser_beam.scale.y = laser_width;
+	line_2d.hide();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass;
 
+func shoot():
+	line_2d.show();
+	#///TODO: сделть чтобы всех противников на линии одновременно убивал, а не первого потом второго, потом третьего и т.д.
+	#///TODO: и сделать урон с небольшой задержкой, а то он может за секунду не 20 как положено например, а 1000 нанести, если не контролить.
+	#///TODO: при взаимодействии со стеной дальше не продвигался.
+	if laser_beam.is_colliding():
+		var target = laser_beam.get_collider();
+		#print("detected someone");
+		if target.is_in_group("Enemy"):
+			#print("zombie!");
+			target.damage(damage);
+		#else:
+			#print(target.get_groups());
+	laser_line_lifetime.start();
 
 func _on_laser_line_lifetime_timeout():
 	line_2d.hide();
+	#queue_free();

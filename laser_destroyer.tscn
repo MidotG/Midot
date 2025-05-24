@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1a286d7vlunb"]
+
+[ext_resource type="Texture2D" uid="uid://cd3vhvdd8x6r4" path="res://assets/weapon/TheUltimateWeaponsPack_Sheet.png" id="1_hhury"]
+[ext_resource type="Script" path="res://laser_destroyer.gd" id="1_spdu4"]
+[ext_resource type="PackedScene" uid="uid://dx8mk7obesyvx" path="res://laser_beam.tscn" id="2_jkja8"]
+
+[node name="laser_destroyer" type="Node2D"]
+script = ExtResource("1_spdu4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 4)
+scale = Vector2(2, 2)
+texture = ExtResource("1_hhury")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(337, 96, 32, 24)
+
+[node name="laser_beam" parent="." instance=ExtResource("2_jkja8")]
+laser_width = 16
+damage = 100
+
+[node name="shootSpeedTimer" type="Timer" parent="."]
+wait_time = 0.8
+
+[connection signal="timeout" from="shootSpeedTimer" to="." method="_on_shoot_speed_timer_timeout"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cju2v1rrln5wg"]
+
+[ext_resource type="Script" path="res://pistol_bullet.gd" id="1_1bjvg"]
+[ext_resource type="Texture2D" uid="uid://bjbcnhv8n5qgj" path="res://assets/bullets/Bullet 24x24 Free Part 3A.png" id="1_sef6d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq74q"]
+atlas = ExtResource("1_sef6d")
+region = Rect2(75, 59, 19, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekkkt"]
+size = Vector2(180, 19)
+
+[node name="pistol_bullet" type="Area2D"]
+scale = Vector2(0.1, 0.2)
+collision_layer = 8
+collision_mask = 22
+script = ExtResource("1_1bjvg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = SubResource("AtlasTexture_lq74q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.54747e-13, -5)
+shape = SubResource("RectangleShape2D_ekkkt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

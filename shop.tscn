@@ -241,6 +241,20 @@ theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
 text = "Пулемет"
 
+[node name="destroyerBtn" type="Button" parent="shopPanel/choicePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1901.0
+offset_top = 406.0
+offset_right = -1207.0
+offset_bottom = 499.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
+text = "Уничтожитель"
+
 [node name="nigaBtn" type="Button" parent="shopPanel/choicePanel"]
 layout_mode = 1
 anchors_preset = 1
@@ -285,5 +299,6 @@ text = "Меню"
 [connection signal="pressed" from="shopPanel/choicePanel/riffleBtn" to="." method="_on_riffle_btn_pressed"]
 [connection signal="pressed" from="shopPanel/choicePanel/laserBtn" to="." method="_on_laser_btn_pressed"]
 [connection signal="pressed" from="shopPanel/choicePanel/minigunBtn" to="." method="_on_minigun_btn_pressed"]
+[connection signal="pressed" from="shopPanel/choicePanel/destroyerBtn" to="." method="_on_destroyer_btn_pressed"]
 [connection signal="pressed" from="shopPanel/choicePanel/nigaBtn" to="." method="_on_niga_btn_pressed"]
 [connection signal="pressed" from="shopPanel/MenuButton" to="." method="_on_menu_button_pressed"]

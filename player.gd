@@ -10,7 +10,8 @@ var weapon_scene = {
 	"PISTOL": preload("res://pistol.tscn"),
 	"RIFFLE": preload("res://automatic_rifle.tscn"),
 	"MINIGUN": preload("res://minigun.tscn"),
-	"LASER": preload("res://laser.tscn"),
+	"LASER": preload("res://laser_gun.tscn"),
+	"DESTROYER": preload("res://laser_destroyer.tscn"),
 	"NIGA": preload("res://niga.tscn")
 };
 var weapon_instance: Node2D = null;
@@ -32,7 +33,7 @@ func _process(delta):
 	if hp.dead:
 		return;
 	look_at(get_global_mouse_position());
-	print(Saves.selected_weapons.size());
+	#print(Saves.selected_weapons.size());
 	if Input.is_action_pressed("shoot"):
 		weapon_instance.shoot($WeaponAttachment.global_position);
 	if Input.is_action_just_pressed("w1"):
