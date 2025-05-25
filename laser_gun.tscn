@@ -17,4 +17,4 @@ region_enabled = true
 region_rect = Rect2(96, 312, 30, 10)
 
 [node name="laser_beam" parent="." instance=ExtResource("3_u7hxc")]
-damage = 5
+damage = 10
