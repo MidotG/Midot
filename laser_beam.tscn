@@ -7,7 +7,7 @@ size = Vector2(19.3238, 2.42201)
 
 [node name="laser_beam" type="RayCast2D"]
 target_position = Vector2(1500, 0)
-collision_mask = 0
+collision_mask = 20
 script = ExtResource("1_e73pa")
 laser_width = 1
 damage = 0

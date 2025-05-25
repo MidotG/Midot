@@ -2,9 +2,11 @@ extends RayCast2D
 
 @export var laser_width = 4;
 @export var damage = 10;
-@onready var laser_beam = $".";
+@onready var laser_beam = $".";  #//raycast2d
 @onready var laser_line_lifetime = $laser_line_lifetime;
 @onready var line_2d = $Line2D;
+@onready var area_2d = $Area2D;
+@onready var collision_shape_2d = $Area2D/CollisionShape2D;
 
 #///TODO: сделать взаимодействие с противником при использовании, показ текстуры лазера во время использования, убирание текстуры его, после использования.
 #///TODO: направление лазера выбирается оружием.
