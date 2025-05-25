@@ -9,10 +9,10 @@
 radius = 29.3333
 
 [node name="range_zombie" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(1.48, 1.48)
+collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_t3kw1")
-pointsForKill = null
-const_move_speed = null
-attack_damage = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CircleShape2D_loc84")
@@ -42,13 +42,14 @@ scale = Vector2(2.05442, 2)
 texture = ExtResource("2_g0ter")
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["Enemy"]]
-target_position = Vector2(0, -59.3333)
+target_position = Vector2(0, -250)
 collision_mask = 3
 
 [node name="deadLeft" type="Timer" parent="." groups=["Enemy"]]
 wait_time = 10.0
 
 [node name="attackInt" type="Timer" parent="." groups=["Enemy"]]
+wait_time = 1.5
 
 [node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("3_s11vr")]
 max_health = 40.0

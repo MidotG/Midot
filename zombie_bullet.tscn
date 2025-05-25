@@ -6,9 +6,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_72ghu"]
 
 [node name="zombie_bullet" type="Area2D"]
-collision_layer = 2
+scale = Vector2(0.240002, 0.440002)
+collision_layer = 8
 script = ExtResource("1_86alf")
-speed = 800
+speed = 1000
 damage = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

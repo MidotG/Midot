@@ -11,6 +11,7 @@ var move_speed = const_move_speed;
 @onready var dead_left = $deadLeft;
 @onready var hp = $healthComponent;
 
+var zombie_bullet = preload("res://zombie_bullet.tscn");
 var canAttack = true;
 
 #///TODO: кидает снарядами.
@@ -33,7 +34,7 @@ func _physics_process(delta):
 			canAttack = false;
 			$attackInt.start();
 			var bul = zombie_bullet.instantiate();
-			bul.dir = (position - get_global_mouse_position()).normalized();
+			bul.dir = (position - player.global_position).normalized();
 			get_tree().root.add_child(bul);
 			bul.rotation_degrees = rad_to_deg(global_position.angle_to_point(global_position + bul.dir));
 			bul.position = position;
