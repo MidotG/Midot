@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://laser_gun.gd" id="1_esmyx"]
 [ext_resource type="Texture2D" uid="uid://cd3vhvdd8x6r4" path="res://assets/weapon/TheUltimateWeaponsPack_Sheet.png" id="2_yiuuk"]
-[ext_resource type="PackedScene" uid="uid://dx8mk7obesyvx" path="res://laser_beam.tscn" id="3_u7hxc"]
+[ext_resource type="PackedScene" uid="uid://chm78qy27yofc" path="res://laser_beam.tscn" id="3_u7hxc"]
 
 [node name="laser_gun" type="Node2D"]
 script = ExtResource("1_esmyx")
@@ -17,5 +17,4 @@ region_enabled = true
 region_rect = Rect2(96, 312, 30, 10)
 
 [node name="laser_beam" parent="." instance=ExtResource("3_u7hxc")]
-laser_width = 4
 damage = 5

@@ -1,43 +1,32 @@
-extends RayCast2D
+extends Node2D
 
-@export var laser_width = 4;
-@export var damage = 10;
-@onready var laser_beam = $".";  #//raycast2d
-@onready var laser_line_lifetime = $laser_line_lifetime;
-@onready var line_2d = $Line2D;
-@onready var area_2d = $Area2D;
-@onready var collision_shape_2d = $Area2D/CollisionShape2D;
+@export var damage := 30               # Урон за выстрел
+@export var color := Color(1, 0, 0)   # Цвет (красный)
 
-#///TODO: сделать взаимодействие с противником при использовании, показ текстуры лазера во время использования, убирание текстуры его, после использования.
-#///TODO: направление лазера выбирается оружием.
+#///TODO: исправить траблы, сделать норм. А также с прошлого коммита тудушки чекнуть и сделать.
 
-# Called when the node enters the scene tree for the first time.
+
+@onready var line := $Line2D
+@onready var area := $Area2D
+@onready var line_2d_remove_timer = $line2d_remove_timer
+
 func _ready():
-	laser_beam.scale.y = laser_width;
-	line_2d.hide();
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+	line.default_color = color
+	line.hide()
+	
+func _physics_process(delta):
 	pass;
 
 func shoot():
-	line_2d.show();
-	#///TODO: сделть чтобы всех противников на линии одновременно убивал, а не первого потом второго, потом третьего и т.д.
-	#///TODO: и сделать урон с небольшой задержкой, а то он может за секунду не 20 как положено например, а 1000 нанести, если не контролить.
-	#///TODO: при взаимодействии со стеной дальше не продвигался.
-	
-	#///TODO: сделать слои для каждого обьекта.
-	#///TODO: raycast2d, area2d, сделать чтобы длина одинаковая везде была(похуй, у area2d ограничить просто длину дальше, если raycast2d уперся в стену).
-	if laser_beam.is_colliding():
-		var target = laser_beam.get_collider();
-		#print("detected someone");
-		if target.is_in_group("Enemy"):
-			#print("zombie!");
-			target.damage(damage);
-		#else:
-			#print(target.get_groups());
-	laser_line_lifetime.start();
+	line.show()
+	# Мгновенный урон всем врагам на линии
+	for body in area.get_overlapping_bodies():
+		print("body looked");
+		if body.is_in_group("Enemy") and body.has_method("damage"):
+			body.damage(damage)
+			print("damage enemy");
+	line_2d_remove_timer.start();
 
-func _on_laser_line_lifetime_timeout():
-	line_2d.hide();
-	#queue_free();
+
+func _on_line_2d_remove_timer_timeout():
+	line.hide();

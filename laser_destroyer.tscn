@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cd3vhvdd8x6r4" path="res://assets/weapon/TheUltimateWeaponsPack_Sheet.png" id="1_hhury"]
 [ext_resource type="Script" path="res://laser_destroyer.gd" id="1_spdu4"]
-[ext_resource type="PackedScene" uid="uid://dx8mk7obesyvx" path="res://laser_beam.tscn" id="2_jkja8"]
+[ext_resource type="PackedScene" uid="uid://chm78qy27yofc" path="res://laser_beam.tscn" id="2_jkja8"]
 
 [node name="laser_destroyer" type="Node2D"]
 script = ExtResource("1_spdu4")
@@ -17,8 +17,8 @@ region_enabled = true
 region_rect = Rect2(337, 96, 32, 24)
 
 [node name="laser_beam" parent="." instance=ExtResource("2_jkja8")]
-laser_width = 16
 damage = 100
+color = Color(0.663257, 0.769788, 1, 1)
 
 [node name="shootSpeedTimer" type="Timer" parent="."]
 wait_time = 0.8
