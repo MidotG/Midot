@@ -5,7 +5,10 @@ extends Node2D
 @onready var collision_borders = $StaticBody2D/CollisionPolygon2D;
 
 var packed_scene =[
-	preload("res://zombie.tscn")
+	preload("res://zombie.tscn"),
+	preload("res://fast_zombie.tscn"),
+	preload("res://tank_zombie.tscn"),
+	preload("res://kamikadze_zombie.tscn")
 ]
 var canSpawn = true;
 
@@ -30,6 +33,18 @@ func _on_zombie_spawn_timer_timeout():
 	scene.connect("pointsSignal", Callable(self, "add_point"));
 	scene.position = location;
 	add_child(scene);
+	var scene2 = packed_scene[1].instantiate();
+	scene2.connect("pointsSignal", Callable(self, "add_point"));
+	scene2.position = location;
+	add_child(scene2);
+	var scene3 = packed_scene[2].instantiate();
+	scene3.connect("pointsSignal", Callable(self, "add_point"));
+	scene3.position = location;
+	add_child(scene3);
+	var scene4 = packed_scene[3].instantiate();
+	scene4.connect("pointsSignal", Callable(self, "add_point"));
+	scene4.position = location;
+	add_child(scene4);
 	
 func _on_lvl_timer_timeout():
 	if SaveLvl.time_in_s == 60:

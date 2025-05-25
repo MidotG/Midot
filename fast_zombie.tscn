@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcwo5xoxee4lf"]
+
+[ext_resource type="Script" path="res://fast_zombie.gd" id="1_gl0sa"]
+[ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="2_2ecwj"]
+[ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="2_oeo7h"]
+[ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="3_3067b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdu6k"]
+radius = 16.1518
+
+[node name="Fast_zombie" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(3.13692, 3.13692)
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_gl0sa")
+pointsForKill = 20
+const_move_speed = 400
+attack_damage = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+shape = SubResource("CircleShape2D_pdu6k")
+
+[node name="Graphics" type="Node2D" parent="." groups=["Enemy"]]
+position = Vector2(5, -17)
+
+[node name="Alive" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
+modulate = Color(0.309804, 0.607843, 0.121569, 1)
+position = Vector2(-5, 17)
+scale = Vector2(0.87539, 0.886234)
+texture = ExtResource("2_2ecwj")
+region_rect = Rect2(46, 88, 20, 19)
+
+[node name="Dead" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
+self_modulate = Color(0.309804, 0.607843, 0.121569, 1)
+z_index = -1
+position = Vector2(-5, 17)
+scale = Vector2(0.881356, 0.881356)
+texture = ExtResource("2_2ecwj")
+region_rect = Rect2(45, 89, 21, 21)
+
+[node name="114" type="Sprite2D" parent="Graphics/Dead" groups=["Enemy"]]
+show_behind_parent = true
+position = Vector2(4.97113, -2.25)
+scale = Vector2(2.05442, 2)
+texture = ExtResource("2_oeo7h")
+
+[node name="RayCast2D" type="RayCast2D" parent="." groups=["Enemy"]]
+target_position = Vector2(-0.396825, -24.2063)
+collision_mask = 3
+
+[node name="deadLeft" type="Timer" parent="." groups=["Enemy"]]
+wait_time = 5.0
+
+[node name="attackInt" type="Timer" parent="." groups=["Enemy"]]
+wait_time = 0.7
+
+[node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("3_3067b")]
+max_health = 20.0
+
+[connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
+[connection signal="timeout" from="attackInt" to="." method="_on_attack_int_timeout"]

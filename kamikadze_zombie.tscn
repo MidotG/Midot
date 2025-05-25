@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://2tpy0qdwidjq"]
+
+[ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="1_2veg3"]
+[ext_resource type="Script" path="res://kamikadze_zombie.gd" id="1_cp3w7"]
+[ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="2_dnvtu"]
+[ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="3_0ikjc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5wf3"]
+radius = 14.0357
+
+[node name="kamikadze_zombie" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 2
+script = ExtResource("1_cp3w7")
+pointsForKill = 1
+const_move_speed = 300
+attack_damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+shape = SubResource("CircleShape2D_a5wf3")
+
+[node name="Graphics" type="Node2D" parent="." groups=["Enemy"]]
+position = Vector2(5, -17)
+
+[node name="Alive" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
+modulate = Color(0.324101, 0.56403, 0.498494, 1)
+position = Vector2(-4, 17)
+scale = Vector2(0.787764, 0.797522)
+texture = ExtResource("1_2veg3")
+
+[node name="Dead" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
+z_index = -1
+position = Vector2(0, -1)
+
+[node name="114" type="Sprite2D" parent="Graphics/Dead" groups=["Enemy"]]
+modulate = Color(0.623529, 0.223529, 0.815686, 1)
+show_behind_parent = true
+position = Vector2(1.90735e-06, 16)
+scale = Vector2(1.865, 1.865)
+texture = ExtResource("2_dnvtu")
+
+[node name="RayCast2D" type="RayCast2D" parent="." groups=["Enemy"]]
+target_position = Vector2(0, -25)
+collision_mask = 3
+
+[node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("3_0ikjc")]
+max_health = 10.0
+
+[node name="deadLeft" type="Timer" parent="." groups=["Enemy"]]
+wait_time = 3.0
+
+[connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]

@@ -27,6 +27,7 @@ func shoot():
 				
 			# Наносим урон
 			body.damage(damage)
+			print("damaged zombie");
 			
 			# Добавляем врага в кд
 			enemy_cooldowns[enemy_id] = true

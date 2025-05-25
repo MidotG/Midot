@@ -16,6 +16,7 @@ var canAttack = true;
 
 func _ready():
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
+	set_collision_mask_value(2, false);
 	pass;
 
 func _physics_process(delta):
