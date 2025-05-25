@@ -1,12 +1,11 @@
 extends Control
 
-#///TODO: добавить оружия:
-#///TODO: лазеромет, и мега лазер(стрельба 1ой пулей с заддержкой между выстрелами норм, но урона много).
-#///TODO: сделать узел лазера и потом лазераметов отдельно.
 
 #///TODO: потом сделать противников и боссов.
 #///TODO: потом сделать уровни.
 #///TODO: потом сделать тектуры и анимации везде нормальные.
+
+#///TODO: потом сделать цену балансную всем оружиям.
 
 @onready var label_2 = $shopPanel/choicePanel/weaponInfo/Label2;
 @onready var label_5 = $shopPanel/choicePanel/weaponInfo/Label5;
@@ -92,7 +91,7 @@ func _on_niga_btn_pressed():
 
 func _on_laser_btn_pressed():
 	label_2.text = "Оружие: лазер";
-	label_5.text = "Урон: 0ур/выстр.";
+	label_5.text = "Урон: 20ур/c.";
 	label_6.text = "Цена: 0";
 	label_7.visible = false;
 	label_8.visible = false;
@@ -111,7 +110,7 @@ func _on_laser_btn_pressed():
 
 func _on_destroyer_btn_pressed():
 	label_2.text = "Оружие: уничтожитель";
-	label_5.text = "Урон: 100ур/выстр.";
+	label_5.text = "Урон: 160ур/выстр.";
 	label_6.text = "Цена: 0";
 	label_7.visible = false;
 	label_8.visible = false;
