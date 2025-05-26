@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://btr71sixbbsfx"]
+
+[ext_resource type="Script" path="res://invisible_zombie.gd" id="1_5hx1j"]
+[ext_resource type="Texture2D" uid="uid://bxgpccagjr38f" path="res://assets/zombie.png" id="2_kacro"]
+[ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="3_axxq8"]
+[ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="4_oxwcp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k71st"]
+radius = 29.3333
+
+[node name="invisible_zombie" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(1.4, 1.4)
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_5hx1j")
+pointsForKill = 15
+attack_damage = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+shape = SubResource("CircleShape2D_k71st")
+
+[node name="Graphics" type="Node2D" parent="." groups=["Enemy"]]
+position = Vector2(5, -17)
+
+[node name="Alive" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
+position = Vector2(1.59622, -1)
+scale = Vector2(0.987764, 1)
+texture = ExtResource("2_kacro")
+
+[node name="Dead" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
+z_index = -1
+position = Vector2(0, -1)
+texture = ExtResource("2_kacro")
+
+[node name="114" type="Sprite2D" parent="Graphics/Dead" groups=["Enemy"]]
+show_behind_parent = true
+position = Vector2(1.90735e-06, 11)
+scale = Vector2(3.265, 3.265)
+texture = ExtResource("3_axxq8")
+
+[node name="RayCast2D" type="RayCast2D" parent="." groups=["Enemy"]]
+target_position = Vector2(0, -59.3333)
+collision_mask = 3
+
+[node name="deadLeft" type="Timer" parent="." groups=["Enemy"]]
+wait_time = 10.0
+
+[node name="attackInt" type="Timer" parent="." groups=["Enemy"]]
+
+[node name="inviseTimer" type="Timer" parent="." groups=["Enemy"]]
+autostart = true
+
+[node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("4_oxwcp")]
+max_health = 60.0
+
+[connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
+[connection signal="timeout" from="attackInt" to="." method="_on_attack_int_timeout"]
+[connection signal="timeout" from="inviseTimer" to="." method="_on_invise_timer_timeout"]
