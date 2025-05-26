@@ -11,7 +11,8 @@ var packed_scene =[
 	preload("res://kamikadze_zombie.tscn"),
 	preload('res://range_zombie.tscn'),
 	preload("res://invisible_zombie.tscn"),
-	preload("res://tp_zombie.tscn")
+	preload("res://tp_zombie.tscn"),
+	preload("res://slower_zombie.tscn")
 ]
 var canSpawn = true;
 
@@ -60,6 +61,10 @@ func _on_zombie_spawn_timer_timeout():
 	scene7.connect("pointsSignal", Callable(self, "add_point"));
 	scene7.position = location;
 	add_child(scene7);
+	var scene8 = packed_scene[7].instantiate();
+	scene8.connect("pointsSignal", Callable(self, "add_point"));
+	scene8.position = location;
+	add_child(scene8);
 	
 func _on_lvl_timer_timeout():
 	if SaveLvl.time_in_s == 60:

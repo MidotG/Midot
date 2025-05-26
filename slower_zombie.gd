@@ -11,12 +11,14 @@ var move_speed = const_move_speed;
 @onready var dead_left = $deadLeft;
 @onready var hp = $healthComponent;
 
-var zombie_bullet = preload("res://zombie_bullet.tscn");
 var canAttack = true;
 
-
+@onready var slow_effect_time = $slow_effect_time
+@export var slow_down_factor: float = 0.5  # Во сколько раз замедляем (0.5 = 50% скорости)
+var original_speed: float
 
 func _ready():
+	original_speed = player.move_speed;
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	pass;
 
@@ -32,15 +34,13 @@ func _physics_process(delta):
 		if canAttack == true:
 			canAttack = false;
 			$attackInt.start();
-			var bul = zombie_bullet.instantiate();
-			bul.dir = (position - player.global_position).normalized();
-			get_tree().root.add_child(bul);
-			bul.rotation_degrees = rad_to_deg(global_position.angle_to_point(global_position + bul.dir));
-			bul.position = position;
+			player.damage(attack_damage);
+			apply_slow_effect();
 	else:
 		move_speed = const_move_speed;
 		
 func kill():
+	player.move_speed = original_speed;
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
 	$CollisionShape2D.queue_free();
@@ -56,3 +56,13 @@ func _on_dead_left_timeout():
 
 func _on_attack_int_timeout():
 	canAttack = true;
+
+func apply_slow_effect():
+	if player:
+		player.move_speed = original_speed * slow_down_factor
+		slow_effect_time.start()  # Таймер для возврата нормальной скорости
+
+func _on_slow_effect_time_timeout():
+	if player:
+		player.move_speed = original_speed;
+

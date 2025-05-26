@@ -1,9 +1,8 @@
 extends Control
 
 
-#///TODO: сделать противников и боссов.
-#///TODO: сделать еще парочку зомби, либо добавить мини боссов. И сделать 3 босса.
-#///TODO: зомби невидимка, маг тпается вокруг игрока в радиусе определем от игрока когда получает урон, зомби с паутиной с дистанции на время привязывает и игрок не может передвигаться.
+#///TODO: сделать боссов.
+#///TODO: сделать 3 босса.
 
 #///TODO: потом сделать уровни.
 #///TODO: потом сделать тектуры и анимации везде нормальные.
@@ -73,24 +72,6 @@ func _on_minigun_btn_pressed():
 		choose_btn.pressed.disconnect(con.callable);
 	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("MINIGUN"));
 
-func _on_niga_btn_pressed():
-	label_2.text = "Оружие: niga";
-	label_5.text = "Урон: 10ур/выстр.";
-	label_6.text = "Цена: 1";
-	label_7.visible = false;
-	label_8.visible = false;
-	label_9.visible = false;
-	if Saves.unlocked_weapons["NIGA"]:
-		buy_btn.disabled = true;
-	else:
-		buy_btn.disabled = false;
-	if !Saves.unlocked_weapons["NIGA"]:
-		for con in buy_btn.pressed.get_connections():
-			buy_btn.pressed.disconnect(con.callable);
-		buy_btn.pressed.connect(niga_buy_button);
-	for con in choose_btn.pressed.get_connections():
-		choose_btn.pressed.disconnect(con.callable);
-	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("NIGA"));
 
 func _on_laser_btn_pressed():
 	label_2.text = "Оружие: лазер";
@@ -130,7 +111,6 @@ func _on_destroyer_btn_pressed():
 		choose_btn.pressed.disconnect(con.callable);
 	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("DESTROYER"));
 	
-	
 func riffle_buy_button():
 	if Saves.currency < 50:
 		label_7.visible = true;
@@ -147,15 +127,6 @@ func minigun_buy_button():
 	buy_btn.disabled = true;
 	Saves.currency -= 200;
 	Saves.unlock_weapon("MINIGUN");
-	label_7.visible = false;
-
-func niga_buy_button():
-	if Saves.currency < 1:
-		label_7.visible = true;
-		return;
-	buy_btn.disabled = true;
-	Saves.currency -= 1;
-	Saves.unlock_weapon("NIGA");
 	label_7.visible = false;
 	
 func laser_buy_button():
