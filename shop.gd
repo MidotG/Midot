@@ -4,10 +4,9 @@ extends Control
 #///TODO: сделать боссов.
 #///TODO: сделать 3 босса.
 
-#///TODO: потом сделать уровни.
+#///TODO: потом сделать уровни. И сделать цену, урон балансную всем оружиям, и параметры всем врагам тоже сбалансить.
 #///TODO: потом сделать тектуры и анимации везде нормальные.
 
-#///TODO: потом сделать цену балансную всем оружиям.
 
 @onready var label_2 = $shopPanel/choicePanel/weaponInfo/Label2;
 @onready var label_5 = $shopPanel/choicePanel/weaponInfo/Label5;
