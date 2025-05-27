@@ -21,6 +21,9 @@ var selected_weapons = Saves.selected_weapons;
 
 func _ready():
 	#Saves.load_game();
+	print(Saves.hp);
+	hp.max_health = Saves.hp;
+	hp.health = hp.max_health;
 	$uiCanvas/PlayerUI.show();
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	$lvlPassCanvas/lvl_passed.connect("disablePMSignal", Callable(self, "disablePM"));
@@ -33,7 +36,6 @@ func _process(delta):
 	if hp.dead:
 		return;
 	look_at(get_global_mouse_position());
-	#print(Saves.selected_weapons.size());
 	if Input.is_action_pressed("shoot"):
 		weapon_instance.shoot($WeaponAttachment.global_position);
 	if Input.is_action_just_pressed("w1"):

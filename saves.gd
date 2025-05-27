@@ -2,6 +2,7 @@ extends Node
 
 const save_path = "user://game_saves.save";
 var currency : int = 0;
+var hp : int = 100;
 #var weapon_scene : Array[PackedScene];
 var unlocked_weapons = {
 	"PISTOL": true,    
@@ -38,6 +39,7 @@ func _process(delta):
 func save_game():
 	var save_data = {
 		"currency": currency,
+		"hp": hp,
 		"unlocked_weapons": unlocked_weapons,
 		"selected_weapons": selected_weapons
 	};
@@ -50,6 +52,7 @@ func load_game():
 	if save_file:
 		var save_data = save_file.get_var();
 		currency = save_data["currency"];
+		hp = save_data["hp"];
 		unlocked_weapons = save_data["unlocked_weapons"];
 		selected_weapons = save_data["selected_weapons"];
 		save_file.close();

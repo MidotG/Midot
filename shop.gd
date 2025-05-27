@@ -3,7 +3,6 @@ extends Control
 
 #///TODO: сделать боссов.
 #///TODO: сделать 3 босса.
-#///TODO: в магазе покупку хп игрока сделать.
 
 #///TODO: потом сделать уровни.
 #///TODO: потом сделать тектуры и анимации везде нормальные.
@@ -20,14 +19,19 @@ extends Control
 @onready var choose_btn = $shopPanel/choicePanel/chooseBtn;
 @onready var inv_1 = $shopPanel/choicePanel/weaponInfo/HBoxContainer/inv1;
 @onready var inv_2 = $shopPanel/choicePanel/weaponInfo/HBoxContainer/inv2;
+@onready var wrng_label = $shopPanel/choicePanel/VBoxContainer/wrngLabel;
+@onready var hp_label = $shopPanel/choicePanel/VBoxContainer/hpLabel;
+@onready var hp_price_label = $shopPanel/choicePanel/VBoxContainer/hpPriceLabel;
 
 
 func _ready():
 	inv();
 	$shopPanel/balanceLabel.text += str(Saves.currency);
+	wrng_label.visible = false;
 	
 func _process(delta):
 	$shopPanel/balanceLabel.text = "Баланс: " + str(Saves.currency);
+	hp_label.text = "Здоровье игрока: " + str(Saves.hp);
 	if Input.is_action_just_pressed("pause"):
 		get_tree().change_scene_to_file("res://menu.tscn");
 
@@ -171,5 +175,12 @@ func inv():
 		inv_2.text = Saves.selected_weapons[1];
 
 
-
-
+func _on_hp_btn_pressed():
+	if Saves.currency < 50:
+		wrng_label.visible = true;
+		return;
+	Saves.currency -= 50;
+	Saves.hp += 10;
+	Saves.save_game();
+	wrng_label.visible = false;
+	

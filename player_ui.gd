@@ -1,7 +1,5 @@
 extends Control
 
-#///TODO: здесь - патроны всего, и способности, а также время оставшееся.
-#///TODO: пока - колво патронов не делать, сделать все - пушки, персонажей и способности, потом решать с патронами.
 
 @onready var hp = $"../../healthComponent"
 @onready var hp_label = $VBoxContainer/hpLabel

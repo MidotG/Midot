@@ -34,7 +34,7 @@ func _physics_process(delta):
 func kill():
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
-	$CollisionShape2D.queue_free();
+	$CollisionShape2D.hide();
 	z_index = 1;
 	pointsSignal.emit(pointsForKill);
 	dead_left.start();
@@ -44,4 +44,5 @@ func damage(damage):
 
 
 func _on_dead_left_timeout():
+	$CollisionShape2D.queue_free();
 	queue_free();

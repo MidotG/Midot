@@ -280,16 +280,25 @@ offset_right = 708.0
 offset_bottom = -47.0
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="shopPanel/choicePanel/VBoxContainer"]
+[node name="wrngLabel" type="Label" parent="shopPanel/choicePanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
+text = "Недостаточно средств!"
+horizontal_alignment = 1
+
+[node name="hpLabel" type="Label" parent="shopPanel/choicePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_h4uqy")
+theme_override_font_sizes/font_size = 30
 text = "Здоровье игрока: ..."
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="shopPanel/choicePanel/VBoxContainer"]
+[node name="hpPriceLabel" type="Label" parent="shopPanel/choicePanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_h4uqy")
@@ -297,20 +306,12 @@ theme_override_font_sizes/font_size = 30
 text = "Цена: 50"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="shopPanel/choicePanel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("2_h4uqy")
-theme_override_font_sizes/font_size = 30
-text = "10хп"
-horizontal_alignment = 1
-
-[node name="riffleBtn" type="Button" parent="shopPanel/choicePanel/VBoxContainer"]
+[node name="hpBtn" type="Button" parent="shopPanel/choicePanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_h4uqy")
 theme_override_font_sizes/font_size = 30
-text = "Повысить"
+text = "Повысить 10 здоровья"
 
 [node name="MenuButton" type="Button" parent="shopPanel"]
 layout_mode = 1
@@ -329,5 +330,5 @@ text = "Меню"
 [connection signal="pressed" from="shopPanel/choicePanel/laserBtn" to="." method="_on_laser_btn_pressed"]
 [connection signal="pressed" from="shopPanel/choicePanel/minigunBtn" to="." method="_on_minigun_btn_pressed"]
 [connection signal="pressed" from="shopPanel/choicePanel/destroyerBtn" to="." method="_on_destroyer_btn_pressed"]
-[connection signal="pressed" from="shopPanel/choicePanel/VBoxContainer/riffleBtn" to="." method="_on_riffle_btn_pressed"]
+[connection signal="pressed" from="shopPanel/choicePanel/VBoxContainer/hpBtn" to="." method="_on_hp_btn_pressed"]
 [connection signal="pressed" from="shopPanel/MenuButton" to="." method="_on_menu_button_pressed"]
