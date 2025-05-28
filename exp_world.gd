@@ -13,7 +13,9 @@ var packed_scene =[
 	#preload("res://invisible_zombie.tscn"),
 	#preload("res://tp_zombie.tscn"),
 	#preload("res://slower_zombie.tscn")
-	preload("res://first_boss.tscn")
+	
+	#preload("res://first_boss.tscn"),
+	preload("res://second_boss.tscn")
 ]
 var canSpawn = true;
 
