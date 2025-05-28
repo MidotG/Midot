@@ -21,20 +21,18 @@ func _physics_process(delta):
 	if hp.dead:
 		return;
 	var dir_to_player = global_position.direction_to(player.global_position);
-	velocity = dir_to_player * move_speed;
-	move_and_slide();
 	global_rotation = dir_to_player.angle() + PI/2.0;
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
-		move_speed = 0;
+		velocity = Vector2.ZERO;
 		player.damage(attack_damage);
 		damage(attack_damage);
 	else:
-		move_speed = const_move_speed;
-		
+		velocity = dir_to_player * const_move_speed
+	move_and_slide();
 func kill():
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
-	$CollisionShape2D.hide();
+	$CollisionShape2D.disabled = true;
 	z_index = 1;
 	pointsSignal.emit(pointsForKill);
 	dead_left.start();

@@ -23,15 +23,15 @@ func _ready():
 	MusicPlayer.play_track(1);
 	$lvlTimer.start()
 	
-	#randomize();
-	#var rnd_index = randi() % collision_borders.polygon.size();
-	#var location = Vector2i();
-	#location.x = collision_borders.polygon[rnd_index].x;
-	#location.y = collision_borders.polygon[rnd_index].y;
-	#var scene = packed_scene[0].instantiate();
-	#scene.connect("pointsSignal", Callable(self, "add_point"));
-	#scene.position = location;
-	#add_child(scene);
+	randomize();
+	var rnd_index = randi() % collision_borders.polygon.size();
+	var location = Vector2i();
+	location.x = collision_borders.polygon[rnd_index].x;
+	location.y = collision_borders.polygon[rnd_index].y;
+	var scene = packed_scene[0].instantiate();
+	scene.connect("pointsSignal", Callable(self, "add_point"));
+	scene.position = location;
+	add_child(scene);
 
 func _process(delta):
 	if canSpawn:
@@ -79,10 +79,10 @@ func _on_zombie_spawn_timer_timeout():
 	#scene8.position = location;
 	#add_child(scene8);
 	
-	var scene = packed_scene[0].instantiate();
-	scene.connect("pointsSignal", Callable(self, "add_point"));
-	scene.position = location;
-	add_child(scene);
+	#var scene = packed_scene[0].instantiate();
+	#scene.connect("pointsSignal", Callable(self, "add_point"));
+	#scene.position = location;
+	#add_child(scene);
 	
 func _on_lvl_timer_timeout():
 	if SaveLvl.time_in_s == 60:

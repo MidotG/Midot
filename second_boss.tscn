@@ -15,10 +15,10 @@ bg_color = Color(0.677819, 0, 0.0572753, 1)
 [node name="second_boss" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(3.96, 3.96)
 collision_layer = 2
-collision_mask = 19
+collision_mask = 17
 script = ExtResource("1_klj7i")
 const_move_speed = 200
-attack_damage = 30
+spawn_radius = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CircleShape2D_bmr2x")
@@ -28,6 +28,7 @@ position = Vector2(5, -17)
 
 [node name="Alive" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
 modulate = Color(0.573632, 0.465945, 0.101885, 1)
+z_index = 1
 position = Vector2(-5, 16)
 scale = Vector2(0.987764, 1)
 texture = ExtResource("2_8fv0m")
@@ -45,13 +46,13 @@ scale = Vector2(1.87611, 1.87611)
 texture = ExtResource("3_6r6ij")
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["Enemy"]]
-target_position = Vector2(0, -30)
-collision_mask = 3
+target_position = Vector2(0, -200)
 
 [node name="deadLeft" type="Timer" parent="." groups=["Enemy"]]
 wait_time = 10.0
 
-[node name="attackInt" type="Timer" parent="." groups=["Enemy"]]
+[node name="spawnTimer" type="Timer" parent="."]
+wait_time = 0.2
 
 [node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("4_wtrfp")]
 max_health = 300.0
@@ -75,4 +76,4 @@ value = 50.0
 show_percentage = false
 
 [connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
-[connection signal="timeout" from="attackInt" to="." method="_on_attack_int_timeout"]
+[connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
