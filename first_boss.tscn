@@ -15,9 +15,9 @@ bg_color = Color(0.677819, 0, 0.0572753, 1)
 [node name="First_boss" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(4.56, 4.56)
 collision_layer = 2
-collision_mask = 17
+collision_mask = 19
 script = ExtResource("1_t4sce")
-const_move_speed = 150
+min_move_speed = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CircleShape2D_l88rk")
@@ -72,3 +72,6 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/fill = SubResource("StyleBoxFlat_rnq80")
 value = 50.0
 show_percentage = false
+
+[connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
+[connection signal="timeout" from="attackInt" to="." method="_on_attack_int_timeout"]

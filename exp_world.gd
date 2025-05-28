@@ -20,6 +20,16 @@ var canSpawn = true;
 func _ready():
 	MusicPlayer.play_track(1);
 	$lvlTimer.start()
+	
+	#randomize();
+	#var rnd_index = randi() % collision_borders.polygon.size();
+	#var location = Vector2i();
+	#location.x = collision_borders.polygon[rnd_index].x;
+	#location.y = collision_borders.polygon[rnd_index].y;
+	#var scene = packed_scene[0].instantiate();
+	#scene.connect("pointsSignal", Callable(self, "add_point"));
+	#scene.position = location;
+	#add_child(scene);
 
 func _process(delta):
 	if canSpawn:

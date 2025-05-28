@@ -3,8 +3,9 @@ extends CharacterBody2D;
 signal pointsSignal(point : int);
 
 @export var pointsForKill : int = 10;
-@export var const_move_speed : int = 250;
-var move_speed = const_move_speed;
+@export var min_move_speed : int = 250;
+var move_speed = min_move_speed;
+var max_move_speed: int = 500;
 @export var attack_damage : int = 20;
 @onready var ray_cast_2d = $RayCast2D;
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player");
@@ -28,7 +29,8 @@ func _physics_process(delta):
 	else:
 		hp_bar.global_position = global_position + Vector2(-70, 90);
 		hp_bar.rotation = -rotation;
-	
+	var health_percentage = hp.health / hp.max_health;
+	move_speed = lerp(max_move_speed, min_move_speed, health_percentage);
 	
 	var dir_to_player = global_position.direction_to(player.global_position);
 	velocity = dir_to_player * move_speed;
@@ -38,10 +40,10 @@ func _physics_process(delta):
 		move_speed = 0;
 		if canAttack == true:
 			canAttack = false;
-			$attackInt.start();
 			player.damage(attack_damage);
+			$attackInt.start();
 	else:
-		move_speed = const_move_speed;
+		move_speed = lerp(max_move_speed, min_move_speed, health_percentage);
 		
 func kill():
 	hp_bar.queue_free();
