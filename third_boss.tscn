@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://ch6da0pgmj5du"]
+
+[ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="1_0udyx"]
+[ext_resource type="Script" path="res://third_boss.gd" id="1_peh0t"]
+[ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="2_sweqd"]
+[ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="3_c2iox"]
+[ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="4_ey0sd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v7wb1"]
+radius = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7ncy"]
+bg_color = Color(0.677819, 0, 0.0572753, 1)
+
+[node name="third_boss" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(3.28, 3.28)
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_peh0t")
+const_move_speed = 400
+attack_damage = 40
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+shape = SubResource("CircleShape2D_v7wb1")
+
+[node name="Graphics" type="Node2D" parent="." groups=["Enemy"]]
+position = Vector2(5, -17)
+
+[node name="Alive" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
+modulate = Color(0.274658, 0.324489, 0.341024, 1)
+position = Vector2(-5, 16)
+scale = Vector2(0.987764, 1)
+texture = ExtResource("1_0udyx")
+
+[node name="Dead" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
+self_modulate = Color(0.27451, 0.32549, 0.341176, 1)
+z_index = -1
+position = Vector2(-4, 16)
+texture = ExtResource("1_0udyx")
+
+[node name="114" type="Sprite2D" parent="Graphics/Dead" groups=["Enemy"]]
+show_behind_parent = true
+position = Vector2(1.90735e-06, -6)
+scale = Vector2(1.87611, 1.87611)
+texture = ExtResource("2_sweqd")
+
+[node name="RayCast2D" type="RayCast2D" parent="." groups=["Enemy"]]
+target_position = Vector2(0, -25)
+collision_mask = 3
+
+[node name="deadLeft" type="Timer" parent="." groups=["Enemy"]]
+wait_time = 10.0
+
+[node name="attackInt" type="Timer" parent="." groups=["Enemy"]]
+wait_time = 1.5
+
+[node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("3_c2iox")]
+max_health = 500.0
+
+[node name="hpBar" type="ProgressBar" parent="." groups=["Enemy"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.438596
+offset_right = 29.5614
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_ey0sd")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/fill = SubResource("StyleBoxFlat_i7ncy")
+value = 50.0
+show_percentage = false
+
+[connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
+[connection signal="timeout" from="attackInt" to="." method="_on_attack_int_timeout"]

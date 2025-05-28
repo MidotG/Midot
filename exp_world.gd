@@ -15,7 +15,8 @@ var packed_scene =[
 	#preload("res://slower_zombie.tscn")
 	
 	#preload("res://first_boss.tscn"),
-	preload("res://second_boss.tscn")
+	#preload("res://second_boss.tscn"),
+	preload("res://third_boss.tscn")
 ]
 var canSpawn = true;
 
@@ -79,10 +80,10 @@ func _on_zombie_spawn_timer_timeout():
 	#scene8.position = location;
 	#add_child(scene8);
 	
-	#var scene = packed_scene[0].instantiate();
-	#scene.connect("pointsSignal", Callable(self, "add_point"));
-	#scene.position = location;
-	#add_child(scene);
+	var scene = packed_scene[0].instantiate();
+	scene.connect("pointsSignal", Callable(self, "add_point"));
+	scene.position = location;
+	add_child(scene);
 	
 func _on_lvl_timer_timeout():
 	if SaveLvl.time_in_s == 60:
