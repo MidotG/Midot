@@ -17,6 +17,7 @@ scale = Vector2(4.56, 4.56)
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_t4sce")
+const_move_speed = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CircleShape2D_l88rk")
@@ -52,7 +53,7 @@ wait_time = 10.0
 [node name="attackInt" type="Timer" parent="." groups=["Enemy"]]
 
 [node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("4_qb3bx")]
-max_health = 40.0
+max_health = 300.0
 
 [node name="hpBar" type="ProgressBar" parent="."]
 anchors_preset = 8
