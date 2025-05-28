@@ -8,6 +8,9 @@ func _ready():
 	elif DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		checkBoxButton.button_pressed = false;
 	
+func _process(delta):
+	if Input.is_action_just_pressed("pause"):
+		get_tree().change_scene_to_file("res://menu.tscn");
 	
 func _on_quit_settings_button_pressed():
 	get_tree().change_scene_to_file("res://menu.tscn");
