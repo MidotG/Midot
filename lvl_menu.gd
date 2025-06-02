@@ -22,7 +22,7 @@ func _on_lvl_2_pressed():
 	get_tree().change_scene_to_file("res://world_2.tscn");
 
 func _on_lvl_3_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://world_3.tscn");
 
 func _on_lvl_4_pressed():
 	pass # Replace with function body.
