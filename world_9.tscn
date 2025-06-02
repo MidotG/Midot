@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dfwgjj3tofvwr"]
+
+[node name="world9" type="Node2D"]
+
+[node name="environment" type="Node2D" parent="."]
+
+[node name="floorTileMap" type="TileMap" parent="environment"]
+format = 2
+
+[node name="obstacleTileMap" type="TileMap" parent="environment"]
+format = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
