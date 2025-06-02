@@ -12,7 +12,12 @@ var canSpawn = true;
 func _ready():
 	MusicPlayer.play_track(1);
 	$lvlTimer.start()
-
+	#var camera = player.get_node("Camera2D");
+	#camera.limit_left = -2048;
+	#camera.limit_right = 2048;
+	#camera.limit_top = -2048;
+	#camera.limit_bottom = 2048;
+	
 func _process(delta):
 	if canSpawn:
 		$zombieSpawnTimer.start();
