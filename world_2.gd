@@ -9,20 +9,18 @@ extends Node2D
 var spawn_positions = [];
 var canSpawn = true;
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	get_spawn_positions_from_tilemap();
 	MusicPlayer.play_track(2);
 	lvl_timer.start();
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if canSpawn:
 		enemy_spawn_timer.start();
 		canSpawn = false;
 	
 func get_spawn_positions_from_tilemap():
-	var cells = enemy_spawnpoints.get_used_cells(0);  # 0 — слой
+	var cells = enemy_spawnpoints.get_used_cells(0);
 	for cell in cells:
 		spawn_positions.append(enemy_spawnpoints.map_to_local(cell));
 		
