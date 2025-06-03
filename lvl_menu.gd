@@ -20,7 +20,6 @@ func update_buttons():
 	for i in range(level_buttons.size()):
 		var button = level_buttons[i]
 		button.disabled = (i + 1) > Saves.unlocked_levels;
-		$Label2.text = "Уровень %d%s" % [i + 1, " неоткрыт" if button.disabled else ""];
 
 func _on_menu_btn_pressed():
 	get_tree().change_scene_to_file("res://menu.tscn");

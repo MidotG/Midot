@@ -15,7 +15,6 @@ func _ready():
 	MusicPlayer.play_track(2);
 	lvl_timer.start();
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if canSpawn:
@@ -31,7 +30,6 @@ func _on_enemy_spawn_timer_timeout():
 	canSpawn = true;
 	randomize();
 	var rnd_index = randi() % spawn_positions.size();
-	#var rnd_enemy_index = randi() % enemy.size();
 	var rnd_enemy_index = weighted_random(spawn_weights);
 	var scene = enemy[rnd_enemy_index].instantiate();
 	scene.connect("pointsSignal", Callable(self, "add_point"));
@@ -49,7 +47,6 @@ func _on_lvl_timer_timeout():
 func add_point(point : int):
 	SaveLvl.points += point;
 
-#///TODO: разобраться как работает, а то такое ощущение что волнами выпускает.
 func weighted_random(weights: Array[int]):
 	var total_weight = 0
 	for weight in weights:

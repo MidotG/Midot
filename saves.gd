@@ -4,7 +4,6 @@ const save_path = "user://game_saves.save";
 var currency : int = 0;
 var hp : int = 100;
 var unlocked_levels := 1;
-#var weapon_scene : Array[PackedScene];
 var unlocked_weapons = {
 	"PISTOL": true,    
 	"RIFFLE": false,
@@ -23,9 +22,9 @@ func select_weapon(weapon_name: String):
 	if selected_weapons.size() == 2:
 		selected_weapons.remove_at(0);
 	selected_weapons.insert(selected_weapons.size(), weapon_name);
-	print(selected_weapons.size());
-	for w in selected_weapons:
-		print(w);
+	#print(selected_weapons.size());
+	#for w in selected_weapons:
+		#print(w);
 		#print(selected_weapons.find(w));
 	save_game();
 
@@ -47,7 +46,8 @@ func save_game():
 		"currency": currency,
 		"hp": hp,
 		"unlocked_weapons": unlocked_weapons,
-		"selected_weapons": selected_weapons
+		"selected_weapons": selected_weapons,
+		"unlocked_levels": unlocked_levels
 	};
 	var save_file = FileAccess.open(save_path, FileAccess.WRITE);
 	save_file.store_var(save_data);
@@ -61,6 +61,7 @@ func load_game():
 		hp = save_data["hp"];
 		unlocked_weapons = save_data["unlocked_weapons"];
 		selected_weapons = save_data["selected_weapons"];
+		unlocked_levels = save_data["unlocked_levels"];
 		save_file.close();
 	else:
 		currency = 0;
