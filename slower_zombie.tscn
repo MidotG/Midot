@@ -9,11 +9,12 @@
 radius = 29.3333
 
 [node name="slower_zombie" type="CharacterBody2D" groups=["Enemy"]]
-scale = Vector2(2.92, 2.92)
+scale = Vector2(1.24091, 1.24091)
 collision_layer = 2
-collision_mask = 17
+collision_mask = 19
 script = ExtResource("1_8sfsi")
-const_move_speed = 300
+pointsForKill = 15
+attack_damage = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CircleShape2D_sso3a")
