@@ -7,6 +7,7 @@ extends Control
 #// понять как в точки определенные спавна поставить и сделать.
 
 
+
 #///TODO: потом сделать тектуры и анимации везде нормальные. И звуки и музыку в уровнях.
 
 
@@ -61,8 +62,8 @@ func _on_riffle_btn_pressed():
 
 func _on_minigun_btn_pressed():
 	label_2.text = "Оружие: Пулемет";
-	label_5.text = "Урон: 10ур/выстр.";
-	label_6.text = "Цена: 200";
+	label_5.text = "Урон: 200ур/сек.";
+	label_6.text = "Цена: 500";
 	label_7.visible = false;
 	label_8.visible = false;
 	label_9.visible = false;
@@ -81,8 +82,8 @@ func _on_minigun_btn_pressed():
 
 func _on_laser_btn_pressed():
 	label_2.text = "Оружие: лазер";
-	label_5.text = "Урон: 20ур/c.";
-	label_6.text = "Цена: 0";
+	label_5.text = "Урон: ...ур/c.";
+	label_6.text = "Цена: ...";
 	label_7.visible = false;
 	label_8.visible = false;
 	label_9.visible = false;
@@ -127,11 +128,11 @@ func riffle_buy_button():
 	label_7.visible = false;
 
 func minigun_buy_button():
-	if Saves.currency < 200:
+	if Saves.currency < 500:
 		label_7.visible = true;
 		return;
 	buy_btn.disabled = true;
-	Saves.currency -= 200;
+	Saves.currency -= 500;
 	Saves.unlock_weapon("MINIGUN");
 	label_7.visible = false;
 	

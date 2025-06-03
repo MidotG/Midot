@@ -15,10 +15,10 @@ bg_color = Color(0.677819, 0, 0.0572753, 1)
 [node name="First_boss" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(4.56, 4.56)
 collision_layer = 2
-collision_mask = 19
 script = ExtResource("1_t4sce")
+pointsForKill = 150
 min_move_speed = 100
-attack_damage = 35
+attack_damage = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CircleShape2D_l88rk")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwpieitmcjfi"]
+[gd_scene load_steps=8 format=3 uid="uid://cwpieitmcjfi"]
 
 [ext_resource type="Script" path="res://world_2.gd" id="1_n2s8m"]
 [ext_resource type="TileSet" uid="uid://df8ltglds45a8" path="res://world2_floor_tileset.tres" id="1_ru0g1"]
@@ -6,22 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ba4x13miijrqd" path="res://zombie.tscn" id="2_b78u8"]
 [ext_resource type="PackedScene" uid="uid://cw1hvpgewhgqr" path="res://player.tscn" id="2_r0u85"]
 [ext_resource type="PackedScene" uid="uid://dcwo5xoxee4lf" path="res://fast_zombie.tscn" id="3_ygi1g"]
-[ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="7_nf5c1"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6wun0"]
-texture = ExtResource("7_nf5c1")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_nowbp"]
-sources/0 = SubResource("TileSetAtlasSource_6wun0")
 
 [node name="world2" type="Node2D"]
 script = ExtResource("1_n2s8m")

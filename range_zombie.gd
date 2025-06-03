@@ -5,7 +5,6 @@ signal pointsSignal(point : int);
 @export var pointsForKill : int = 10;
 @export var const_move_speed : int = 250;
 var move_speed = const_move_speed;
-@export var attack_damage : int = 20;
 @onready var ray_cast_2d = $RayCast2D;
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player");
 @onready var dead_left = $deadLeft;

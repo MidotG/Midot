@@ -9,13 +9,13 @@
 radius = 16.1518
 
 [node name="tank_zombie" type="CharacterBody2D" groups=["Enemy"]]
-scale = Vector2(5.44, 5.44)
+scale = Vector2(4.24, 4.24)
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_patpm")
-pointsForKill = 50
-const_move_speed = 80
-attack_damage = 25
+pointsForKill = 35
+const_move_speed = 150
+attack_damage = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CircleShape2D_skf25")
@@ -54,7 +54,7 @@ wait_time = 5.0
 [node name="attackInt" type="Timer" parent="." groups=["Enemy"]]
 
 [node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("4_msg6b")]
-max_health = 160.0
+max_health = 200.0
 
 [connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
 [connection signal="timeout" from="attackInt" to="." method="_on_attack_int_timeout"]

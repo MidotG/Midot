@@ -11,13 +11,14 @@ var canSpawn = true;
 
 func _ready():
 	get_spawn_positions_from_tilemap();
-	MusicPlayer.play_track(3);
+	MusicPlayer.play_track(5);
 	lvl_timer.start();
 
 func _process(delta):
 	if canSpawn:
 		enemy_spawn_timer.start();
 		canSpawn = false;
+		
 	
 func get_spawn_positions_from_tilemap():
 	var cells = enemy_spawnpoints.get_used_cells(0);
@@ -37,7 +38,13 @@ func _on_enemy_spawn_timer_timeout():
 func _on_lvl_timer_timeout():
 	if SaveLvl.time_in_s == 90:
 		player.lvl_pass();
-		Saves.unlock_next_level(3);
+		Saves.unlock_next_level(5);
+	if SaveLvl.time_in_s == 20 || SaveLvl.time_in_s == 40 || SaveLvl.time_in_s == 60:
+		var rnd_index = randi() % spawn_positions.size();
+		var scene = enemy[4].instantiate();
+		scene.connect("pointsSignal", Callable(self, "add_point"));
+		scene.position = spawn_positions[rnd_index];
+		add_child(scene);
 	SaveLvl.time_in_s += 1;
 	SaveLvl.total_time_in_s = SaveLvl.time_in_s%60;
 	SaveLvl.total_time_in_m = int(SaveLvl.time_in_s/60.0);

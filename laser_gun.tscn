@@ -19,4 +19,3 @@ region_rect = Rect2(96, 312, 30, 10)
 [node name="laser_beam" parent="." instance=ExtResource("3_u7hxc")]
 scale = Vector2(1, 0.72)
 damage = 20
-damage_interval = 0.5

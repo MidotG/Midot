@@ -15,6 +15,7 @@ collision_mask = 17
 script = ExtResource("1_gl0sa")
 pointsForKill = 15
 const_move_speed = 350
+attack_damage = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CircleShape2D_pdu6k")
@@ -51,7 +52,7 @@ collision_mask = 3
 wait_time = 5.0
 
 [node name="attackInt" type="Timer" parent="." groups=["Enemy"]]
-wait_time = 0.7
+wait_time = 0.8
 
 [node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("3_3067b")]
 max_health = 40.0
