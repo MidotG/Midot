@@ -3684,7 +3684,6 @@ layer_0/tile_data = PackedInt32Array(1507328, 393216, 1342177291, 1572864, 45875
 position = Vector2(6, -535)
 
 [node name="zombieSpawnTimer" type="Timer" parent="."]
-wait_time = 1.5
 autostart = true
 
 [node name="lvlTimer" type="Timer" parent="."]

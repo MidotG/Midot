@@ -1,6 +1,3 @@
-#///TODO: потом сделать полноценное сохранение лвла и данных в нем(игрока, противников, мира(очков, времени и др.)).
-
-#extends Resource;
 extends Node;
 
 const save_path = "user://save_lvl.tres";

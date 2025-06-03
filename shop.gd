@@ -42,8 +42,8 @@ func _on_menu_button_pressed():
 
 func _on_riffle_btn_pressed():
 	label_2.text = "Оружие: Автомат";
-	label_5.text = "Урон: 10ур/выстр.";
-	label_6.text = "Цена: 50";
+	label_5.text = "Урон: 100ур/сек.";
+	label_6.text = "Цена: 100";
 	label_7.visible = false;
 	label_8.visible = false;
 	label_9.visible = false;
@@ -118,11 +118,11 @@ func _on_destroyer_btn_pressed():
 	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("DESTROYER"));
 	
 func riffle_buy_button():
-	if Saves.currency < 50:
+	if Saves.currency < 100:
 		label_7.visible = true;
 		return;
 	buy_btn.disabled = true;
-	Saves.currency -= 50;
+	Saves.currency -= 100;
 	Saves.unlock_weapon("RIFFLE");
 	label_7.visible = false;
 

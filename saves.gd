@@ -3,6 +3,7 @@ extends Node
 const save_path = "user://game_saves.save";
 var currency : int = 0;
 var hp : int = 100;
+var unlocked_levels := 1;
 #var weapon_scene : Array[PackedScene];
 var unlocked_weapons = {
 	"PISTOL": true,    
@@ -28,6 +29,11 @@ func select_weapon(weapon_name: String):
 		#print(selected_weapons.find(w));
 	save_game();
 
+func unlock_next_level(current_level: int) -> void:
+	if current_level >= unlocked_levels:
+		unlocked_levels = current_level + 1;
+		save_game();
+		
 func _ready():
 	#save_game();
 	load_game();

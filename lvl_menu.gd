@@ -1,8 +1,13 @@
 extends Control
 
+@onready var level_buttons :=[
+	$HBoxContainer/lvl1, $HBoxContainer/lvl2, $HBoxContainer/lvl3, $HBoxContainer/lvl4, $HBoxContainer/lvl5,
+	$HBoxContainer2/lvl6, $HBoxContainer2/lvl7, $HBoxContainer2/lvl8, $HBoxContainer2/lvl9, $HBoxContainer2/lvl10
+];
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	update_buttons();
 	pass # Replace with function body.
 
 
@@ -11,6 +16,11 @@ func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		get_tree().change_scene_to_file("res://menu.tscn");
 
+func update_buttons():
+	for i in range(level_buttons.size()):
+		var button = level_buttons[i]
+		button.disabled = (i + 1) > Saves.unlocked_levels;
+		$Label2.text = "Уровень %d%s" % [i + 1, " неоткрыт" if button.disabled else ""];
 
 func _on_menu_btn_pressed():
 	get_tree().change_scene_to_file("res://menu.tscn");

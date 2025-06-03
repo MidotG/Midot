@@ -12,11 +12,6 @@ var canSpawn = true;
 func _ready():
 	MusicPlayer.play_track(1);
 	$lvlTimer.start()
-	#var camera = player.get_node("Camera2D");
-	#camera.limit_left = -2048;
-	#camera.limit_right = 2048;
-	#camera.limit_top = -2048;
-	#camera.limit_bottom = 2048;
 	
 func _process(delta):
 	if canSpawn:
@@ -39,6 +34,7 @@ func _on_zombie_spawn_timer_timeout():
 func _on_lvl_timer_timeout():
 	if SaveLvl.time_in_s == 90:
 		player.lvl_pass();
+		Saves.unlock_next_level(1);
 	SaveLvl.time_in_s += 1;
 	SaveLvl.total_time_in_s = SaveLvl.time_in_s%60;
 	SaveLvl.total_time_in_m = int(SaveLvl.time_in_s/60.0);

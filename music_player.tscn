@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://c8d3c5juege43"]
 
+[ext_resource type="AudioStream" uid="uid://bu4mxjv3wm3rw" path="res://tracks/Мутант OST - Меню(1) (mp3cut.net) (1).mp3" id="2_1vkyy"]
 [ext_resource type="Script" path="res://music_player.gd" id="2_awand"]
-[ext_resource type="AudioStream" uid="uid://bxn4o0e8scr18" path="res://tracks/Мутант OST - Меню.mp3" id="2_n47ct"]
 [ext_resource type="AudioStream" uid="uid://j7kp2qsjidmg" path="res://tracks/metal-dark-matter-111451.mp3" id="3_icu0t"]
+[ext_resource type="AudioStream" uid="uid://dq8kcdomdpcit" path="res://tracks/Мутант OST - Выживание (mp3cut.net) (1).mp3" id="3_tvjlf"]
 [ext_resource type="AudioStream" uid="uid://hnboylfu1ehy" path="res://tracks/Royalty Free Thrash Metal Instrumental - PATH OF DESTRUCTION (mp3cut.net).mp3" id="5_sh8pe"]
 [ext_resource type="AudioStream" uid="uid://wm7lypdce6my" path="res://tracks/Royalty Free Thrash Metal Instrumental - BLOODSHED (mp3cut.net).mp3" id="6_wio01"]
 [ext_resource type="AudioStream" uid="uid://ca5xdadpaoaar" path="res://tracks/Royalty Free Thrash Metal Instrumental - BACK TO LIFE (mp3cut.net).mp3" id="7_22gv2"]
-[ext_resource type="AudioStream" uid="uid://cdefe1x854ba3" path="res://tracks/Мутант OST - Выживание.mp3" id="8_32dtd"]
 [ext_resource type="AudioStream" uid="uid://b4rbefbiperil" path="res://tracks/Royalty Free Thrash Metal Instrumental - ENDLESS VOID (mp3cut.net).mp3" id="8_eg5ef"]
 [ext_resource type="AudioStream" uid="uid://c8t1i8t3c665m" path="res://tracks/Royalty Free Thrash Metal Instrumental - CONSEQUENCE (mp3cut.net).mp3" id="9_sdt7a"]
 [ext_resource type="AudioStream" uid="uid://dodhdh3l4ac2v" path="res://tracks/Royalty Free DOOM Style Metal Instrumental - BLACKHOLE (mp3cut.net).mp3" id="10_e77sj"]
@@ -18,4 +18,4 @@
 autoplay = true
 bus = &"music"
 script = ExtResource("2_awand")
-music_tracks = Array[AudioStream]([ExtResource("2_n47ct"), ExtResource("8_32dtd"), ExtResource("3_icu0t"), ExtResource("5_sh8pe"), ExtResource("6_wio01"), ExtResource("7_22gv2"), ExtResource("8_eg5ef"), ExtResource("9_sdt7a"), ExtResource("10_e77sj"), ExtResource("11_mu8lp"), ExtResource("12_0smjl"), ExtResource("13_b4naw")])
+music_tracks = Array[AudioStream]([ExtResource("2_1vkyy"), ExtResource("3_tvjlf"), ExtResource("3_icu0t"), ExtResource("5_sh8pe"), ExtResource("6_wio01"), ExtResource("7_22gv2"), ExtResource("8_eg5ef"), ExtResource("9_sdt7a"), ExtResource("10_e77sj"), ExtResource("11_mu8lp"), ExtResource("12_0smjl"), ExtResource("13_b4naw")])

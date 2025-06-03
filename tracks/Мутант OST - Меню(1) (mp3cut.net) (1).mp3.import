@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bu4mxjv3wm3rw"
+path="res://.godot/imported/Мутант OST - Меню(1) (mp3cut.net) (1).mp3-1ccfc306a4ee1afb61f0a2609e74b0e7.mp3str"
+
+[deps]
+
+source_file="res://tracks/Мутант OST - Меню(1) (mp3cut.net) (1).mp3"
+dest_files=["res://.godot/imported/Мутант OST - Меню(1) (mp3cut.net) (1).mp3-1ccfc306a4ee1afb61f0a2609e74b0e7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
