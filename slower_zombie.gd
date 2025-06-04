@@ -51,6 +51,8 @@ func damage(damage):
 	hp.damage(damage);
 	
 func _on_dead_left_timeout():
+	if player:
+		player.move_speed = original_speed;
 	queue_free();
 
 func _on_attack_int_timeout():
