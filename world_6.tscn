@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cq0b0lng8fawe"]
+[gd_scene load_steps=12 format=3 uid="uid://cq0b0lng8fawe"]
 
 [ext_resource type="Script" path="res://world_6.gd" id="1_c4j0x"]
 [ext_resource type="TileSet" uid="uid://df8ltglds45a8" path="res://world2_floor_tileset.tres" id="1_gmavh"]
@@ -7,25 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dcwo5xoxee4lf" path="res://fast_zombie.tscn" id="3_5vxgo"]
 [ext_resource type="PackedScene" uid="uid://cw1hvpgewhgqr" path="res://player.tscn" id="3_lij26"]
 [ext_resource type="PackedScene" uid="uid://bvgct8ex4dstv" path="res://tank_zombie.tscn" id="4_1lpuj"]
-[ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="5_mkjj1"]
 [ext_resource type="PackedScene" uid="uid://ygf4531eynhd" path="res://range_zombie.tscn" id="5_rmiii"]
 [ext_resource type="PackedScene" uid="uid://dcxrttmfefalx" path="res://slower_zombie.tscn" id="6_uktyh"]
 [ext_resource type="PackedScene" uid="uid://drddp4b47r56" path="res://first_boss.tscn" id="7_uqd5a"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6wun0"]
-texture = ExtResource("5_mkjj1")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_ygpvk"]
-sources/0 = SubResource("TileSetAtlasSource_6wun0")
 
 [node name="world6" type="Node2D"]
 script = ExtResource("1_c4j0x")

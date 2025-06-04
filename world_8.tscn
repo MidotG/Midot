@@ -1,10 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://degigdan64pv"]
+[gd_scene load_steps=16 format=3 uid="uid://degigdan64pv"]
 
 [ext_resource type="TileSet" uid="uid://df8ltglds45a8" path="res://world2_floor_tileset.tres" id="1_63rgc"]
+[ext_resource type="Script" path="res://world_8.gd" id="1_73kaa"]
 [ext_resource type="TileSet" uid="uid://dhecplsr0wdf6" path="res://world2_obstacles_tileset.tres" id="2_6yyba"]
+[ext_resource type="PackedScene" uid="uid://ba4x13miijrqd" path="res://zombie.tscn" id="2_tewnu"]
+[ext_resource type="PackedScene" uid="uid://dcwo5xoxee4lf" path="res://fast_zombie.tscn" id="3_kgp2g"]
 [ext_resource type="PackedScene" uid="uid://cw1hvpgewhgqr" path="res://player.tscn" id="3_tya07"]
+[ext_resource type="PackedScene" uid="uid://bvgct8ex4dstv" path="res://tank_zombie.tscn" id="4_yc1xx"]
+[ext_resource type="PackedScene" uid="uid://ygf4531eynhd" path="res://range_zombie.tscn" id="5_g3vfh"]
+[ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="5_qkho3"]
+[ext_resource type="PackedScene" uid="uid://dcxrttmfefalx" path="res://slower_zombie.tscn" id="6_mhsuc"]
+[ext_resource type="PackedScene" uid="uid://2tpy0qdwidjq" path="res://kamikadze_zombie.tscn" id="7_c136o"]
+[ext_resource type="PackedScene" uid="uid://drddp4b47r56" path="res://first_boss.tscn" id="8_i8km6"]
+[ext_resource type="PackedScene" uid="uid://daa1lrnsle1k4" path="res://second_boss.tscn" id="9_sf3jg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6wun0"]
+texture = ExtResource("5_qkho3")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cnf4b"]
+sources/0 = SubResource("TileSetAtlasSource_6wun0")
 
 [node name="world8" type="Node2D"]
+script = ExtResource("1_73kaa")
+enemy = Array[PackedScene]([ExtResource("2_tewnu"), ExtResource("3_kgp2g"), ExtResource("4_yc1xx"), ExtResource("5_g3vfh"), ExtResource("6_mhsuc"), ExtResource("7_c136o"), ExtResource("8_i8km6"), ExtResource("9_sf3jg")])
+spawn_weights = Array[int]([15, 8, 2, 10, 15, 50])
 
 [node name="environment" type="Node2D" parent="."]
 
@@ -33,6 +61,20 @@ position = Vector2(-508, 585)
 [node name="Camera2D" parent="Player" index="2"]
 limit_left = -2048
 limit_bottom = 2048
+
+[node name="EnemySpawnpoints" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_cnf4b")
+format = 2
+layer_0/tile_data = PackedInt32Array(-4849683, 0, 0, -4784147, 0, 1, -4718611, 0, 2, -4849682, 65536, 0, -4784146, 65536, 1, -4718610, 65536, 2, -4849681, 131072, 0, -4784145, 131072, 1, -4718609, 131072, 2, -4915195, 0, 0, -4849659, 0, 1, -4784123, 0, 2, -4915194, 65536, 0, -4849658, 65536, 1, -4784122, 65536, 2, -4915193, 131072, 0, -4849657, 131072, 1, -4784121, 131072, 2, -4784181, 0, 0, -4718645, 0, 1, -4653109, 0, 2, -4784180, 65536, 0, -4718644, 65536, 1, -4653108, 65536, 2, -4784179, 131072, 0, -4718643, 131072, 1, -4653107, 131072, 2, -4784207, 0, 0, -4718671, 0, 1, -4653135, 0, 2, -4784206, 65536, 0, -4718670, 65536, 1, -4653134, 65536, 2, -4784205, 131072, 0, -4718669, 131072, 1, -4653133, 131072, 2, 3407943, 0, 0, 3473479, 0, 1, 3539015, 0, 2, 3407944, 65536, 0, 3473480, 65536, 1, 3539016, 65536, 2, 3407945, 131072, 0, 3473481, 131072, 1, 3539017, 131072, 2, 9371618, 0, 0, 9437154, 0, 1, 9502690, 0, 2, 9371619, 65536, 0, 9437155, 65536, 1, 9502691, 65536, 2, 9371620, 131072, 0, 9437156, 131072, 1, 9502692, 131072, 2, 9371585, 0, 0, 9437121, 0, 1, 9502657, 0, 2, 9371586, 65536, 0, 9437122, 65536, 1, 9502658, 65536, 2, 9371587, 131072, 0, 9437123, 131072, 1, 9502659, 131072, 2, 5046119, 0, 0, 5111655, 0, 1, 5177191, 0, 2, 5046120, 65536, 0, 5111656, 65536, 1, 5177192, 65536, 2, 5046121, 131072, 0, 5111657, 131072, 1, 5177193, 131072, 2, 2948966, 0, 0, 3014502, 0, 1, 3080038, 0, 2, 2948967, 65536, 0, 3014503, 65536, 1, 3080039, 65536, 2, 2948968, 131072, 0, 3014504, 131072, 1, 3080040, 131072, 2, 1376102, 0, 0, 1441638, 0, 1, 1507174, 0, 2, 1376103, 65536, 0, 1441639, 65536, 1, 1507175, 65536, 2, 1376104, 131072, 0, 1441640, 131072, 1, 1507176, 131072, 2, -4980714, 0, 0, -4915178, 0, 1, -4849642, 0, 2, -4980713, 65536, 0, -4915177, 65536, 1, -4849641, 65536, 2, -4980712, 131072, 0, -4915176, 131072, 1, -4849640, 131072, 2, 4522057, 0, 0, 4587593, 0, 1, 4653129, 0, 2, 4522058, 65536, 0, 4587594, 65536, 1, 4653130, 65536, 2, 4522059, 131072, 0, 4587595, 131072, 1, 4653131, 131072, 2, 9240568, 0, 0, 9306104, 0, 1, 9371640, 0, 2, 9240569, 65536, 0, 9306105, 65536, 1, 9371641, 65536, 2, 9240570, 131072, 0, 9306106, 131072, 1, 9371642, 131072, 2, 9371574, 0, 0, 9437110, 0, 1, 9502646, 0, 2, 9371575, 65536, 0, 9437111, 65536, 1, 9502647, 65536, 2, 9371576, 131072, 0, 9437112, 131072, 1, 9502648, 131072, 2, 9306067, 0, 0, 9371603, 0, 1, 9437139, 0, 2, 9306068, 65536, 0, 9371604, 65536, 1, 9437140, 65536, 2, 9306069, 131072, 0, 9371605, 131072, 1, 9437141, 131072, 2, 3932231, 0, 0, 3997767, 0, 1, 4063303, 0, 2, 3932232, 65536, 0, 3997768, 65536, 1, 4063304, 65536, 2, 3932233, 131072, 0, 3997769, 131072, 1, 4063305, 131072, 2, 4325224, 0, 0, 4390760, 0, 1, 4456296, 0, 2, 4325225, 65536, 0, 4390761, 65536, 1, 4456297, 65536, 2, 4325226, 131072, 0, 4390762, 131072, 1, 4456298, 131072, 2, 524138, 0, 0, 589674, 0, 1, 655210, 0, 2, 524139, 65536, 0, 589675, 65536, 1, 655211, 65536, 2, 524140, 131072, 0, 589676, 131072, 1, 655212, 131072, 2)
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="LvlTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="LvlTimer" to="." method="_on_lvl_timer_timeout"]
 
 [editable path="Player"]
 [editable path="Player/lvlPassCanvas/lvl_lost"]
