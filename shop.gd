@@ -10,7 +10,7 @@ extends Control
 #// доделать сложность 8 уровня и остальные тоже, потом добавить звуки и звуки спецэффектов.
 
 
-#///TODO: потом сделать тектуры и анимации везде нормальные. И звуки и музыку в уровнях.
+#///TODO: потом сделать тектуры и анимации везде нормальные.
 
 
 @onready var label_2 = $shopPanel/choicePanel/weaponInfo/Label2;
@@ -83,7 +83,7 @@ func _on_minigun_btn_pressed():
 
 
 func _on_laser_btn_pressed():
-	label_2.text = "Оружие: лазер";
+	label_2.text = "Оружие: Лазер";
 	label_5.text = "Урон: 100ур/c.";
 	label_6.text = "Цена: 1200";
 	label_7.visible = false;
@@ -102,9 +102,9 @@ func _on_laser_btn_pressed():
 	choose_btn.pressed.connect(_on_choose_btn_pressed.bind("LASER"));
 
 func _on_destroyer_btn_pressed():
-	label_2.text = "Оружие: уничтожитель";
-	label_5.text = "Урон: 160ур/выстр.";
-	label_6.text = "Цена: 0";
+	label_2.text = "Оружие: Уничтожитель";
+	label_5.text = "Урон: 450ур/сек.";
+	label_6.text = "Цена: 3500";
 	label_7.visible = false;
 	label_8.visible = false;
 	label_9.visible = false;
@@ -148,11 +148,11 @@ func laser_buy_button():
 	label_7.visible = false;
 	
 func destroyer_buy_button():
-	if Saves.currency < 0:
+	if Saves.currency < 3500:
 		label_7.visible = true;
 		return;
 	buy_btn.disabled = true;
-	Saves.currency -= 0;
+	Saves.currency -= 3500;
 	Saves.unlock_weapon("DESTROYER");
 	label_7.visible = false;
 
@@ -180,10 +180,10 @@ func inv():
 
 
 func _on_hp_btn_pressed():
-	if Saves.currency < 50:
+	if Saves.currency < 100:
 		wrng_label.visible = true;
 		return;
-	Saves.currency -= 50;
+	Saves.currency -= 100;
 	Saves.hp += 10;
 	Saves.save_game();
 	wrng_label.visible = false;

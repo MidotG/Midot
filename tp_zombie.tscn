@@ -11,8 +11,10 @@ radius = 29.3333
 [node name="tp_zombie" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(2.2, 2.2)
 collision_layer = 2
-collision_mask = 17
+collision_mask = 19
 script = ExtResource("1_8h543")
+pointsForKill = 25
+attack_damage = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CircleShape2D_r1lr1")
@@ -52,7 +54,7 @@ wait_time = 10.0
 wait_time = 1.5
 
 [node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("4_xuvbn")]
-max_health = 40.0
+max_health = 60.0
 
 [connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
 [connection signal="timeout" from="attackInt" to="." method="_on_attack_int_timeout"]
