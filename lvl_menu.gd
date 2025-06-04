@@ -4,9 +4,13 @@ extends Control
 	$HBoxContainer/lvl1, $HBoxContainer/lvl2, $HBoxContainer/lvl3, $HBoxContainer/lvl4, $HBoxContainer/lvl5,
 	$HBoxContainer2/lvl6, $HBoxContainer2/lvl7, $HBoxContainer2/lvl8, $HBoxContainer2/lvl9, $HBoxContainer2/lvl10
 ];
+@onready var end_lbl = $endLbl;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	end_lbl.visible = false;
+	if Saves.unlocked_levels == 11:
+		end_lbl.visible = true;
 	update_buttons();
 	pass # Replace with function body.
 

@@ -41,6 +41,22 @@ theme_override_font_sizes/font_size = 60
 text = "Выбери уровень"
 horizontal_alignment = 1
 
+[node name="endLbl" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -245.0
+offset_top = 230.0
+offset_right = 245.0
+offset_bottom = 313.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.426654, 0.932111, 0.588882, 1)
+theme_override_fonts/font = ExtResource("2_21bvd")
+theme_override_font_sizes/font_size = 60
+text = "Поздравляем с прохождением игры!"
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
