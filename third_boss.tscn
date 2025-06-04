@@ -15,10 +15,11 @@ bg_color = Color(0.677819, 0, 0.0572753, 1)
 [node name="third_boss" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(3.28, 3.28)
 collision_layer = 2
-collision_mask = 17
+collision_mask = 19
 script = ExtResource("1_peh0t")
+pointsForKill = 400
 const_move_speed = 400
-attack_damage = 40
+attack_damage = 35
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CircleShape2D_v7wb1")
@@ -55,7 +56,7 @@ wait_time = 10.0
 wait_time = 1.5
 
 [node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("3_c2iox")]
-max_health = 500.0
+max_health = 1200.0
 
 [node name="hpBar" type="ProgressBar" parent="." groups=["Enemy"]]
 anchors_preset = 8
