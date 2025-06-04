@@ -49,7 +49,7 @@ wait_time = 10.0
 wait_time = 0.8
 
 [node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("4_ry55c")]
-max_health = 40.0
+max_health = 60.0
 
 [node name="slow_effect_time" type="Timer" parent="."]
 wait_time = 2.0

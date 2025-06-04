@@ -10,8 +10,6 @@ var spawn_positions = [];
 var canSpawn = true;
 
 
-#///TODO: доработать замедляющих, сделать чтобы замедление после атаки на игрока, оставалось даже после смерти зомби как эффект.
-
 func _ready():
 	get_spawn_positions_from_tilemap();
 	MusicPlayer.play_track(6);

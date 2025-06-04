@@ -40,7 +40,6 @@ func _physics_process(delta):
 		move_speed = const_move_speed;
 		
 func kill():
-	player.move_speed = original_speed;
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
 	$CollisionShape2D.queue_free();
