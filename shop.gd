@@ -38,6 +38,9 @@ func _process(delta):
 	hp_label.text = "Здоровье игрока: " + str(Saves.hp);
 	if Input.is_action_just_pressed("pause"):
 		get_tree().change_scene_to_file("res://menu.tscn");
+	if Saves.hp == 500:
+		$shopPanel/choicePanel/VBoxContainer/hpBtn.disabled = true;
+		hp_label.text = "Здоровье игрока: " + str(Saves.hp) + "(макс.)";
 
 func _on_menu_button_pressed():
 	get_tree().change_scene_to_file("res://menu.tscn");

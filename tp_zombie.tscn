@@ -9,7 +9,7 @@
 radius = 29.3333
 
 [node name="tp_zombie" type="CharacterBody2D" groups=["Enemy"]]
-scale = Vector2(2.2, 2.2)
+scale = Vector2(1.76, 1.76)
 collision_layer = 2
 collision_mask = 19
 script = ExtResource("1_8h543")
@@ -44,7 +44,7 @@ scale = Vector2(2.05442, 2)
 texture = ExtResource("3_330v4")
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["Enemy"]]
-target_position = Vector2(0, -50)
+target_position = Vector2(0, -45)
 collision_mask = 3
 
 [node name="deadLeft" type="Timer" parent="." groups=["Enemy"]]
