@@ -33,6 +33,7 @@ func _physics_process(delta):
 			player.damage(attack_damage);
 	else:
 		move_speed = const_move_speed;
+		$Graphics/Alive/AnimationPlayer.play("move");
 		
 func kill():
 	$Graphics/Dead.show();

@@ -14,10 +14,11 @@ var move_speed = const_move_speed;
 var canAttack = true;
 
 
-#///TODO: найти спрайты/обрезать, и как то так настроить, чтобы подходили для анимаций.
+#///TODO: обрезать, и как то так настроить, чтобы подходили для анимаций.
 #///TODO: либо каждый спрайт как то передвигать во время анимации, чтобы не дергался.
-#///TODO: либо сделать не зомбарей, а найти спрайты разных тварей, и потом звуки под них.
 
+#/// В animation_player при наведении мышки на анимацию, почему-то влево-вправо передвигается картинка, и возможно rect x в region вместе с этим.
+#/// постоянно rect x меняется, даже после установки region_rect.
 
 func _ready():
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
@@ -39,8 +40,8 @@ func _physics_process(delta):
 			player.damage(attack_damage);
 	else:
 		move_speed = const_move_speed;
-		$Graphics/Alive.play("move");
-		
+		#$Graphics/Alive.play("move");
+		$Graphics/Alive/AnimationPlayer.play("move");
 func kill():
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
