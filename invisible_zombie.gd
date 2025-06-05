@@ -41,7 +41,8 @@ func kill():
 	modulate.a = 1;
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
-	$CollisionShape2D.queue_free();
+	set_physics_process(false);
+	$CollisionShape2D.set_deferred("disabled", true);
 	z_index = 1;
 	pointsSignal.emit(pointsForKill);
 	dead_left.start();

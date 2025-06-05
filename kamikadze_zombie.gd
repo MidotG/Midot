@@ -32,7 +32,8 @@ func _physics_process(delta):
 func kill():
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
-	$CollisionShape2D.disabled = true;
+	set_physics_process(false);
+	$CollisionShape2D.set_deferred("disabled", true);
 	z_index = 1;
 	pointsSignal.emit(pointsForKill);
 	dead_left.start();
