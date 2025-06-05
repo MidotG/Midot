@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player.gd" id="1_bw486"]
 [ext_resource type="Texture2D" uid="uid://y44ig46cs84m" path="res://assets/player/player_9mmhandgun.png" id="1_mjgwp"]
-[ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="2_fsbpj"]
+[ext_resource type="Texture2D" uid="uid://bggj5e2wf3f3i" path="res://assets/animations/player/hunter_gun_idle.png" id="2_30ndj"]
 [ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="2_p7jvg"]
 [ext_resource type="PackedScene" uid="uid://cb6lckxbntk7" path="res://pause_menu.tscn" id="6_53bqc"]
 [ext_resource type="PackedScene" uid="uid://bho1v10vj4v3y" path="res://player_ui.tscn" id="8_wfwef"]
@@ -27,7 +27,14 @@ shape = SubResource("CircleShape2D_b8nwd")
 [node name="Alive" type="Sprite2D" parent="Graphics" groups=["Player"]]
 visibility_layer = 3
 z_index = 1
-texture = ExtResource("2_fsbpj")
+texture_filter = 1
+position = Vector2(2, 0)
+scale = Vector2(0.19448, 0.19448)
+texture = ExtResource("2_30ndj")
+region_enabled = true
+region_rect = Rect2(34, 41, 208, 152)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics/Alive"]
 
 [node name="Dead" type="Sprite2D" parent="Graphics" groups=["Player"]]
 visible = false
