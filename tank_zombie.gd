@@ -14,6 +14,10 @@ var move_speed = const_move_speed;
 var canAttack = true;
 
 
+#///TODO: найти спрайты/обрезать, и как то так настроить, чтобы подходили для анимаций.
+#///TODO: либо каждый спрайт как то передвигать во время анимации, чтобы не дергался.
+
+
 func _ready():
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	pass;
@@ -27,12 +31,14 @@ func _physics_process(delta):
 	global_rotation = dir_to_player.angle() + PI/2.0;
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
 		move_speed = 0;
+		#$Graphics/Alive.play("move");
 		if canAttack == true:
 			canAttack = false;
 			$attackInt.start();
 			player.damage(attack_damage);
 	else:
 		move_speed = const_move_speed;
+		$Graphics/Alive.play("move");
 		
 func kill():
 	$Graphics/Dead.show();

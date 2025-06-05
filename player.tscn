@@ -1,7 +1,6 @@
-[gd_scene load_steps=52 format=3 uid="uid://cw1hvpgewhgqr"]
+[gd_scene load_steps=51 format=3 uid="uid://cw1hvpgewhgqr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bw486"]
-[ext_resource type="Texture2D" uid="uid://y44ig46cs84m" path="res://assets/player/player_9mmhandgun.png" id="1_mjgwp"]
 [ext_resource type="Texture2D" uid="uid://bggj5e2wf3f3i" path="res://assets/animations/player/hunter_gun_idle.png" id="2_30ndj"]
 [ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="2_p7jvg"]
 [ext_resource type="Texture2D" uid="uid://c5s5t301d08bg" path="res://assets/animations/player/hunter_gun_move.png" id="5_pscum"]
@@ -325,18 +324,21 @@ position = Vector2(1.66667, -2.33333)
 scale = Vector2(0.180068, 0.180068)
 sprite_frames = SubResource("SpriteFrames_2ssbn")
 animation = &"move"
-frame_progress = 0.253525
+frame_progress = 0.906621
 
 [node name="Dead" type="Sprite2D" parent="Graphics" groups=["Player"]]
 visible = false
 z_index = -1
-position = Vector2(0, -1)
-texture = ExtResource("1_mjgwp")
+position = Vector2(2.33333, -1)
+scale = Vector2(0.138155, 0.138155)
+texture = ExtResource("2_30ndj")
+region_enabled = true
+region_rect = Rect2(34, 256, 207, 152)
 
 [node name="114" type="Sprite2D" parent="Graphics/Dead" groups=["Player"]]
 show_behind_parent = true
 position = Vector2(0, 1)
-scale = Vector2(1.86, 1.86)
+scale = Vector2(8.15094, 8.15094)
 texture = ExtResource("2_p7jvg")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]

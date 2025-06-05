@@ -1,12 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvgct8ex4dstv"]
+[gd_scene load_steps=12 format=3 uid="uid://bvgct8ex4dstv"]
 
 [ext_resource type="Script" path="res://tank_zombie.gd" id="1_patpm"]
+[ext_resource type="Texture2D" uid="uid://padfvx03001x" path="res://assets/animations/zombie/1dasda (1).png" id="2_f6kwn"]
 [ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="2_iyekq"]
 [ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="3_sreqq"]
 [ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="4_msg6b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_skf25"]
 radius = 16.1518
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dss1n"]
+atlas = ExtResource("2_f6kwn")
+region = Rect2(0, 0, 129, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4coi"]
+atlas = ExtResource("2_f6kwn")
+region = Rect2(129, 0, 129, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc58a"]
+atlas = ExtResource("2_f6kwn")
+region = Rect2(645, 0, 129, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okjq1"]
+atlas = ExtResource("2_f6kwn")
+region = Rect2(774, 0, 129, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u2u8a"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dss1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4coi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc58a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okjq1")
+}],
+"loop": true,
+"name": &"move",
+"speed": 9.0
+}]
 
 [node name="tank_zombie" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(4.24, 4.24)
@@ -23,12 +65,12 @@ shape = SubResource("CircleShape2D_skf25")
 [node name="Graphics" type="Node2D" parent="." groups=["Enemy"]]
 position = Vector2(5, -17)
 
-[node name="Alive" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
-modulate = Color(0.0196078, 0.419608, 0.0784314, 1)
-position = Vector2(-5, 17)
-scale = Vector2(0.87539, 0.886234)
-texture = ExtResource("2_iyekq")
-region_rect = Rect2(46, 88, 20, 19)
+[node name="Alive" type="AnimatedSprite2D" parent="Graphics"]
+position = Vector2(-13.2547, 11.3396)
+rotation = -1.5671
+scale = Vector2(0.378434, 0.378434)
+sprite_frames = SubResource("SpriteFrames_u2u8a")
+animation = &"move"
 
 [node name="Dead" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
 self_modulate = Color(0.0196078, 0.419608, 0.0784314, 1)
