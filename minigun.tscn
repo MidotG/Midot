@@ -25,6 +25,7 @@ target_position = Vector2(1000, 0)
 collision_mask = 3
 
 [node name="MuzzleFlash" type="Sprite2D" parent="." groups=["weapon"]]
+visible = false
 position = Vector2(17, -0.200006)
 scale = Vector2(0.34, 0.34)
 texture = SubResource("AtlasTexture_n0sye")
@@ -35,6 +36,9 @@ autostart = true
 
 [node name="shootSpeedTimer" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(13, 0)
 
 [connection signal="timeout" from="MuzzleFlash/Timer" to="MuzzleFlash" method="hide"]
 [connection signal="timeout" from="shootSpeedTimer" to="." method="_on_shoot_speed_timer_timeout"]
