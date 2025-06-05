@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dla6bophlvxdc"
-path="res://.godot/imported/1.png-1b6d11d3cbcc132e8cf1d624eb49e4ee.ctex"
+uid="uid://ckvry6flph8fa"
+path="res://.godot/imported/DzJMF3 (1)-Photoroom.png-2717d872c9d9545c762dda8f218f27a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/weapon/1.png"
-dest_files=["res://.godot/imported/1.png-1b6d11d3cbcc132e8cf1d624eb49e4ee.ctex"]
+source_file="res://DzJMF3 (1)-Photoroom.png"
+dest_files=["res://.godot/imported/DzJMF3 (1)-Photoroom.png-2717d872c9d9545c762dda8f218f27a0.ctex"]
 
 [params]
 

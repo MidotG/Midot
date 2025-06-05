@@ -20,6 +20,7 @@ var selected_weapons = Saves.selected_weapons;
 
 
 func _ready():
+	$Graphics/Alive.play("idle");
 	#Saves.load_game();
 	print(Saves.hp);
 	hp.max_health = Saves.hp;
@@ -71,6 +72,10 @@ func _physics_process(delta):
 	var move_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down");
 	velocity = move_dir * move_speed;
 	move_and_slide();
+	if move_dir == Vector2.ZERO:
+		$Graphics/Alive.play("idle");
+	else: 
+		$Graphics/Alive.play("move");
 	
 func damage(damage):
 	hp.damage(damage);

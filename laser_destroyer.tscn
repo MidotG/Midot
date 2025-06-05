@@ -1,8 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1a286d7vlunb"]
 
-[ext_resource type="Texture2D" uid="uid://cd3vhvdd8x6r4" path="res://assets/weapon/TheUltimateWeaponsPack_Sheet.png" id="1_hhury"]
 [ext_resource type="Script" path="res://laser_destroyer.gd" id="1_spdu4"]
 [ext_resource type="PackedScene" uid="uid://chm78qy27yofc" path="res://laser_beam.tscn" id="2_jkja8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tvcdh"]
+load_path = "res://.godot/imported/TheUltimateWeaponsPack_Sheet.png-293e7ccce766ef1a8a60af9324fe3530.ctex"
 
 [node name="laser_destroyer" type="Node2D"]
 script = ExtResource("1_spdu4")
@@ -11,7 +13,7 @@ script = ExtResource("1_spdu4")
 z_index = 1
 position = Vector2(1.5, 1.5)
 scale = Vector2(1.71875, 1.375)
-texture = ExtResource("1_hhury")
+texture = SubResource("CompressedTexture2D_tvcdh")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(337, 96, 32, 24)

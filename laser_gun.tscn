@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c01hgoxrcqmtc"]
 
 [ext_resource type="Script" path="res://laser_gun.gd" id="1_esmyx"]
-[ext_resource type="Texture2D" uid="uid://cd3vhvdd8x6r4" path="res://assets/weapon/TheUltimateWeaponsPack_Sheet.png" id="2_yiuuk"]
+[ext_resource type="Texture2D" uid="uid://c3bg2gftfwtfn" path="res://assets/DzJMF3 (1)-Photoroom фвцфвфцвц(1)(3).png" id="2_imhdk"]
 [ext_resource type="PackedScene" uid="uid://chm78qy27yofc" path="res://laser_beam.tscn" id="3_u7hxc"]
 
 [node name="laser_gun" type="Node2D"]
@@ -9,13 +9,12 @@ script = ExtResource("1_esmyx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(0, 4)
-scale = Vector2(2, 2)
-texture = ExtResource("2_yiuuk")
-flip_h = true
+scale = Vector2(0.12, 0.199998)
+texture = ExtResource("2_imhdk")
 region_enabled = true
-region_rect = Rect2(96, 312, 30, 10)
+region_rect = Rect2(465, 583, 329, 48)
 
 [node name="laser_beam" parent="." instance=ExtResource("3_u7hxc")]
-scale = Vector2(1, 0.72)
+scale = Vector2(0.833333, 0.6)
 damage = 10
+color = Color(1, 0, 0, 0.376471)
