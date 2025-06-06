@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvgct8ex4dstv"]
+[gd_scene load_steps=7 format=3 uid="uid://bvgct8ex4dstv"]
 
 [ext_resource type="Script" path="res://tank_zombie.gd" id="1_patpm"]
 [ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="2_iyekq"]
@@ -8,76 +8,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_skf25"]
 radius = 16.1518
 
-[sub_resource type="Animation" id="Animation_xbba1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(18, 92, 999, 105)]
-}
-
-[sub_resource type="Animation" id="Animation_drgdn"]
-resource_name = "move"
-length = 0.35
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 3, 4, 5, 6, 7, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:region_rect")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Rect2(17, 92, 999, 105), Rect2(20, 92, 999, 105), Rect2(27, 92, 999, 105), Rect2(33, 92, 999, 105), Rect2(30, 92, 999, 105), Rect2(28, 92, 999, 105), Rect2(27, 92, 999, 105), Rect2(27, 92, 999, 105)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qoag7"]
-_data = {
-"RESET": SubResource("Animation_xbba1"),
-"move": SubResource("Animation_drgdn")
-}
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uyw7u"]
-load_path = "res://.godot/imported/1dasda (1).png-e23147778485b1c03121df0f51c93e6d.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dss1n"]
-atlas = SubResource("CompressedTexture2D_uyw7u")
-region = Rect2(0, 0, 129, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v4coi"]
-atlas = SubResource("CompressedTexture2D_uyw7u")
-region = Rect2(129, 0, 129, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hc58a"]
-atlas = SubResource("CompressedTexture2D_uyw7u")
-region = Rect2(645, 0, 129, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_okjq1"]
-atlas = SubResource("CompressedTexture2D_uyw7u")
-region = Rect2(774, 0, 129, 240)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_u2u8a"]
 animations = [{
 "frames": [],
@@ -85,19 +15,7 @@ animations = [{
 "name": &"attack",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dss1n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v4coi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hc58a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_okjq1")
-}],
+"frames": [],
 "loop": true,
 "name": &"move",
 "speed": 9.0
@@ -117,21 +35,6 @@ shape = SubResource("CircleShape2D_skf25")
 
 [node name="Graphics" type="Node2D" parent="." groups=["Enemy"]]
 position = Vector2(5, -17)
-
-[node name="Alive" type="Sprite2D" parent="Graphics"]
-position = Vector2(-5, 11.1038)
-rotation = -1.5708
-scale = Vector2(0.375098, 0.375098)
-hframes = 8
-frame = 7
-region_enabled = true
-region_rect = Rect2(18, 92, 999, 105)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics/Alive"]
-libraries = {
-"": SubResource("AnimationLibrary_qoag7")
-}
-speed_scale = 0.5
 
 [node name="asd" type="AnimatedSprite2D" parent="Graphics"]
 visible = false
