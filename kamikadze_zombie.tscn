@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://2tpy0qdwidjq"]
+[gd_scene load_steps=8 format=3 uid="uid://2tpy0qdwidjq"]
 
 [ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="1_2veg3"]
 [ext_resource type="Script" path="res://kamikadze_zombie.gd" id="1_cp3w7"]
 [ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="2_dnvtu"]
 [ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="3_0ikjc"]
+[ext_resource type="AudioStream" uid="uid://cmkumv5bu175q" path="res://sounds/zombie/attack_sound.mp3" id="5_ex76k"]
+[ext_resource type="AudioStream" uid="uid://bxtav0nwvonr7" path="res://sounds/zombie/death_sound.mp3" id="6_75g4i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a5wf3"]
 radius = 14.0357
@@ -48,5 +50,13 @@ max_health = 10.0
 
 [node name="deadLeft" type="Timer" parent="." groups=["Enemy"]]
 wait_time = 3.0
+
+[node name="attackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ex76k")
+bus = &"sfx"
+
+[node name="deathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_75g4i")
+bus = &"sfx"
 
 [connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]

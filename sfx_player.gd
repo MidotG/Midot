@@ -10,7 +10,7 @@ func play_sound(track_index: int):
 	if current_track_index == track_index:
 		return;
 	if track_index >= 0 and track_index < music_tracks.size():
-		current_track_index = track_index
+		current_track_index = track_index;
 		stream = music_tracks[current_track_index];
 		play();
 		print("Звук: Начало воспроизведения звукового эффекта ", current_track_index);

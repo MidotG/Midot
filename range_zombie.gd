@@ -32,6 +32,7 @@ func _physics_process(delta):
 		if canAttack == true:
 			canAttack = false;
 			$Graphics/Alive.play("attack");
+			$attackSound.play();
 			$attackInt.start();
 			var bul = zombie_bullet.instantiate();
 			bul.dir = (position - player.global_position).normalized();
@@ -43,6 +44,7 @@ func _physics_process(delta):
 		$Graphics/Alive.play("move");
 		
 func kill():
+	$deathSound.play();
 	$Graphics/Alive.play("death");
 	set_physics_process(false);
 	$CollisionShape2D.set_deferred("disabled", true);

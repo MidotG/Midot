@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ygf4531eynhd"]
+[gd_scene load_steps=25 format=3 uid="uid://ygf4531eynhd"]
 
 [ext_resource type="Script" path="res://range_zombie.gd" id="1_t3kw1"]
 [ext_resource type="Texture2D" uid="uid://co6mpttj2nqv0" path="res://assets/animations/zombie/z_range/Attack2/Attack2_000.png" id="2_1t70s"]
@@ -15,8 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://dsd5pmdnxytfy" path="res://assets/animations/zombie/z_range/Walk/walk_001.png" id="18_1g43f"]
 [ext_resource type="Texture2D" uid="uid://cs7ypc8xwdged" path="res://assets/animations/zombie/z_range/Walk/walk_002.png" id="19_drmeu"]
 [ext_resource type="Texture2D" uid="uid://reawjq0bmi21" path="res://assets/animations/zombie/z_range/Walk/walk_003.png" id="20_375a1"]
+[ext_resource type="AudioStream" uid="uid://cmkumv5bu175q" path="res://sounds/zombie/attack_sound.mp3" id="21_ka2h5"]
 [ext_resource type="Texture2D" uid="uid://do2so0ny224b8" path="res://assets/animations/zombie/z_range/Walk/walk_004.png" id="21_waspn"]
 [ext_resource type="Texture2D" uid="uid://dn6eplvqnprhr" path="res://assets/animations/zombie/z_range/Walk/walk_005.png" id="22_rmrg3"]
+[ext_resource type="AudioStream" uid="uid://bxtav0nwvonr7" path="res://sounds/zombie/death_sound.mp3" id="22_xbjtc"]
 [ext_resource type="Texture2D" uid="uid://hdmfoatll2yx" path="res://assets/animations/zombie/z_range/Walk/walk_006.png" id="23_mjxhr"]
 [ext_resource type="Texture2D" uid="uid://bl4ry3gb3jgqb" path="res://assets/animations/zombie/z_range/Walk/walk_007.png" id="24_h1a0n"]
 [ext_resource type="Texture2D" uid="uid://dhnxxul2ygns7" path="res://assets/animations/zombie/z_range/Walk/walk_008.png" id="25_cwuwa"]
@@ -129,6 +131,14 @@ wait_time = 1.5
 
 [node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("3_s11vr")]
 max_health = 40.0
+
+[node name="attackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_ka2h5")
+bus = &"sfx"
+
+[node name="deathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_xbjtc")
+bus = &"sfx"
 
 [connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
 [connection signal="timeout" from="attackInt" to="." method="_on_attack_int_timeout"]

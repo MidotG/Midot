@@ -38,12 +38,14 @@ func _physics_process(delta):
 		if canAttack == true:
 			canAttack = false;
 			$attackInt.start();
+			$attackSound.play();
 			player.damage(attack_damage);
 	else:
 		move_speed = const_move_speed;
 		$Graphics/Alive.play("move");
 		
 func kill():
+	$deathSound.play();
 	$Graphics/Alive.play("death");
 	set_physics_process(false);
 	$CollisionShape2D.set_deferred("disabled", true);

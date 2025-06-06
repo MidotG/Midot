@@ -23,13 +23,16 @@ func _physics_process(delta):
 	var dir_to_player = global_position.direction_to(player.global_position);
 	global_rotation = dir_to_player.angle() + PI/2.0;
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
+		$attackSound.play();
 		velocity = Vector2.ZERO;
 		player.damage(attack_damage);
 		damage(attack_damage);
 	else:
 		velocity = dir_to_player * const_move_speed
 	move_and_slide();
+	
 func kill():
+	$deathSound.play();
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
 	set_physics_process(false);

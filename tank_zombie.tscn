@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bvgct8ex4dstv"]
+[gd_scene load_steps=31 format=3 uid="uid://bvgct8ex4dstv"]
 
 [ext_resource type="Script" path="res://tank_zombie.gd" id="1_patpm"]
 [ext_resource type="Texture2D" uid="uid://cyywflhqysddd" path="res://assets/animations/zombie/z_tank/Walk/walk_000.png" id="2_igkl6"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://bawwut4x32mvb" path="res://assets/animations/zombie/z_tank/Death/daeth_003.png" id="14_mgaps"]
 [ext_resource type="Texture2D" uid="uid://cxddvj4ufir6p" path="res://assets/animations/zombie/z_tank/Death/daeth_004.png" id="15_4k8x2"]
 [ext_resource type="Texture2D" uid="uid://ctagfxjgsi71i" path="res://assets/animations/zombie/z_tank/Death/daeth_005.png" id="16_b1vej"]
+[ext_resource type="AudioStream" uid="uid://cmkumv5bu175q" path="res://sounds/zombie/attack_sound.mp3" id="27_uk2qs"]
+[ext_resource type="AudioStream" uid="uid://bxtav0nwvonr7" path="res://sounds/zombie/death_sound.mp3" id="28_e7tm6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_skf25"]
 radius = 16.1518
@@ -153,6 +155,14 @@ wait_time = 5.0
 
 [node name="healthComponent" parent="." groups=["Enemy"] instance=ExtResource("4_msg6b")]
 max_health = 200.0
+
+[node name="attackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_uk2qs")
+bus = &"sfx"
+
+[node name="deathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_e7tm6")
+bus = &"sfx"
 
 [connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
 [connection signal="timeout" from="attackInt" to="." method="_on_attack_int_timeout"]
