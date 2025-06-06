@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ba4x13miijrqd"]
+[gd_scene load_steps=7 format=3 uid="uid://ba4x13miijrqd"]
 
 [ext_resource type="Texture2D" uid="uid://bxgpccagjr38f" path="res://assets/zombie.png" id="1_n8a7n"]
 [ext_resource type="Script" path="res://zombie.gd" id="1_w4utm"]
@@ -8,69 +8,18 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_gtawq"]
 radius = 29.3333
 
-[sub_resource type="Animation" id="Animation_nfj5t"]
-length = 0.25
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:region_rect")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Rect2(384, 72, 304, 48), Rect2(386, 72, 320, 48), Rect2(389, 72, 320, 48), Rect2(412, 72, 270, 48)]
-}
-
-[sub_resource type="Animation" id="Animation_buxis"]
-resource_name = "move"
-length = 0.26
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:region_rect")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Rect2(384, 72, 304, 48), Rect2(386, 72, 304, 48), Rect2(395, 72, 304, 48), Rect2(402, 72, 285, 48), Rect2(380, 72, 315, 48), Rect2(390, 72, 305.833, 48)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w1pt7"]
-_data = {
-"RESET": SubResource("Animation_nfj5t"),
-"move": SubResource("Animation_buxis")
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_m21sw"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
 
 [node name="Zombie" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(1.5, 1.5)
@@ -86,19 +35,10 @@ shape = SubResource("CircleShape2D_gtawq")
 [node name="Graphics" type="Node2D" parent="." groups=["Enemy"]]
 position = Vector2(5, -17)
 
-[node name="Alive" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
-position = Vector2(-5.66667, 10.3333)
-rotation = -1.5708
-scale = Vector2(1.43999, 1.45783)
-hframes = 6
-region_enabled = true
-region_rect = Rect2(384, 72, 304, 48)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics/Alive"]
-libraries = {
-"": SubResource("AnimationLibrary_w1pt7")
-}
-speed_scale = 0.3
+[node name="Alive" type="AnimatedSprite2D" parent="Graphics"]
+position = Vector2(-5, 17)
+sprite_frames = SubResource("SpriteFrames_m21sw")
+animation = &"attack"
 
 [node name="Dead" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
 visible = false

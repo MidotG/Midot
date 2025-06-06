@@ -41,7 +41,7 @@ func _physics_process(delta):
 	else:
 		move_speed = const_move_speed;
 		#$Graphics/Alive.play("move");
-		$Graphics/Alive/AnimationPlayer.play("move");
+		$Graphics/Alive.play("move");
 func kill():
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();

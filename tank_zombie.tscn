@@ -1,7 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://bvgct8ex4dstv"]
 
 [ext_resource type="Script" path="res://tank_zombie.gd" id="1_patpm"]
-[ext_resource type="Texture2D" uid="uid://padfvx03001x" path="res://assets/animations/zombie/1dasda (1).png" id="2_f6kwn"]
 [ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="2_iyekq"]
 [ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="3_sreqq"]
 [ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="4_msg6b"]
@@ -60,20 +59,23 @@ _data = {
 "move": SubResource("Animation_drgdn")
 }
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uyw7u"]
+load_path = "res://.godot/imported/1dasda (1).png-e23147778485b1c03121df0f51c93e6d.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dss1n"]
-atlas = ExtResource("2_f6kwn")
+atlas = SubResource("CompressedTexture2D_uyw7u")
 region = Rect2(0, 0, 129, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v4coi"]
-atlas = ExtResource("2_f6kwn")
+atlas = SubResource("CompressedTexture2D_uyw7u")
 region = Rect2(129, 0, 129, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hc58a"]
-atlas = ExtResource("2_f6kwn")
+atlas = SubResource("CompressedTexture2D_uyw7u")
 region = Rect2(645, 0, 129, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_okjq1"]
-atlas = ExtResource("2_f6kwn")
+atlas = SubResource("CompressedTexture2D_uyw7u")
 region = Rect2(774, 0, 129, 240)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u2u8a"]
@@ -120,7 +122,6 @@ position = Vector2(5, -17)
 position = Vector2(-5, 11.1038)
 rotation = -1.5708
 scale = Vector2(0.375098, 0.375098)
-texture = ExtResource("2_f6kwn")
 hframes = 8
 frame = 7
 region_enabled = true
