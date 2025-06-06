@@ -14,6 +14,7 @@ func _process(delta):
 
 func shoot(position):
 	if canShoot:
+		SfxPlayer.play_sound(4);
 		laser_beam.shoot();
 		canShoot = false;
 		shoot_speed_timer.start();

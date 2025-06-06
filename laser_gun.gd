@@ -10,4 +10,5 @@ func _process(delta):
 	pass
 
 func shoot(position):
+	SfxPlayer.play_sound(3);
 	laser_beam.shoot();

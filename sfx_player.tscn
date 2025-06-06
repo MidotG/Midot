@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjfaw77o2v4pf"]
+[gd_scene load_steps=7 format=3 uid="uid://bjfaw77o2v4pf"]
 
 [ext_resource type="Script" path="res://sfx_player.gd" id="1_3orvn"]
 [ext_resource type="AudioStream" uid="uid://c78skafd5jfi4" path="res://sounds/pistol_fire.mp3" id="2_rvfmf"]
 [ext_resource type="AudioStream" uid="uid://cwomr1d5ywdtu" path="res://sounds/rifle_fire.mp3" id="3_h1gpf"]
 [ext_resource type="AudioStream" uid="uid://c08twii4mdm1k" path="res://sounds/minigun_fire.mp3" id="4_7eisr"]
+[ext_resource type="AudioStream" uid="uid://cdnhpcejwrh88" path="res://sounds/laser_gun_fire.mp3" id="5_s83yg"]
+[ext_resource type="AudioStream" uid="uid://cd802h821ddy4" path="res://sounds/destroyer_fire.mp3" id="5_wxih4"]
 
 [node name="SfxPlayer" type="AudioStreamPlayer"]
 bus = &"sfx"
 script = ExtResource("1_3orvn")
-music_tracks = Array[AudioStream]([ExtResource("2_rvfmf"), ExtResource("3_h1gpf"), ExtResource("4_7eisr"), null])
+music_tracks = Array[AudioStream]([ExtResource("2_rvfmf"), ExtResource("3_h1gpf"), ExtResource("4_7eisr"), ExtResource("5_s83yg"), ExtResource("5_wxih4"), null])
 
 [connection signal="finished" from="." to="." method="_on_finished"]
