@@ -18,6 +18,7 @@ var canAttack = true;
 var original_speed: float
 
 func _ready():
+	z_index = 1;
 	original_speed = player.move_speed;
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	pass;
@@ -36,15 +37,16 @@ func _physics_process(delta):
 			$attackInt.start();
 			player.damage(attack_damage);
 			apply_slow_effect();
+			$Graphics/Alive.play("attack");
 	else:
 		move_speed = const_move_speed;
+		$Graphics/Alive.play("move");
 		
 func kill():
-	$Graphics/Dead.show();
-	$Graphics/Alive.hide();
+	$Graphics/Alive.play("death");
 	set_physics_process(false);
 	$CollisionShape2D.set_deferred("disabled", true);
-	z_index = 1;
+	z_index = 0;
 	pointsSignal.emit(pointsForKill);
 	dead_left.start();
 	

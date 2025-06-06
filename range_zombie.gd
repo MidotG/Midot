@@ -16,6 +16,7 @@ var canAttack = true;
 
 
 func _ready():
+	z_index = 1;
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	pass;
 
@@ -30,6 +31,7 @@ func _physics_process(delta):
 		move_speed = 0;
 		if canAttack == true:
 			canAttack = false;
+			$Graphics/Alive.play("attack");
 			$attackInt.start();
 			var bul = zombie_bullet.instantiate();
 			bul.dir = (position - player.global_position).normalized();
@@ -38,13 +40,13 @@ func _physics_process(delta):
 			bul.position = position;
 	else:
 		move_speed = const_move_speed;
+		$Graphics/Alive.play("move");
 		
 func kill():
-	$Graphics/Dead.show();
-	$Graphics/Alive.hide();
+	$Graphics/Alive.play("death");
 	set_physics_process(false);
 	$CollisionShape2D.set_deferred("disabled", true);
-	z_index = 1;
+	z_index = 0;
 	pointsSignal.emit(pointsForKill);
 	dead_left.start();
 	

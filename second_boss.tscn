@@ -1,13 +1,117 @@
-[gd_scene load_steps=8 format=3 uid="uid://daa1lrnsle1k4"]
+[gd_scene load_steps=29 format=3 uid="uid://daa1lrnsle1k4"]
 
 [ext_resource type="Script" path="res://second_boss.gd" id="1_klj7i"]
-[ext_resource type="Texture2D" uid="uid://ki7eft502n0h" path="res://assets/player/icons8-белый-круг-48.png" id="2_8fv0m"]
-[ext_resource type="Texture2D" uid="uid://depdv7o1jpm4x" path="res://assets/1_14.png" id="3_6r6ij"]
+[ext_resource type="Texture2D" uid="uid://bsw4u7mr0k3m5" path="res://assets/animations/zombie/b2/Attack2/Attack2_000.png" id="2_gbp4f"]
+[ext_resource type="Texture2D" uid="uid://c0037wqdcjqqw" path="res://assets/animations/zombie/b2/Attack2/Attack2_001.png" id="3_edyjw"]
+[ext_resource type="Texture2D" uid="uid://cd25ab3e826tw" path="res://assets/animations/zombie/b2/Attack2/Attack2_002.png" id="4_h1fcp"]
 [ext_resource type="PackedScene" uid="uid://dxwulhmvoo0om" path="res://health_component.tscn" id="4_wtrfp"]
 [ext_resource type="FontFile" uid="uid://u1vsud4ac057" path="res://fonts/XTypewriter-Regular.ttf" id="5_5cydd"]
+[ext_resource type="Texture2D" uid="uid://d0slxgpishv7y" path="res://assets/animations/zombie/b2/Attack2/Attack2_010.png" id="5_b84ks"]
+[ext_resource type="Texture2D" uid="uid://nwp2fh7n6lsw" path="res://assets/animations/zombie/b2/Death/Death_000.png" id="6_jvfgw"]
+[ext_resource type="Texture2D" uid="uid://7gy3q4soq57a" path="res://assets/animations/zombie/b2/Death/Death_002.png" id="7_mfvc4"]
+[ext_resource type="Texture2D" uid="uid://crbcxc03q2hs2" path="res://assets/animations/zombie/b2/Death/Death_003.png" id="8_0kih1"]
+[ext_resource type="Texture2D" uid="uid://dst5l4ujg373r" path="res://assets/animations/zombie/b2/Death/Death_004.png" id="9_k5vpm"]
+[ext_resource type="Texture2D" uid="uid://koqh1sfcu6e6" path="res://assets/animations/zombie/b2/Death/Death_010.png" id="14_8dd0u"]
+[ext_resource type="Texture2D" uid="uid://dhc5s1clxr6kr" path="res://assets/animations/zombie/b2/Death/Death_011.png" id="15_d21kp"]
+[ext_resource type="Texture2D" uid="uid://djco6ksudi47d" path="res://assets/animations/zombie/b2/Death/Death_012.png" id="16_sfdns"]
+[ext_resource type="Texture2D" uid="uid://cm6jxtje4l8be" path="res://assets/animations/zombie/b2/Death/Death_013.png" id="17_47fyb"]
+[ext_resource type="Texture2D" uid="uid://crcv3yvy30tuh" path="res://assets/animations/zombie/b2/Death/Death_014.png" id="18_ipddq"]
+[ext_resource type="Texture2D" uid="uid://pbti2igcado5" path="res://assets/animations/zombie/b2/Death/Death_016.png" id="19_suxqo"]
+[ext_resource type="Texture2D" uid="uid://bygmbbfvylgu5" path="res://assets/animations/zombie/b2/Walk/Walk_000.png" id="20_j4l4h"]
+[ext_resource type="Texture2D" uid="uid://bnlibtvc2i1co" path="res://assets/animations/zombie/b2/Walk/Walk_001.png" id="21_imqf3"]
+[ext_resource type="Texture2D" uid="uid://5mjfx4c4sv41" path="res://assets/animations/zombie/b2/Walk/Walk_002.png" id="22_updxr"]
+[ext_resource type="Texture2D" uid="uid://cdvtvxo3xnufv" path="res://assets/animations/zombie/b2/Walk/Walk_003.png" id="23_wy1cp"]
+[ext_resource type="Texture2D" uid="uid://bj1t8oxse0oaq" path="res://assets/animations/zombie/b2/Walk/Walk_004.png" id="24_iq6lu"]
+[ext_resource type="Texture2D" uid="uid://m04kc0ksf0f2" path="res://assets/animations/zombie/b2/Walk/Walk_005.png" id="25_v7ufk"]
+[ext_resource type="Texture2D" uid="uid://di2prccy1eale" path="res://assets/animations/zombie/b2/Walk/Walk_006.png" id="26_r1o6l"]
+[ext_resource type="Texture2D" uid="uid://bmwwfab3wx6kb" path="res://assets/animations/zombie/b2/Walk/Walk_007.png" id="27_bgehk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bmr2x"]
 radius = 18.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rt4yi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gbp4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_edyjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h1fcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b84ks")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jvfgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mfvc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0kih1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_k5vpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8dd0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_d21kp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sfdns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_47fyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ipddq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_suxqo")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_j4l4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_imqf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_updxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_wy1cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_iq6lu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_v7ufk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_r1o6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_bgehk")
+}],
+"loop": true,
+"name": &"move",
+"speed": 12.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1udai"]
 bg_color = Color(0.677819, 0, 0.0572753, 1)
@@ -27,24 +131,14 @@ shape = SubResource("CircleShape2D_bmr2x")
 [node name="Graphics" type="Node2D" parent="." groups=["Enemy"]]
 position = Vector2(5, -17)
 
-[node name="Alive" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
-modulate = Color(0.573632, 0.465945, 0.101885, 1)
-z_index = 1
-position = Vector2(-5, 16)
-scale = Vector2(0.987764, 1)
-texture = ExtResource("2_8fv0m")
-
-[node name="Dead" type="Sprite2D" parent="Graphics" groups=["Enemy"]]
-self_modulate = Color(0.572549, 0.466667, 0.101961, 1)
-z_index = -1
-position = Vector2(-4, 16)
-texture = ExtResource("2_8fv0m")
-
-[node name="114" type="Sprite2D" parent="Graphics/Dead" groups=["Enemy"]]
-show_behind_parent = true
-position = Vector2(1.90735e-06, -6)
-scale = Vector2(1.87611, 1.87611)
-texture = ExtResource("3_6r6ij")
+[node name="Alive" type="AnimatedSprite2D" parent="Graphics"]
+position = Vector2(-4.74747, 18.5152)
+rotation = -3.14159
+scale = Vector2(0.0370246, 0.0370246)
+sprite_frames = SubResource("SpriteFrames_rt4yi")
+animation = &"death"
+frame = 9
+frame_progress = 1.0
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["Enemy"]]
 target_position = Vector2(0, -200)

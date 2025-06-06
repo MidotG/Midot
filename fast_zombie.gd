@@ -15,6 +15,7 @@ var canAttack = true;
 
 
 func _ready():
+	z_index = 1;
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	set_collision_mask_value(2, false);
 	pass;
@@ -38,6 +39,7 @@ func _physics_process(delta):
 		$Graphics/Alive.play("move");
 		
 func kill():
+	z_index = 0;
 	$Graphics/Alive.play("death");
 	set_physics_process(false);
 	$CollisionShape2D.set_deferred("disabled", true);	z_index = 1;

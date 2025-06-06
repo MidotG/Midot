@@ -18,6 +18,7 @@ var canAttack = true;
 
 
 func _ready():
+	z_index = 1;
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	hp_bar.value = hp.max_health;
 	hp_bar.visible = false;
@@ -42,16 +43,17 @@ func _physics_process(delta):
 			canAttack = false;
 			player.damage(attack_damage);
 			$attackInt.start();
+			$Graphics/Alive.play("attack");
 	else:
 		move_speed = lerp(max_move_speed, min_move_speed, health_percentage);
+		$Graphics/Alive.play("move");
 		
 func kill():
 	hp_bar.queue_free();
-	$Graphics/Dead.show();
-	$Graphics/Alive.hide();
+	$Graphics/Alive.play("death");
 	set_physics_process(false);
 	$CollisionShape2D.set_deferred("disabled", true);
-	z_index = 1;
+	z_index = 0;
 	pointsSignal.emit(pointsForKill);
 	dead_left.start();
 	

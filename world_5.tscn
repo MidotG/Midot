@@ -40,6 +40,7 @@ layer_0/tile_data = PackedInt32Array(-3539007, 1835009, 5, -3473471, 1835009, 6,
 layer_1/tile_data = PackedInt32Array()
 
 [node name="obstacleTileMap" type="TileMap" parent="environment"]
+z_index = 2
 scale = Vector2(1.74003, 1.74003)
 tile_set = ExtResource("2_sqouk")
 format = 2

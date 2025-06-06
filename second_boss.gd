@@ -20,6 +20,7 @@ var canSpawn: bool = true;
 
 
 func _ready():
+	z_index = 1;
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	hp_bar.value = hp.max_health;
 	hp_bar.visible = false;
@@ -38,6 +39,7 @@ func _physics_process(delta):
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
 		move_speed = 0;
 		if canSpawn:
+			$Graphics/Alive.play("attack");
 			canSpawn = false;
 			spawn_timer.start();
 			var spawn_position = global_position + Vector2(
@@ -48,14 +50,14 @@ func _physics_process(delta):
 			kamikadze.global_position = spawn_position;
 	else:
 		move_speed = const_move_speed;
+		$Graphics/Alive.play("move");
 		
 func kill():
 	hp_bar.queue_free();
-	$Graphics/Dead.show();
-	$Graphics/Alive.hide();
+	$Graphics/Alive.play("death");
 	set_physics_process(false);
 	$CollisionShape2D.set_deferred("disabled", true);
-	z_index = 1;
+	z_index = 0;
 	pointsSignal.emit(pointsForKill);
 	dead_left.start();
 	

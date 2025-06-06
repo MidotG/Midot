@@ -15,6 +15,7 @@ var canAttack = true;
 
 
 func _ready():
+	z_index = 1;
 	$healthComponent.connect("killSignal", Callable(self, "kill"));
 	pass;
 
@@ -40,7 +41,7 @@ func kill():
 	$Graphics/Alive.play("death");
 	set_physics_process(false);
 	$CollisionShape2D.set_deferred("disabled", true);
-	z_index = 1;
+	z_index = 0;
 	pointsSignal.emit(pointsForKill);
 	dead_left.start();
 	
