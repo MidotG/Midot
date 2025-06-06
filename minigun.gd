@@ -16,6 +16,7 @@ func shoot(position):
 		canShoot = false;
 		shootSpeedTimer.start();
 		$MuzzleFlash.show();
+		SfxPlayer.play_sound_without_check(2);
 		$MuzzleFlash/Timer.start();
 		var bul = bullet.instantiate();
 		bul.dir = (position - get_global_mouse_position()).normalized();
