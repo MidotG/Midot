@@ -21,6 +21,7 @@ MusicPlayer="*res://music_player.tscn"
 Saves="*res://saves.gd"
 SaveLvl="*res://save_lvl.gd"
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+SfxPlayer="*res://sfx_player.tscn"
 
 [display]
 

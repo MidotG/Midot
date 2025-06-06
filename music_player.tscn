@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8d3c5juege43"]
+[gd_scene load_steps=13 format=3 uid="uid://c8d3c5juege43"]
 
 [ext_resource type="AudioStream" uid="uid://bu4mxjv3wm3rw" path="res://tracks/Мутант OST - Меню(1) (mp3cut.net) (1).mp3" id="2_1vkyy"]
 [ext_resource type="Script" path="res://music_player.gd" id="2_awand"]
@@ -12,10 +12,9 @@
 [ext_resource type="AudioStream" uid="uid://dodhdh3l4ac2v" path="res://tracks/Royalty Free DOOM Style Metal Instrumental - BLACKHOLE (mp3cut.net).mp3" id="10_e77sj"]
 [ext_resource type="AudioStream" uid="uid://buklap70t20" path="res://tracks/Royalty Free Heavy Metal Instrumental - CATACOMBS (mp3cut.net).mp3" id="11_mu8lp"]
 [ext_resource type="AudioStream" uid="uid://bagqoqrldsdui" path="res://tracks/Royalty Free Heavy Metal Instrumental - UNNERVED (mp3cut.net).mp3" id="12_0smjl"]
-[ext_resource type="AudioStream" uid="uid://d2pcqwsirfiou" path="res://tracks/plankton-augh.mp3" id="14_mvae3"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
 autoplay = true
 bus = &"music"
 script = ExtResource("2_awand")
-music_tracks = Array[AudioStream]([ExtResource("2_1vkyy"), ExtResource("3_tvjlf"), ExtResource("3_icu0t"), ExtResource("5_sh8pe"), ExtResource("6_wio01"), ExtResource("7_22gv2"), ExtResource("8_eg5ef"), ExtResource("9_sdt7a"), ExtResource("10_e77sj"), ExtResource("11_mu8lp"), ExtResource("12_0smjl"), ExtResource("14_mvae3")])
+music_tracks = Array[AudioStream]([ExtResource("2_1vkyy"), ExtResource("3_tvjlf"), ExtResource("3_icu0t"), ExtResource("5_sh8pe"), ExtResource("6_wio01"), ExtResource("7_22gv2"), ExtResource("8_eg5ef"), ExtResource("9_sdt7a"), ExtResource("10_e77sj"), ExtResource("11_mu8lp"), ExtResource("12_0smjl")])
