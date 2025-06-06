@@ -33,11 +33,13 @@ func _physics_process(delta):
 			$attackInt.start();
 			player.damage(attack_damage);
 			$Graphics/Alive.play("attack");
+			SfxPlayer.play_sound_without_check(6);
 	else:
 		move_speed = const_move_speed;
 		$Graphics/Alive.play("move");
 		
 func kill():
+	SfxPlayer.play_sound_without_check(7);
 	$Graphics/Alive.play("death");
 	set_physics_process(false);
 	$CollisionShape2D.set_deferred("disabled", true);
