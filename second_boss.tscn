@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://daa1lrnsle1k4"]
+[gd_scene load_steps=31 format=3 uid="uid://daa1lrnsle1k4"]
 
 [ext_resource type="Script" path="res://second_boss.gd" id="1_klj7i"]
 [ext_resource type="Texture2D" uid="uid://bsw4u7mr0k3m5" path="res://assets/animations/zombie/b2/Attack2/Attack2_000.png" id="2_gbp4f"]
@@ -23,7 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://cdvtvxo3xnufv" path="res://assets/animations/zombie/b2/Walk/Walk_003.png" id="23_wy1cp"]
 [ext_resource type="Texture2D" uid="uid://bj1t8oxse0oaq" path="res://assets/animations/zombie/b2/Walk/Walk_004.png" id="24_iq6lu"]
 [ext_resource type="Texture2D" uid="uid://m04kc0ksf0f2" path="res://assets/animations/zombie/b2/Walk/Walk_005.png" id="25_v7ufk"]
+[ext_resource type="AudioStream" uid="uid://x3fcythuyyn" path="res://sounds/boss/attack_sound.mp3" id="26_f6l3i"]
 [ext_resource type="Texture2D" uid="uid://di2prccy1eale" path="res://assets/animations/zombie/b2/Walk/Walk_006.png" id="26_r1o6l"]
+[ext_resource type="AudioStream" uid="uid://de3pqpdn6jtdp" path="res://sounds/boss/death_sound.mp3" id="27_08v43"]
 [ext_resource type="Texture2D" uid="uid://bmwwfab3wx6kb" path="res://assets/animations/zombie/b2/Walk/Walk_007.png" id="27_bgehk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bmr2x"]
@@ -169,6 +171,14 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/fill = SubResource("StyleBoxFlat_1udai")
 value = 50.0
 show_percentage = false
+
+[node name="attackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_f6l3i")
+bus = &"sfx"
+
+[node name="deathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_08v43")
+bus = &"sfx"
 
 [connection signal="timeout" from="deadLeft" to="." method="_on_dead_left_timeout"]
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]

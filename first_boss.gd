@@ -41,6 +41,7 @@ func _physics_process(delta):
 		move_speed = 0;
 		if canAttack == true:
 			canAttack = false;
+			$attackSound.play();
 			player.damage(attack_damage);
 			$attackInt.start();
 			$Graphics/Alive.play("attack");
@@ -49,6 +50,7 @@ func _physics_process(delta):
 		$Graphics/Alive.play("move");
 		
 func kill():
+	$deathSound.play();
 	hp_bar.queue_free();
 	$Graphics/Alive.play("death");
 	set_physics_process(false);

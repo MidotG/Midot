@@ -41,6 +41,7 @@ func _physics_process(delta):
 		if canSpawn:
 			$Graphics/Alive.play("attack");
 			canSpawn = false;
+			$attackSound.play();
 			spawn_timer.start();
 			var spawn_position = global_position + Vector2(
 			randf_range(-spawn_radius, spawn_radius),
@@ -53,6 +54,7 @@ func _physics_process(delta):
 		$Graphics/Alive.play("move");
 		
 func kill():
+	$deathSound.play();
 	hp_bar.queue_free();
 	$Graphics/Alive.play("death");
 	set_physics_process(false);

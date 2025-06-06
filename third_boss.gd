@@ -38,6 +38,7 @@ func _physics_process(delta):
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
 		move_speed = 0;
 		if canAttack == true:
+			$attackSound.play();
 			$Graphics/Alive.play("attack");
 			canAttack = false;
 			$attackInt.start();
@@ -47,6 +48,7 @@ func _physics_process(delta):
 		$Graphics/Alive.play("move");
 		
 func kill():
+	$deathSound.play();
 	hp_bar.queue_free();
 	$Graphics/Alive.play("death");
 	set_physics_process(false);
