@@ -36,7 +36,7 @@ func _on_enemy_spawn_timer_timeout():
 
 func _on_lvl_timer_timeout():
 	if SaveLvl.time_in_s == 90:
-		player.lvl_pass();
+		player.lvl_pass(2);
 		Saves.unlock_next_level(2);
 	SaveLvl.time_in_s += 1;
 	SaveLvl.total_time_in_s = SaveLvl.time_in_s%60;

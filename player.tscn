@@ -372,6 +372,9 @@ visible = false
 text = "Поражение
 "
 
+[node name="nextLvlBtn" parent="lvlPassCanvas/lvl_lost/Panel/VBoxContainer" index="1"]
+visible = false
+
 [node name="WeaponAttachment" type="Marker2D" parent="." groups=["Player"]]
 position = Vector2(13, 7)
 

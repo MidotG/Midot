@@ -83,11 +83,11 @@ func damage(damage):
 func kill():
 	$Graphics/Dead.show();
 	$Graphics/Alive.hide();
-	$lvlPassCanvas/lvl_lost.lvlPass();
+	$lvlPassCanvas/lvl_lost.lvlPass(0);
 	z_index = -1;
 
-func lvl_pass():
-	$lvlPassCanvas/lvl_passed.lvlPass();
+func lvl_pass(lvl_num: int):
+	$lvlPassCanvas/lvl_passed.lvlPass(lvl_num);
 	
 func disablePM():
 	$pauseCanvas/PauseMenu.set_process(false);

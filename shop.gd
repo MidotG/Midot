@@ -64,7 +64,7 @@ func _on_riffle_btn_pressed():
 func _on_minigun_btn_pressed():
 	label_2.text = "Оружие: Пулемет";
 	label_5.text = "Урон: 200ур/сек.";
-	label_6.text = "Цена: 500";
+	label_6.text = "Цена: 400";
 	label_7.visible = false;
 	label_8.visible = false;
 	label_9.visible = false;
@@ -84,7 +84,7 @@ func _on_minigun_btn_pressed():
 func _on_laser_btn_pressed():
 	label_2.text = "Оружие: Лазер";
 	label_5.text = "Урон: 100ур/c.";
-	label_6.text = "Цена: 1200";
+	label_6.text = "Цена: 700";
 	label_7.visible = false;
 	label_8.visible = false;
 	label_9.visible = false;
@@ -103,7 +103,7 @@ func _on_laser_btn_pressed():
 func _on_destroyer_btn_pressed():
 	label_2.text = "Оружие: Уничтожитель";
 	label_5.text = "Урон: 450ур/сек.";
-	label_6.text = "Цена: 3500";
+	label_6.text = "Цена: 900";
 	label_7.visible = false;
 	label_8.visible = false;
 	label_9.visible = false;
@@ -129,29 +129,29 @@ func riffle_buy_button():
 	label_7.visible = false;
 
 func minigun_buy_button():
-	if Saves.currency < 500:
+	if Saves.currency < 400:
 		label_7.visible = true;
 		return;
 	buy_btn.disabled = true;
-	Saves.currency -= 500;
+	Saves.currency -= 400;
 	Saves.unlock_weapon("MINIGUN");
 	label_7.visible = false;
 	
 func laser_buy_button():
-	if Saves.currency < 1200:
+	if Saves.currency < 700:
 		label_7.visible = true;
 		return;
 	buy_btn.disabled = true;
-	Saves.currency -= 1200;
+	Saves.currency -= 700;
 	Saves.unlock_weapon("LASER");
 	label_7.visible = false;
 	
 func destroyer_buy_button():
-	if Saves.currency < 3500:
+	if Saves.currency < 900:
 		label_7.visible = true;
 		return;
 	buy_btn.disabled = true;
-	Saves.currency -= 3500;
+	Saves.currency -= 900;
 	Saves.unlock_weapon("DESTROYER");
 	label_7.visible = false;
 
@@ -179,10 +179,10 @@ func inv():
 
 
 func _on_hp_btn_pressed():
-	if Saves.currency < 100:
+	if Saves.currency < 50:
 		wrng_label.visible = true;
 		return;
-	Saves.currency -= 100;
+	Saves.currency -= 50;
 	Saves.hp += 10;
 	Saves.save_game();
 	wrng_label.visible = false;

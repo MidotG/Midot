@@ -34,7 +34,7 @@ func unlock_next_level(current_level: int) -> void:
 		save_game();
 		
 func _ready():
-	save_game();
+	#save_game();
 	load_game();
 
 

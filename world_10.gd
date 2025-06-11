@@ -37,7 +37,7 @@ func _on_enemy_spawn_timer_timeout():
 
 func _on_lvl_timer_timeout():
 	if SaveLvl.time_in_s == 90:
-		player.lvl_pass();
+		player.lvl_pass(10);
 		Saves.unlock_next_level(10);
 	if SaveLvl.time_in_s == 20 || SaveLvl.time_in_s == 40 || SaveLvl.time_in_s == 60:
 		var rnd_index = randi() % spawn_positions.size();

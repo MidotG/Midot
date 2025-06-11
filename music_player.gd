@@ -15,12 +15,10 @@ func play_track(track_index : int):
 		stream = music_tracks[current_track_index]
 		play()
 		print("Музыка: Начало воспроизведения трека ", current_track_index);
-		#print(str(current_track_index) + "ТЕКУЩИЙ КУРЕНТ ТРЭК ИНДЕКС МЕТОД ПОСЛЕ НАЧАЛА`");
 	else:
 		printerr("Ошибка: Неверный индекс музыкального трека: ", track_index);
 
 func _on_music_finished():
-	#print(str(current_track_index) + "ТЕКУЩИЙ КУРЕНТ ТРЭК ИНДЕКС МЕТОД ПОСЛЕ ЗАВЕРШЕНИЯ");
 	var cur_track_index = current_track_index;
 	current_track_index = -1;
 	play_track(cur_track_index);
